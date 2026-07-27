@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ExternalLink, ChevronRight } from "lucide-react";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 const usefulLinks = [
   { label: "Home", href: "/" },
@@ -38,12 +39,12 @@ export default function Footer() {
               <Image
                 src="/brand/logo.svg"
                 alt="Arihant Cables"
-                width={200}
-                height={65}
-                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                width={240}
+                height={78}
+                className="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed max-w-sm">
+            <p className="text-white/70 text-sm leading-relaxed max-w-sm text-justify">
               For over three decades, <strong className="text-white">ARIHANT CABLES</strong> has
               been a Leading Distributor of{" "}
               <strong className="text-accent-DEFAULT">POLYCAB WIRES &amp; CABLES</strong>, offering a
@@ -177,6 +178,7 @@ export default function Footer() {
         </div>
       </div>
 
+      <WhatsAppButton />
       <ScrollToTopButton />
     </footer>
   );

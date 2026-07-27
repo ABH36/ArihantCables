@@ -54,24 +54,16 @@ module.exports = {
         "cta": "0 4px 24px rgba(212,65,11,0.3)",
       },
       backgroundImage: {
-        "hero-gradient": "linear-gradient(135deg, #1A1A2E 0%, #16213e 50%, #0f3460 100%)",
         "section-gradient": "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)",
-        "orange-gradient": "linear-gradient(135deg, #D4410B 0%, #F5A623 100%)",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
-        "slide-up": "slideUp 0.6s ease-out",
-        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         marquee: "marquee 28s linear infinite",
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         marquee: {
           "0%": { transform: "translateX(0)" },

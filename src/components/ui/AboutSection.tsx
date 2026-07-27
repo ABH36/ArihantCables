@@ -70,17 +70,11 @@ export default function AboutSection() {
               markets.
             </p>
 
-            <Link
-              href="/about"
-              className="group relative inline-flex items-center gap-2 px-7 py-3.5 border border-primary-500 bg-white text-navy-950 font-semibold text-sm uppercase tracking-wide overflow-hidden transition-colors duration-300 hover:text-white shadow-sm"
-              id="about-more-explore-btn"
-            >
-              <span className="absolute inset-y-0 left-0 w-1.5 bg-primary-500 z-10 group-hover:bg-white transition-colors duration-300" />
-              <span className="absolute inset-0 origin-left scale-x-0 bg-primary-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-              <span className="relative z-10">More Explore</span>
+            <Link href="/about" className="group btn-secondary text-sm uppercase tracking-wide" id="about-more-explore-btn">
+              More Explore
               <ArrowRight
                 size={15}
-                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+                className="transition-transform duration-300 group-hover:translate-x-1"
               />
             </Link>
           </div>
