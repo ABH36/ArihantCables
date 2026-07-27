@@ -3,7 +3,6 @@ import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
 import ApplicationsSection from "@/components/ui/ApplicationsSection";
-import DownloadsSection from "@/components/ui/DownloadsSection";
 import RequestQuoteSection from "@/components/ui/RequestQuoteSection";
 import LocationsSection from "@/components/ui/LocationsSection";
 
@@ -37,9 +36,6 @@ export default function HomePage() {
 
       {/* ========= APPLICATIONS ========= */}
       <ApplicationsSection />
-
-      {/* ========= QUICK DOWNLOADS ========= */}
-      <DownloadsSection />
 
       {/* ========= REQUEST A QUOTE ========= */}
       <RequestQuoteSection />
