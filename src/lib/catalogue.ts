@@ -4,6 +4,7 @@ import Product from "@/lib/models/Product";
 
 export interface CatalogueProduct {
   id: string;
+  slug: string;
   name: string;
   sourceUrl: string;
   imageUrl: string;
@@ -59,6 +60,7 @@ export interface ProductDetail {
 function toProduct(p: any): CatalogueProduct {
   return {
     id: String(p._id),
+    slug: p.slug,
     name: p.name,
     sourceUrl: p.sourceUrl,
     imageUrl: p.imageUrl,
@@ -144,10 +146,10 @@ export async function getCablesCatalogue(): Promise<CableCluster[] | null> {
   }
 }
 
-export async function getProductDetail(id: string): Promise<ProductDetail | null> {
+export async function getProductDetail(slug: string): Promise<ProductDetail | null> {
   try {
     await dbConnect();
-    const product = await Product.findOne({ _id: id, status: "active" }).lean<any>();
+    const product = await Product.findOne({ slug, status: "active" }).lean<any>();
     if (!product) return null;
 
     // Walk up the category tree to build a breadcrumb and find the section root.

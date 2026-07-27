@@ -79,7 +79,7 @@ export default async function CablesPage() {
                             {app.products.map((p) => (
                               <Link
                                 key={p.id}
-                                href={`/product/${p.id}`}
+                                href={`/product/${p.slug}`}
                                 className="rounded-xl border border-slate-100 p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-white flex flex-col"
                               >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}

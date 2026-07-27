@@ -22,11 +22,6 @@ export const metadata: Metadata = {
   ],
 };
 
-function formatPrice(priceINR?: number) {
-  if (!priceINR) return null;
-  return `₹${priceINR.toLocaleString("en-IN")}`;
-}
-
 export default async function WiresPage() {
   const catalogue = await getWiresCatalogue();
   const totalProducts =
@@ -90,7 +85,7 @@ export default async function WiresPage() {
                             {line.products.map((p) => (
                               <Link
                                 key={p.id}
-                                href={`/product/${p.id}`}
+                                href={`/product/${p.slug}`}
                                 className="rounded-xl border border-slate-100 p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-white flex flex-col"
                               >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -115,14 +110,7 @@ export default async function WiresPage() {
                                     </span>
                                   )}
                                 </div>
-                                <div className="mt-auto flex items-center justify-between pt-1">
-                                  {formatPrice(p.priceINR) ? (
-                                    <span className="text-sm font-bold text-primary-600">
-                                      {formatPrice(p.priceINR)}
-                                    </span>
-                                  ) : (
-                                    <span />
-                                  )}
+                                <div className="mt-auto flex items-center justify-end pt-1">
                                   <ArrowRight size={13} className="text-slate-400" />
                                 </div>
                               </Link>
@@ -138,8 +126,8 @@ export default async function WiresPage() {
           )}
 
           <p className="text-center text-slate-400 text-xs mt-10">
-            Prices and specifications shown are as listed by Polycab and are indicative —
-            contact Arihant Cables for confirmed distributor pricing and stock availability.
+            Specifications shown are as listed by Polycab and are indicative — contact
+            Arihant Cables for confirmed distributor pricing and stock availability.
           </p>
         </div>
       </section>

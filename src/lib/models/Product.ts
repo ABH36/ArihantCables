@@ -37,7 +37,7 @@ const ProductSpecSchema = new Schema<IProductSpec>(
 const ProductSchema = new Schema<IProduct>(
   {
     name: { type: String, required: true, trim: true },
-    slug: { type: String, required: true, trim: true, lowercase: true },
+    slug: { type: String, required: true, trim: true, lowercase: true, unique: true },
     categoryId: { type: Schema.Types.ObjectId, ref: "Category", required: true },
     sourceProductId: { type: String, required: true, trim: true },
     sourceUrl: { type: String, required: true },

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, ChevronRight, Download, Phone, CheckCircle2 } from "lucide-react";
 import { getProductDetail } from "@/lib/catalogue";
@@ -8,11 +7,11 @@ import { getProductDetail } from "@/lib/catalogue";
 export const dynamic = "force-dynamic";
 
 interface Props {
-  params: { id: string };
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = await getProductDetail(params.id);
+  const product = await getProductDetail(params.slug);
   if (!product) return { title: "Product — Arihant Cables" };
   return {
     title: `${product.name} — Arihant Cables Mumbai`,
@@ -24,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProductDetailPage({ params }: Props) {
-  const product = await getProductDetail(params.id);
+  const product = await getProductDetail(params.slug);
   if (!product) notFound();
 
   return (
