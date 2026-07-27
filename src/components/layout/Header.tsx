@@ -3,17 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, Home as HomeIcon } from "lucide-react";
+import { Menu, Home as HomeIcon, Info, Cable, Plug, Tag, BookOpen, Phone } from "lucide-react";
 import MobileNav from "./MobileNav";
 
 const navLinks = [
-  { label: "Home", href: "/", isHome: true },
-  { label: "About", href: "/about" },
-  { label: "Wires", href: "/products/wires" },
-  { label: "Cables", href: "/products/cables" },
-  { label: "Pricelist", href: "/pricelist" },
-  { label: "Catalogue", href: "/catalogue" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/", icon: HomeIcon },
+  { label: "About", href: "/about", icon: Info },
+  { label: "Wires", href: "/products/wires", icon: Cable },
+  { label: "Cables", href: "/products/cables", icon: Plug },
+  { label: "Pricelist", href: "/pricelist", icon: Tag },
+  { label: "Catalogue", href: "/catalogue", icon: BookOpen },
+  { label: "Contact", href: "/contact", icon: Phone },
 ];
 
 export default function Header() {
@@ -56,7 +56,7 @@ export default function Header() {
         </div>
 
         {/* Tier 2: Middle Dark Charcoal Bar (#141414) */}
-        <div className="bg-[#141414] text-white relative py-7 sm:py-9 border-b border-[#222] z-20">
+        <div className="bg-[#141414] text-white relative py-9 sm:py-11 border-b border-[#222] z-20">
           {/* Top-Left Slanted Orange Triangle Accent */}
           <div className="hidden lg:block absolute left-0 top-0 w-20 h-20 bg-[#fc6601] [clip-path:polygon(0_0,100%_0,0_100%)] z-10 pointer-events-none" />
 
@@ -74,8 +74,8 @@ export default function Header() {
                 />
               </Link>
 
-              {/* Contact Info (Desktop) - Perfectly Centered Icons & Text */}
-              <div className="hidden md:flex items-center gap-10 lg:gap-14">
+              {/* Contact Info (Desktop) - nudged up slightly to sit optically centered against the logo */}
+              <div className="hidden md:flex items-center gap-10 lg:gap-14 -mt-1.5">
                 {/* Phone Block */}
                 <a
                   href="tel:+919819898469"
@@ -138,20 +138,23 @@ export default function Header() {
             <div className="hidden lg:flex items-center justify-between bg-white rounded-lg shadow-2xl border border-slate-200/90 overflow-visible">
               {/* Left: Nav links separated by dividers */}
               <nav className="flex items-center px-4 py-1" aria-label="Main navigation">
-                {navLinks.map((link, idx) => (
-                  <div key={link.label} className="flex items-center">
-                    <Link
-                      href={link.href}
-                      className="flex items-center gap-2 px-6 py-[1.125rem] text-slate-900 font-extrabold text-base hover:text-[#fc6601] transition-colors"
-                    >
-                      {link.isHome && <HomeIcon size={19} className="text-slate-800" />}
-                      <span>{link.label}</span>
-                    </Link>
-                    {idx < navLinks.length - 1 && (
-                      <span className="h-5 w-[1px] bg-slate-300 mx-1" aria-hidden="true" />
-                    )}
-                  </div>
-                ))}
+                {navLinks.map((link, idx) => {
+                  const Icon = link.icon;
+                  return (
+                    <div key={link.label} className="flex items-center">
+                      <Link
+                        href={link.href}
+                        className="flex items-center gap-2 px-6 py-[1.125rem] text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
+                      >
+                        <Icon size={18} className="text-slate-700" />
+                        <span>{link.label}</span>
+                      </Link>
+                      {idx < navLinks.length - 1 && (
+                        <span className="h-5 w-[1px] bg-slate-300 mx-1" aria-hidden="true" />
+                      )}
+                    </div>
+                  );
+                })}
               </nav>
 
               {/* Right: Solid Orange GET IN TOUCH Button with Left Tab Notch */}
@@ -159,7 +162,7 @@ export default function Header() {
                 <span className="absolute -top-1.5 -left-2.5 w-4 h-4 bg-[#fc6601] rounded-sm z-10 shadow-sm" />
                 <Link
                   href="/contact#inquiry"
-                  className="bg-[#fc6601] hover:bg-black rounded-r-lg text-white font-bold text-base uppercase tracking-wider px-10 py-5 transition-colors duration-300 flex items-center justify-center self-stretch font-heading shadow-md relative z-0"
+                  className="bg-[#fc6601] hover:bg-black rounded-r-lg text-white font-semibold text-base uppercase tracking-wider px-10 py-5 transition-colors duration-300 flex items-center justify-center self-stretch font-heading shadow-md relative z-0"
                   id="header-get-in-touch"
                 >
                   GET IN TOUCH
@@ -169,10 +172,10 @@ export default function Header() {
 
             {/* Mobile Header Sub-Bar */}
             <div className="lg:hidden flex items-center justify-between bg-white px-5 py-3.5 rounded-lg shadow-lg border border-slate-200">
-              <span className="font-extrabold text-slate-900 text-base">Navigation</span>
+              <span className="font-semibold text-slate-900 text-base">Navigation</span>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="text-[#fc6601] font-extrabold text-base flex items-center gap-2"
+                className="text-[#fc6601] font-semibold text-base flex items-center gap-2"
               >
                 <span>Menu</span>
                 <Menu size={20} />
