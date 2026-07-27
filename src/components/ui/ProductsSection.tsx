@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Cable, Plug } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const products = [
   {
@@ -12,8 +12,6 @@ const products = [
       "Power your world with Polycab Wires – where safety, reliability, and innovation meet to elevate your electrical solutions.",
     image: "/brand/widget-wires.png",
     href: "/products/wires",
-    icon: Cable,
-    dark: false,
   },
   {
     name: "Cables",
@@ -21,8 +19,6 @@ const products = [
       "Elevate your electrical systems with Polycab Cables, engineered for reliability and performance to power your world.",
     image: "/brand/widget-cables.png",
     href: "/products/cables",
-    icon: Plug,
-    dark: true,
   },
 ];
 
@@ -54,93 +50,61 @@ export default function ProductsSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="relative section-py bg-section-gradient overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-100/40 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="section-container relative">
-        <div className={`text-center mb-14 ${fadeUp("")}`}>
-          <p className="section-subtitle">What We Distribute</p>
-          <h2 className="section-title">Our Products</h2>
+    <section ref={sectionRef} className="section-py bg-white">
+      <div className="section-container">
+        <div className={`text-center mb-12 ${fadeUp("")}`}>
+          <Image
+            src="/brand/icon-mark.svg"
+            alt=""
+            width={40}
+            height={40}
+            className="mx-auto mb-3"
+          />
+          <h2 className="section-title">Products</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {products.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <div
-                key={p.name}
-                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 ease-out hover:-translate-y-2 ${fadeUp(
-                  i === 0 ? "delay-150" : "delay-300"
-                )} ${
-                  p.dark
-                    ? "bg-navy-950 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.65)]"
-                    : "bg-white border border-slate-100 shadow-card hover:shadow-card-hover"
-                }`}
-              >
-                {/* Product image */}
-                <div
-                  className={`relative aspect-[16/10] flex items-center justify-center p-8 overflow-hidden ${
-                    p.dark ? "bg-navy-900" : "bg-slate-50"
-                  }`}
-                >
-                  <div
-                    className={`absolute w-64 h-64 rounded-full blur-3xl opacity-40 transition-opacity duration-500 group-hover:opacity-60 ${
-                      p.dark ? "bg-primary-500/30" : "bg-primary-200"
-                    }`}
-                  />
-                  <Image
-                    src={p.image}
-                    alt={`Polycab ${p.name}`}
-                    width={400}
-                    height={260}
-                    className="relative max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-110"
-                  />
-
-                  {/* Icon badge */}
-                  <div
-                    className={`absolute top-5 left-5 w-11 h-11 rounded-xl flex items-center justify-center shadow-md ${
-                      p.dark ? "bg-white/10 backdrop-blur-sm" : "bg-white"
-                    }`}
-                  >
-                    <Icon size={20} className="text-primary-500" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-7 md:p-9">
-                  <h3
-                    className={`font-heading font-bold text-2xl mb-3 ${
-                      p.dark ? "text-white" : "text-navy-950"
-                    }`}
-                  >
-                    {p.name}
-                  </h3>
-                  <p
-                    className={`text-sm leading-relaxed mb-7 ${
-                      p.dark ? "text-white/60" : "text-slate-500"
-                    }`}
-                  >
-                    {p.tagline}
-                  </p>
-                  <Link
-                    href={p.href}
-                    className="inline-flex items-center gap-2 font-semibold text-sm uppercase tracking-wide text-primary-500 hover:text-primary-600 transition-colors"
-                    id={`explore-${p.name.toLowerCase()}`}
-                  >
-                    Explore {p.name}
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform duration-300 group-hover:translate-x-1.5"
-                    />
-                  </Link>
-                </div>
-
-                {/* Bottom accent bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {products.map((p, i) => (
+            <div
+              key={p.name}
+              className={`group relative overflow-hidden bg-[#ececec] min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover ${fadeUp(
+                i === 0 ? "delay-150" : "delay-300"
+              )}`}
+              style={{
+                backgroundImage: "url(/brand/widget-texture.svg)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "top right",
+              }}
+            >
+              {/* Product photo — bleeds off the bottom-right corner, behind the text */}
+              <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[45%] max-w-[300px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
+                <Image
+                  src={p.image}
+                  alt={`Polycab ${p.name}`}
+                  width={400}
+                  height={320}
+                  className="w-full h-auto rounded-xl"
+                />
               </div>
-            );
-          })}
+
+              {/* Content */}
+              <div className="relative z-10 max-w-[75%] sm:max-w-[68%]">
+                <h3 className="font-heading font-bold text-2xl text-navy-950 mb-0">{p.name}</h3>
+                <p className="text-navy-400 text-sm leading-[1.8] my-6">{p.tagline}</p>
+                <Link
+                  href={p.href}
+                  className="group/btn relative inline-flex items-center gap-2 bg-primary-500 hover:bg-black text-white font-bold text-sm uppercase tracking-wide px-8 py-4 transition-colors duration-300 font-heading"
+                  id={`explore-${p.name.toLowerCase()}`}
+                >
+                  Explore
+                  <ArrowRight
+                    size={15}
+                    className="transition-transform duration-300 group-hover/btn:translate-x-1"
+                  />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
