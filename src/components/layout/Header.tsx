@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, Home as HomeIcon, Info, Cable, Plug, Tag, BookOpen, Phone } from "lucide-react";
+import { Menu, Home as HomeIcon, Info, Cable, Plug, Tag, BookOpen, Phone, ArrowRight } from "lucide-react";
 import MobileNav from "./MobileNav";
 
 const navLinks = [
@@ -33,7 +33,7 @@ export default function Header() {
         {/* Tier 1: Top Bright Orange Bar (#fc6601) */}
         <div className="bg-[#fc6601] text-white relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between py-3 sm:py-3.5">
+            <div className="flex items-center justify-between py-3.5 sm:py-4">
               {/* Left tagline with solid white bullet dot */}
               <div className="flex items-center gap-3 text-white font-bold text-xs sm:text-sm tracking-wide">
                 <span className="w-2.5 h-2.5 rounded-full bg-white flex-shrink-0 inline-block shadow-md animate-pulse" />
@@ -56,7 +56,7 @@ export default function Header() {
         </div>
 
         {/* Tier 2: Middle Dark Charcoal Bar (#141414) */}
-        <div className="bg-[#141414] text-white relative py-9 sm:py-11 border-b border-[#222] z-20">
+        <div className="bg-[#141414] text-white relative py-10 sm:py-12 border-b border-[#222] z-20">
           {/* Top-Left Slanted Orange Triangle Accent */}
           <div className="hidden lg:block absolute left-0 top-0 w-20 h-20 bg-[#fc6601] [clip-path:polygon(0_0,100%_0,0_100%)] z-10 pointer-events-none" />
 
@@ -131,7 +131,7 @@ export default function Header() {
           className={`w-full transition-all duration-300 ${
             isScrolled
               ? "fixed top-0 left-0 right-0 shadow-2xl bg-white/95 backdrop-blur-md z-50 py-0 border-b border-slate-200"
-              : "relative -mt-7 sm:-mt-9 lg:-mt-11 z-30"
+              : "relative -mt-8 sm:-mt-10 lg:-mt-12 z-30"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +144,7 @@ export default function Header() {
                     <div key={link.label} className="flex items-center">
                       <Link
                         href={link.href}
-                        className="flex items-center gap-2 px-6 py-[1.125rem] text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
+                        className="flex items-center gap-2 px-6 py-5 text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
                       >
                         <Icon size={18} className="text-slate-700" />
                         <span>{link.label}</span>
@@ -157,15 +157,18 @@ export default function Header() {
                 })}
               </nav>
 
-              {/* Right: Solid Orange GET IN TOUCH Button with Left Tab Notch */}
-              <div className="relative flex items-center self-stretch overflow-visible group">
-                <span className="absolute -top-1.5 -left-2.5 w-4 h-4 bg-[#fc6601] rounded-sm z-10 shadow-sm" />
+              {/* Right: Premium floating Get In Touch pill */}
+              <div className="flex items-center py-2.5 pr-2.5 pl-1">
                 <Link
                   href="/contact#inquiry"
-                  className="bg-[#fc6601] hover:bg-black rounded-r-lg text-white font-semibold text-base uppercase tracking-wider px-10 py-5 transition-colors duration-300 flex items-center justify-center self-stretch font-heading shadow-md relative z-0"
+                  className="group flex items-center gap-2 bg-gradient-to-r from-[#fc6601] to-[#ff8a3d] text-white font-semibold text-sm uppercase tracking-wide px-7 py-3.5 rounded-full shadow-[0_6px_18px_-4px_rgba(252,102,1,0.55)] hover:shadow-[0_10px_24px_-4px_rgba(252,102,1,0.7)] hover:-translate-y-0.5 transition-all duration-300 font-heading"
                   id="header-get-in-touch"
                 >
-                  GET IN TOUCH
+                  Get In Touch
+                  <ArrowRight
+                    size={16}
+                    className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
               </div>
             </div>
