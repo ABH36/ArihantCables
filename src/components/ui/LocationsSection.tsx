@@ -54,11 +54,11 @@ export default function LocationsSection() {
         <div className="section-container">
           {/* Pulled down with a negative bottom margin + z-10 so the cards
               overlap the footer below instead of leaving a plain gap. */}
-          <div className="relative z-10 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-[-88px] md:mb-[-108px]">
+          <div className="relative z-10 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-[-88px] md:mb-[-108px]">
             {locations.map((loc, i) => (
               <div
                 key={loc.label}
-                className={`card p-7 ${fadeUp(i === 0 ? "delay-150" : "delay-300")}`}
+                className={`card p-8 sm:p-9 ${fadeUp(i === 0 ? "delay-150" : "delay-300")}`}
               >
                 <div className="flex items-start gap-3 mb-5">
                   <div className="w-9 h-9 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">

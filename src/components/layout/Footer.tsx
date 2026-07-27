@@ -22,8 +22,9 @@ export default function Footer() {
         className="object-cover opacity-25 pointer-events-none select-none"
       />
       <div className="absolute inset-0 bg-navy-900/85 pointer-events-none" />
-      {/* Main Footer */}
-      <div className="section-container py-14 md:py-20 relative">
+      {/* Main Footer — extra top padding so this content clears the
+          LocationsSection cards that overlap down onto the footer above. */}
+      <div className="section-container pt-28 md:pt-40 pb-14 md:pb-20 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
           {/* Brand Column */}
