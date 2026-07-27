@@ -81,42 +81,8 @@ export default function Header() {
                   href="tel:+919819898469"
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
-                  <div className="text-[#fc6601] flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:-rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
-                    {/* Exact Telephone Handset SVG with Coiled Cord */}
-                    <svg
-                      width="44"
-                      height="40"
-                      viewBox="0 0 44 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M26 23.5C28.5 26 31 27.5 32.5 26L30 22L27.5 23.5C25.5 22.5 23.5 20.5 22.5 18.5L24 16L20 13.5C18.5 15 20 17.5 22.5 20C23.5 21 24.8 22.3 26 23.5Z"
-                        stroke="#fc6601"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M27 11C30 11 33 14 33 17"
-                        stroke="#fc6601"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M27 7C34 7 38 11 38 17"
-                        stroke="#fc6601"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M12 32C13.5 29.5 15 34.5 17 32C19 29.5 20.5 34.5 22.5 32C24.5 29.5 26 34.5 28 32"
-                        stroke="#fc6601"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                  <div className="flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:-rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
+                    <Image src="/brand/icon-phone.svg" alt="" width={38} height={38} className="w-9 h-9 sm:w-10 sm:h-10" />
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
@@ -133,50 +99,8 @@ export default function Header() {
                   href="mailto:sales@arihantcables.com"
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
-                  <div className="text-[#fc6601] flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
-                    {/* Exact Envelope SVG with Speed Dashes */}
-                    <svg
-                      width="48"
-                      height="40"
-                      viewBox="0 0 48 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 13H11M5 20H14M2 27H11"
-                        stroke="#fc6601"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <rect
-                        x="16"
-                        y="8"
-                        width="28"
-                        height="23"
-                        rx="2.5"
-                        stroke="#fc6601"
-                        strokeWidth="2.5"
-                      />
-                      <path
-                        d="M16 10.5L30 21.5L44 10.5"
-                        stroke="#fc6601"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M16 29.5L25 21"
-                        stroke="#fc6601"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M44 29.5L35 21"
-                        stroke="#fc6601"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                  <div className="flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
+                    <Image src="/brand/icon-email.svg" alt="" width={47} height={39} className="w-11 h-9 sm:w-12 sm:h-10" />
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
@@ -235,7 +159,7 @@ export default function Header() {
                 <span className="absolute -top-1.5 -left-2.5 w-4 h-4 bg-[#fc6601] rounded-sm z-10 shadow-sm" />
                 <Link
                   href="/contact#inquiry"
-                  className="bg-[#fc6601] hover:bg-[#e05800] text-white font-black text-base uppercase tracking-wider px-10 py-5 transition-all duration-300 flex items-center justify-center self-stretch font-heading shadow-md hover:shadow-lg relative z-0"
+                  className="bg-[#fc6601] hover:bg-black rounded-r-lg text-white font-bold text-base uppercase tracking-wider px-10 py-5 transition-colors duration-300 flex items-center justify-center self-stretch font-heading shadow-md relative z-0"
                   id="header-get-in-touch"
                 >
                   GET IN TOUCH

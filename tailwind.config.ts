@@ -44,8 +44,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-rubik)", "system-ui", "sans-serif"],
-        heading: ["var(--font-epilogue)", "var(--font-rubik)", "system-ui", "sans-serif"],
+        // Matches arihantcables.com exactly: headings use Rubik, body text uses Epilogue.
+        sans: ["var(--font-epilogue)", "system-ui", "sans-serif"],
+        heading: ["var(--font-rubik)", "var(--font-epilogue)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         "card": "0 4px 24px rgba(0,0,0,0.08)",
