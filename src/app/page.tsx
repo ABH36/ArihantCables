@@ -3,8 +3,7 @@ import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
 import ApplicationsSection from "@/components/ui/ApplicationsSection";
-import RequestQuoteSection from "@/components/ui/RequestQuoteSection";
-import LocationsSection from "@/components/ui/LocationsSection";
+import ContactSection from "@/components/ui/ContactSection";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -37,11 +36,8 @@ export default function HomePage() {
       {/* ========= APPLICATIONS ========= */}
       <ApplicationsSection />
 
-      {/* ========= REQUEST A QUOTE ========= */}
-      <RequestQuoteSection />
-
-      {/* ========= LOCATIONS ========= */}
-      <LocationsSection />
+      {/* ========= CONTACT (Request a Quote + Locations) ========= */}
+      <ContactSection />
 
       {/* Schema Markup */}
       <script
