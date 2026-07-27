@@ -12,7 +12,8 @@ const applications = [
   { label: "Commercial", image: "/brand/app-commercial.png" },
 ];
 
-const delays = ["", "delay-100", "delay-200", "delay-300", "delay-[400ms]", "delay-500"];
+// Duplicated once so the marquee can loop seamlessly at translateX(-50%).
+const loopItems = [...applications, ...applications];
 
 export default function ApplicationsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -54,24 +55,30 @@ export default function ApplicationsSection() {
           />
           <h2 className="section-title">Applications</h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-6">
-          {applications.map((app, i) => (
+      </div>
+
+      {/* Full-bleed auto-swapping single row */}
+      <div className={`relative overflow-hidden group ${fadeUp("delay-150")}`}>
+        {/* Edge fades so tiles don't hard-cut at the viewport edge */}
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <div className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]">
+          {loopItems.map((app, i) => (
             <div
-              key={app.label}
-              className={`rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover group relative transition-all duration-500 hover:-translate-y-1.5 ${fadeUp(
-                delays[i]
-              )}`}
+              key={`${app.label}-${i}`}
+              className="relative w-36 sm:w-44 md:w-52 flex-shrink-0 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-1.5 group/tile"
             >
               <div className="aspect-[3/4] relative">
                 <Image
                   src={app.image}
                   alt={app.label}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover/tile:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/15 to-transparent transition-opacity duration-300 group-hover:from-primary-500/80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/15 to-transparent transition-opacity duration-300 group-hover/tile:from-primary-500/80" />
               </div>
-              <p className="absolute bottom-4 left-0 right-0 text-center text-white font-heading font-bold text-base md:text-lg">
+              <p className="absolute bottom-3 left-0 right-0 text-center text-white font-heading font-bold text-sm">
                 {app.label}
               </p>
             </div>

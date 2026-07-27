@@ -176,10 +176,12 @@ export default function Header() {
               <div className="flex items-center py-2.5 pr-2.5 pl-1">
                 <Link
                   href="/contact#inquiry"
-                  className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#fc6601] to-[#ff8a3d] text-white font-semibold text-sm uppercase tracking-wide px-7 py-3.5 rounded-full shadow-[0_6px_18px_-4px_rgba(252,102,1,0.55)] hover:shadow-[0_10px_24px_-4px_rgba(252,102,1,0.7)] hover:-translate-y-0.5 transition-all duration-300 font-heading"
+                  className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#fc6601] to-[#ff8a3d] text-white font-semibold text-sm uppercase tracking-wide px-7 py-3.5 rounded-full shadow-[0_6px_18px_-4px_rgba(252,102,1,0.55)] hover:shadow-[0_10px_24px_-4px_rgba(252,102,1,0.7)] hover:-translate-y-0.5 active:scale-[0.96] transition-all duration-300 font-heading"
                   id="header-get-in-touch"
                 >
                   <span className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                  {/* Click flash — quick radial punch-in on press, eased back out on release */}
+                  <span className="pointer-events-none absolute inset-0 rounded-full bg-white/40 scale-50 opacity-0 transition-all duration-500 ease-out group-active:scale-150 group-active:opacity-100 group-active:duration-150" />
                   <span className="relative z-10">Get In Touch</span>
                   <ArrowRight
                     size={16}

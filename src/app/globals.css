@@ -49,11 +49,40 @@
    Components Layer
    ============================= */
 @layer components {
+  /* Shared click "flash" ring — a soft radial glow that punches in on
+     press and eases back out on release, plus a slight scale-down for
+     tactile feedback. Uses `transition` (not `@keyframes`) so it always
+     settles cleanly even on a fast click. */
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply active:scale-[0.96];
+  }
+  .btn-primary::after,
+  .btn-secondary::after,
+  .btn-ghost::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.45s ease-out, opacity 0.45s ease-out;
+    pointer-events: none;
+  }
+  .btn-primary:active::after,
+  .btn-secondary:active::after,
+  .btn-ghost:active::after {
+    transform: scale(1.5);
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+  }
+
   /* Primary Button — solid orange, black sweeps in from the left on hover */
   .btn-primary {
     @apply relative inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold
            rounded-lg overflow-hidden isolate transition-all duration-300
-           shadow-cta hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+           shadow-cta hover:shadow-lg hover:-translate-y-0.5;
   }
   .btn-primary::before {
     content: "";
@@ -67,6 +96,12 @@
   }
   .btn-primary:hover::before {
     transform: scaleX(1);
+  }
+  .btn-primary::after {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  }
+  .btn-primary:active::after {
+    opacity: 1;
   }
 
   /* Secondary Button — orange outline, black fill sweeps in on hover */
@@ -88,6 +123,12 @@
   .btn-secondary:hover::before {
     transform: scaleX(1);
   }
+  .btn-secondary::after {
+    background: radial-gradient(circle, rgba(252, 102, 1, 0.35) 0%, transparent 70%);
+  }
+  .btn-secondary:active::after {
+    opacity: 1;
+  }
 
   /* Ghost Button (for dark hero/CTA backgrounds) — orange sweeps in on hover */
   .btn-ghost {
@@ -108,6 +149,12 @@
   .btn-ghost:hover::before {
     transform: scaleX(1);
   }
+  .btn-ghost::after {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  }
+  .btn-ghost:active::after {
+    opacity: 1;
+  }
 
   /* Section Container */
   .section-container {
@@ -116,7 +163,7 @@
 
   /* Section Padding */
   .section-py {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16;
   }
 
   /* Section Title */
