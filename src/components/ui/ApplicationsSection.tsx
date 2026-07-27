@@ -54,7 +54,7 @@ export default function ApplicationsSection() {
           />
           <h2 className="section-title">Applications</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-6">
           {applications.map((app, i) => (
             <div
               key={app.label}
@@ -71,7 +71,7 @@ export default function ApplicationsSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/15 to-transparent transition-opacity duration-300 group-hover:from-primary-500/80" />
               </div>
-              <p className="absolute bottom-3 left-0 right-0 text-center text-white font-heading font-bold text-sm">
+              <p className="absolute bottom-4 left-0 right-0 text-center text-white font-heading font-bold text-base md:text-lg">
                 {app.label}
               </p>
             </div>

@@ -49,25 +49,64 @@
    Components Layer
    ============================= */
 @layer components {
-  /* Primary Button */
+  /* Primary Button — solid orange, black sweeps in from the left on hover */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold rounded-lg 
-           hover:bg-primary-600 active:bg-primary-700 transition-all duration-200 
-           shadow-cta hover:shadow-lg hover:-translate-y-0.5;
+    @apply relative inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold
+           rounded-lg overflow-hidden isolate transition-all duration-300
+           shadow-cta hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: theme("colors.navy.950");
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-primary:hover::before {
+    transform: scaleX(1);
   }
 
-  /* Secondary Button */
+  /* Secondary Button — orange outline, black fill sweeps in on hover */
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-transparent text-primary-500 font-semibold 
-           rounded-lg border-2 border-primary-500 hover:bg-primary-500 hover:text-white 
-           transition-all duration-200;
+    @apply relative inline-flex items-center gap-2 px-6 py-3 bg-transparent text-primary-500 font-semibold
+           rounded-lg border-2 border-primary-500 overflow-hidden isolate
+           transition-colors duration-300 hover:text-white hover:border-navy-950;
+  }
+  .btn-secondary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: theme("colors.navy.950");
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-secondary:hover::before {
+    transform: scaleX(1);
   }
 
-  /* Ghost Button (white on dark bg) */
+  /* Ghost Button (for dark hero/CTA backgrounds) — orange sweeps in on hover */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold 
-           rounded-lg border border-white/30 hover:bg-white hover:text-navy-900 
-           backdrop-blur-sm transition-all duration-200;
+    @apply relative inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold
+           rounded-lg border border-white/30 overflow-hidden isolate
+           backdrop-blur-sm transition-colors duration-300 hover:border-primary-500;
+  }
+  .btn-ghost::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: theme("colors.primary.500");
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-ghost:hover::before {
+    transform: scaleX(1);
   }
 
   /* Section Container */

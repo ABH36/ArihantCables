@@ -57,7 +57,7 @@ export default function ContactSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="relative pt-16 md:pt-24 pb-0 overflow-hidden" id="inquiry">
+    <section ref={sectionRef} className="relative pt-16 md:pt-24 pb-0" id="inquiry">
       {/* Single continuous background image behind both the form and the
           address cards below it — no seam, no separate white section. */}
       <Image src="/homeenqurybackground.png" alt="" fill className="object-cover" />

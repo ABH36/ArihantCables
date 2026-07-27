@@ -60,8 +60,8 @@ export default function InquiryForm({
 
   const inputClass = (hasError?: boolean) =>
     compact
-      ? `w-full px-4 py-3 border rounded-lg text-navy-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
-          hasError ? "border-red-400 bg-red-50" : "border-slate-200"
+      ? `w-full px-4 py-3 border-2 rounded-lg bg-white text-navy-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-sm ${
+          hasError ? "border-red-400 bg-red-50" : "border-slate-300"
         }`
       : `w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
           hasError ? "border-red-400 bg-red-50" : "border-slate-200"
