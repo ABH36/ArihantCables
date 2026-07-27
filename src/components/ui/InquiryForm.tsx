@@ -12,11 +12,19 @@ type InquiryFormData = z.infer<typeof clientInquirySchema>;
 interface InquiryFormProps {
   sourcePage?: string;
   productRef?: string;
+  variant?: "default" | "compact";
+  submitLabel?: string;
 }
 
-export default function InquiryForm({ sourcePage = "/contact", productRef }: InquiryFormProps) {
+export default function InquiryForm({
+  sourcePage = "/contact",
+  productRef,
+  variant = "default",
+  submitLabel,
+}: InquiryFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [serverMessage, setServerMessage] = useState("");
+  const compact = variant === "compact";
 
   const {
     register,
@@ -50,9 +58,17 @@ export default function InquiryForm({ sourcePage = "/contact", productRef }: Inq
     }
   };
 
+  const inputClass = (hasError?: boolean) =>
+    compact
+      ? `w-full px-4 py-3 border rounded-lg text-navy-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
+          hasError ? "border-red-400 bg-red-50" : "border-slate-200"
+        }`
+      : `w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
+          hasError ? "border-red-400 bg-red-50" : "border-slate-200"
+        }`;
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" id="inquiry-form" noValidate>
-      {/* Success Message */}
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" id="inquiry-form" noValidate>
       {status === "success" && (
         <div className="flex items-start gap-3 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 animate-fade-in">
           <CheckCircle size={20} className="flex-shrink-0 mt-0.5" />
@@ -60,7 +76,6 @@ export default function InquiryForm({ sourcePage = "/contact", productRef }: Inq
         </div>
       )}
 
-      {/* Error Message */}
       {status === "error" && (
         <div className="flex items-start gap-3 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 animate-fade-in">
           <AlertCircle size={20} className="flex-shrink-0 mt-0.5" />
@@ -68,100 +83,97 @@ export default function InquiryForm({ sourcePage = "/contact", productRef }: Inq
         </div>
       )}
 
-      {/* Company Name */}
-      <div>
-        <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1.5">
-          Company Name
-        </label>
-        <input
-          id="company"
-          type="text"
-          placeholder="Your company name (optional)"
-          {...register("company")}
-          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm"
-        />
-      </div>
+      {/* Company Name + Full Name */}
+      <div className={compact ? "grid sm:grid-cols-2 gap-4" : "space-y-4"}>
+        <div>
+          {!compact && (
+            <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              Company Name
+            </label>
+          )}
+          <input
+            id="company"
+            type="text"
+            placeholder="Company Name"
+            {...register("company")}
+            className={inputClass()}
+          />
+        </div>
 
-      {/* Name */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">
-          Full Name <span className="text-red-500">*</span>
-        </label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Your full name"
-          {...register("name")}
-          className={`w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
-            errors.name ? "border-red-400 bg-red-50" : "border-slate-200"
-          }`}
-        />
-        {errors.name && (
-          <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
-        )}
+        <div>
+          {!compact && (
+            <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              Full Name <span className="text-red-500">*</span>
+            </label>
+          )}
+          <input
+            id="name"
+            type="text"
+            placeholder="Name"
+            {...register("name")}
+            className={inputClass(!!errors.name)}
+          />
+          {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
+        </div>
       </div>
 
       {/* Email & Phone side by side */}
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">
-            Email Address <span className="text-red-500">*</span>
-          </label>
+          {!compact && (
+            <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              Email Address <span className="text-red-500">*</span>
+            </label>
+          )}
           <input
             id="email"
             type="email"
-            placeholder="you@company.com"
+            placeholder={compact ? "Email Address" : "you@company.com"}
             {...register("email")}
-            className={`w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
-              errors.email ? "border-red-400 bg-red-50" : "border-slate-200"
-            }`}
+            className={inputClass(!!errors.email)}
           />
-          {errors.email && (
-            <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">
-            Phone Number <span className="text-red-500">*</span>
-          </label>
+          {!compact && (
+            <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              Phone Number <span className="text-red-500">*</span>
+            </label>
+          )}
           <input
             id="phone"
             type="tel"
-            placeholder="+91-XXXXXXXXXX"
+            placeholder={compact ? "Phone No" : "+91-XXXXXXXXXX"}
             {...register("phone")}
-            className={`w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm ${
-              errors.phone ? "border-red-400 bg-red-50" : "border-slate-200"
-            }`}
+            className={inputClass(!!errors.phone)}
           />
-          {errors.phone && (
-            <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
         </div>
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">
-          Message <span className="text-red-500">*</span>
-        </label>
+        {!compact && (
+          <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            Message <span className="text-red-500">*</span>
+          </label>
+        )}
         <textarea
           id="message"
-          rows={5}
-          placeholder="Tell us about your requirements — product type, quantity, delivery location..."
+          rows={compact ? 4 : 5}
+          placeholder={compact ? "Message" : "Tell us about your requirements — product type, quantity, delivery location..."}
           {...register("message")}
-          className={`w-full px-4 py-3 border rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm resize-none ${
-            errors.message ? "border-red-400 bg-red-50" : "border-slate-200"
-          }`}
+          className={`${inputClass(!!errors.message)} resize-none`}
         />
-        {errors.message && (
-          <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>
-        )}
+        {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>}
       </div>
 
       <button
         type="submit"
         disabled={status === "loading" || status === "success"}
-        className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+        className={`btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed ${
+          compact ? "uppercase tracking-wide font-heading rounded-lg" : ""
+        }`}
         id="submit-inquiry"
       >
         {status === "loading" ? (
@@ -170,11 +182,11 @@ export default function InquiryForm({ sourcePage = "/contact", productRef }: Inq
           </>
         ) : status === "success" ? (
           <>
-            <CheckCircle size={18} /> Inquiry Sent!
+            <CheckCircle size={18} /> Sent!
           </>
         ) : (
           <>
-            <Send size={18} /> Send Message
+            <Send size={18} /> {submitLabel || "Send Message"}
           </>
         )}
       </button>
