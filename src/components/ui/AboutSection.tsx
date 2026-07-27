@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -37,81 +38,78 @@ export default function AboutSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="section-py bg-white overflow-hidden">
-      <div className="section-container">
-        {/* Matches arihantcables.com's .about--layout3: two columns, each with two
-            stacked items. On xl screens the text card (.about-widget) is pulled
-            up and left with negative margins so it overlaps the big image. */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8">
-          {/* LEFT column: title on top, small wire image pushed down to bottom-align
-              with wherever the overlapping paragraph card (in the right column) ends */}
-          <div className={`lg:col-span-5 lg:flex lg:flex-col ${fadeUp("")}`}>
-            <div>
-              <p className="section-subtitle">About Us</p>
-              <h2 className="section-title mb-8">Welcome to Arihant Cables</h2>
-            </div>
+    <section ref={sectionRef} className="relative section-py bg-white">
+      {/* Decorative ambient glow */}
+      <div className="absolute top-10 right-0 w-96 h-96 bg-primary-50 rounded-full blur-3xl opacity-70 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-slate-50 rounded-full blur-3xl pointer-events-none" />
 
-            <div className={`mt-8 lg:mt-auto ${zoomIn("delay-200")}`}>
-              <div className="relative aspect-[4/3] max-w-xs rounded-xl overflow-hidden shadow-card">
-                <Image
-                  src="/brand/about-1.png"
-                  alt="Polycab wire construction"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+      <div className="section-container relative">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          {/* LEFT: copy */}
+          <div className={fadeUp("")}>
+            <p className="section-subtitle">About Us</p>
+            <h2 className="section-title mb-6">Welcome to Arihant Cables</h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
+              For over three decades,{" "}
+              <strong className="text-navy-950">
+                ARIHANT CABLES has been a Leading Distributor of POLYCAB WIRES &amp; CABLES
+              </strong>
+              , offering a wide range of high-quality cables ready for immediate dispatch. Our
+              commitment to quality, reliability, and customer satisfaction has earned us a strong
+              reputation in the industry. We are catering to both domestic and international
+              markets.
+            </p>
+
+            <Link
+              href="/about"
+              className="group relative inline-flex items-center gap-2 px-7 py-3.5 border border-primary-500 bg-white text-navy-950 font-semibold text-sm uppercase tracking-wide overflow-hidden transition-colors duration-300 hover:text-white shadow-sm"
+              id="about-more-explore-btn"
+            >
+              <span className="absolute inset-y-0 left-0 w-1.5 bg-primary-500 z-10 group-hover:bg-white transition-colors duration-300" />
+              <span className="absolute inset-0 origin-left scale-x-0 bg-primary-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              <span className="relative z-10">More Explore</span>
+              <ArrowRight
+                size={15}
+                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
           </div>
 
-          {/* RIGHT column: large truck image (slightly reduced), then the overlapping text card */}
-          <div className="lg:col-span-7">
-            <div className={`xl:max-w-[82%] ${zoomIn("delay-150")}`}>
-              <div className="relative rounded-xl overflow-hidden shadow-card-hover border border-slate-100 group">
+          {/* RIGHT: self-contained image collage — small photo insets onto the
+              large one, both scoped to this single wrapper so nothing depends
+              on the left column's height (no more stray gaps). */}
+          <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-150")}`}>
+            <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
+              <Image
+                src="/brand/about-2.png"
+                alt="Arihant Cables — Wires & Cables distribution logistics truck"
+                width={900}
+                height={600}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
                 <Image
-                  src="/brand/about-2.png"
-                  alt="Arihant Cables — Wires & Cables distribution logistics truck"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
+                  src="/brand/icon-mark.svg"
+                  alt=""
+                  width={20}
+                  height={18}
+                  className="w-5 h-[1.1rem] brightness-0 invert opacity-90"
                 />
-                <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
-                  <Image
-                    src="/brand/icon-mark.svg"
-                    alt=""
-                    width={20}
-                    height={18}
-                    className="w-5 h-[1.1rem] brightness-0 invert opacity-90"
-                  />
-                </div>
               </div>
             </div>
 
             <div
-              className={`relative mt-8 xl:z-[1] xl:bg-white xl:max-w-[420px] xl:-mt-[150px] xl:-ml-[170px] xl:mb-6 xl:pt-10 xl:pl-8 xl:pr-10 xl:pb-2 ${fadeUp(
+              className={`absolute bottom-0 right-0 w-32 sm:w-40 md:w-44 aspect-square rounded-xl overflow-hidden shadow-2xl ring-4 ring-white ${zoomIn(
                 "delay-300"
               )}`}
             >
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-7">
-                For over three decades,{" "}
-                <strong className="text-navy-950">
-                  ARIHANT CABLES has been a Leading Distributor of POLYCAB WIRES &amp; CABLES
-                </strong>
-                , offering a wide range of high-quality cables ready for immediate dispatch. Our
-                commitment to quality, reliability, and customer satisfaction has earned us a
-                strong reputation in the industry. We are catering to both domestic and
-                international markets.
-              </p>
-
-              <Link
-                href="/about"
-                className="group relative inline-flex items-center justify-center px-7 py-3.5 border border-primary-500 bg-white text-navy-950 font-semibold text-sm uppercase tracking-wide overflow-hidden transition-colors duration-300 hover:text-white shadow-sm"
-                id="about-more-explore-btn"
-              >
-                <span className="absolute inset-y-0 left-0 w-1.5 bg-primary-500 z-10 group-hover:bg-white transition-colors duration-300" />
-                <span className="absolute inset-0 origin-left scale-x-0 bg-primary-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                <span className="relative z-10">More Explore</span>
-              </Link>
+              <Image
+                src="/brand/about-1.png"
+                alt="Polycab wire construction"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
