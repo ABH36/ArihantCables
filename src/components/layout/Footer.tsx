@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, ExternalLink, ChevronRight } from "lucide-react";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 const usefulLinks = [
   { label: "Home", href: "/" },
@@ -15,6 +16,9 @@ const usefulLinks = [
 export default function Footer() {
   return (
     <footer className="relative bg-navy-900 text-white" role="contentinfo">
+      {/* Top brand accent line */}
+      <div className="h-1 bg-gradient-to-r from-primary-700 via-primary-500 to-accent-DEFAULT" />
+
       <Image
         src="/brand/footer-bg.jpg"
         alt=""
@@ -22,6 +26,7 @@ export default function Footer() {
         className="object-cover opacity-25 pointer-events-none select-none"
       />
       <div className="absolute inset-0 bg-navy-900/85 pointer-events-none" />
+
       {/* Main Footer — extra top padding so this content clears the
           ContactSection location cards that overlap down onto the footer above. */}
       <div className="section-container pt-28 md:pt-40 pb-14 md:pb-20 relative">
@@ -29,13 +34,14 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex flex-col leading-none mb-6 group">
-              <span className="text-3xl font-heading font-black text-white tracking-tight group-hover:text-accent-DEFAULT transition-colors">
-                ARIHANT
-              </span>
-              <span className="text-sm font-bold text-accent-DEFAULT uppercase tracking-[0.3em] mt-0.5">
-                Cables
-              </span>
+            <Link href="/" className="inline-flex mb-6 group">
+              <Image
+                src="/brand/logo.svg"
+                alt="Arihant Cables"
+                width={200}
+                height={65}
+                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               For over three decades, <strong className="text-white">ARIHANT CABLES</strong> has
@@ -46,10 +52,10 @@ export default function Footer() {
               the industry. We are catering to both domestic and international markets.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="badge bg-primary-500/20 text-primary-300 border border-primary-500/30 text-xs">
+              <span className="badge bg-primary-500/20 text-primary-300 border border-primary-500/30 text-xs hover:bg-primary-500/30 hover:border-primary-500/50 transition-colors duration-300">
                 Authorised Distributor
               </span>
-              <span className="badge bg-accent-DEFAULT/20 text-accent-light border border-accent-DEFAULT/30 text-xs">
+              <span className="badge bg-accent-DEFAULT/20 text-accent-light border border-accent-DEFAULT/30 text-xs hover:bg-accent-DEFAULT/30 hover:border-accent-DEFAULT/50 transition-colors duration-300">
                 30+ Years
               </span>
             </div>
@@ -60,18 +66,24 @@ export default function Footer() {
 
           {/* Useful Links */}
           <div>
-            <h3 className="text-white font-semibold text-base mb-5 uppercase tracking-wider">
+            <h3 className="text-white font-semibold text-base mb-5 uppercase tracking-wider relative inline-block">
               Useful Links
+              <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary-500" />
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1">
               {usefulLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/65 hover:text-accent-DEFAULT transition-colors text-sm flex items-center gap-2 group"
+                    className="group/link relative flex items-center gap-2 py-1.5 text-white/65 hover:text-white transition-colors text-sm overflow-hidden"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500 group-hover:bg-accent-DEFAULT transition-colors flex-shrink-0" />
-                    {link.label}
+                    <ChevronRight
+                      size={14}
+                      className="text-primary-500 flex-shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100"
+                    />
+                    <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -80,13 +92,16 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold text-base mb-5 uppercase tracking-wider">
+            <h3 className="text-white font-semibold text-base mb-5 uppercase tracking-wider relative inline-block">
               Contact Us
+              <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary-500" />
             </h3>
             <div className="space-y-4">
               {/* Phone */}
-              <div className="flex gap-3">
-                <Phone size={16} className="text-primary-400 mt-0.5 flex-shrink-0" />
+              <div className="group flex gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
+                  <Phone size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+                </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Phone</p>
                   <a href="tel:+919819898469" className="text-white/80 hover:text-accent-DEFAULT transition-colors text-sm">
@@ -96,8 +111,10 @@ export default function Footer() {
               </div>
 
               {/* Email */}
-              <div className="flex gap-3">
-                <Mail size={16} className="text-primary-400 mt-0.5 flex-shrink-0" />
+              <div className="group flex gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
+                  <Mail size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+                </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Email</p>
                   <a href="mailto:sales@arihantcables.com" className="text-white/80 hover:text-accent-DEFAULT transition-colors text-sm break-all">
@@ -107,8 +124,10 @@ export default function Footer() {
               </div>
 
               {/* Shop Address */}
-              <div className="flex gap-3">
-                <MapPin size={16} className="text-primary-400 mt-0.5 flex-shrink-0" />
+              <div className="group flex gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
+                  <MapPin size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+                </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Shop</p>
                   <a
@@ -124,8 +143,10 @@ export default function Footer() {
               </div>
 
               {/* Godown Address */}
-              <div className="flex gap-3">
-                <MapPin size={16} className="text-accent-DEFAULT mt-0.5 flex-shrink-0" />
+              <div className="group flex gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
+                  <MapPin size={14} className="text-accent-DEFAULT transition-colors duration-300 group-hover:text-white" />
+                </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Godown</p>
                   <a
@@ -155,6 +176,8 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <ScrollToTopButton />
     </footer>
   );
 }
