@@ -46,8 +46,10 @@ async function fetchAllProducts(slug) {
       ?.split(/<br\s*\/?>/i)
       .map((s) => s.replace(/<[^>]+>/g, "").trim())
       .filter(Boolean) || [];
-    const priceText = card.find(".prod-card__price").text().trim();
-    const price = priceText.replace(/[^\d.]/g, "");
+    // Read price from the data attribute (clean integer rupees) rather than the
+    // "Rs. 22550" display text — that text's trailing "." after "Rs" survives a
+    // [^\d.] strip and silently divides the parsed price by 100000.
+    const price = card.find(".addToCompareCheckbox").attr("data-prod-price") || "";
 
     if (prodKey && title) {
       products.push({

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Download, Phone, ExternalLink } from "lucide-react";
+import { ArrowRight, Download, Phone } from "lucide-react";
 import { getWiresCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 
@@ -88,11 +88,9 @@ export default async function WiresPage() {
                         <div className="px-6 pb-6 pt-2">
                           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                             {line.products.map((p) => (
-                              <a
+                              <Link
                                 key={p.id}
-                                href={p.sourceUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={`/product/${p.id}`}
                                 className="rounded-xl border border-slate-100 p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-white flex flex-col"
                               >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -125,9 +123,9 @@ export default async function WiresPage() {
                                   ) : (
                                     <span />
                                   )}
-                                  <ExternalLink size={13} className="text-slate-400" />
+                                  <ArrowRight size={13} className="text-slate-400" />
                                 </div>
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>

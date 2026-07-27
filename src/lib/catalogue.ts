@@ -36,6 +36,26 @@ export interface CableCluster {
   applications: CableApplication[];
 }
 
+export interface ProductSpec {
+  label: string;
+  value: string;
+}
+
+export interface ProductDetail {
+  id: string;
+  name: string;
+  sourceUrl: string;
+  imageUrl: string;
+  size?: string;
+  length?: string;
+  shortDescription?: string;
+  description?: string;
+  highlights: string[];
+  specs: ProductSpec[];
+  datasheetUrl?: string;
+  breadcrumb: { name: string; href: string }[];
+}
+
 function toProduct(p: any): CatalogueProduct {
   return {
     id: String(p._id),
@@ -120,6 +140,48 @@ export async function getCablesCatalogue(): Promise<CableCluster[] | null> {
     return result;
   } catch (error) {
     console.error("getCablesCatalogue error:", error);
+    return null;
+  }
+}
+
+export async function getProductDetail(id: string): Promise<ProductDetail | null> {
+  try {
+    await dbConnect();
+    const product = await Product.findOne({ _id: id, status: "active" }).lean<any>();
+    if (!product) return null;
+
+    // Walk up the category tree to build a breadcrumb and find the section root.
+    const chain: any[] = [];
+    let current = await Category.findById(product.categoryId).lean<any>();
+    while (current) {
+      chain.unshift(current);
+      current = current.parentCategory
+        ? await Category.findById(current.parentCategory).lean<any>()
+        : null;
+    }
+
+    const rootSlug = chain[0]?.slug === "cables" ? "cables" : "wires";
+    const breadcrumb = [
+      { name: rootSlug === "cables" ? "Cables" : "Wires", href: `/products/${rootSlug}` },
+      ...chain.slice(1).map((c) => ({ name: c.name as string, href: `/products/${rootSlug}` })),
+    ];
+
+    return {
+      id: String(product._id),
+      name: product.name,
+      sourceUrl: product.sourceUrl,
+      imageUrl: product.imageUrl,
+      size: product.size || undefined,
+      length: product.length || undefined,
+      shortDescription: product.shortDescription || undefined,
+      description: product.description || undefined,
+      highlights: product.highlights || [],
+      specs: product.specs || [],
+      datasheetUrl: product.datasheetUrl || undefined,
+      breadcrumb,
+    };
+  } catch (error) {
+    console.error("getProductDetail error:", error);
     return null;
   }
 }

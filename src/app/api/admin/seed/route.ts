@@ -15,6 +15,11 @@ function slugify(str: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+interface ScrapedSpec {
+  label: string;
+  value: string;
+}
+
 interface ScrapedProduct {
   prodKey: string;
   title: string;
@@ -23,12 +28,35 @@ interface ScrapedProduct {
   size?: string;
   length?: string;
   priceINR?: number | null;
+  shortDesc?: string;
+  description?: string;
+  highlights?: string[];
+  specs?: ScrapedSpec[];
+  datasheetUrl?: string;
+}
+
+/** Deletes a root category (by slug) and every descendant category + product beneath it. */
+async function deleteTree(rootSlug: string) {
+  const root = await Category.findOne({ slug: rootSlug });
+  if (!root) return;
+
+  let currentLevel = [root._id];
+  const allCategoryIds = [root._id];
+
+  // Walk down up to 3 levels deep (root -> group/cluster -> line/application)
+  for (let depth = 0; depth < 3; depth++) {
+    const children = await Category.find({ parentCategory: { $in: currentLevel } }, { _id: 1 });
+    if (!children.length) break;
+    const ids = children.map((c) => c._id);
+    allCategoryIds.push(...ids);
+    currentLevel = ids;
+  }
+
+  await Product.deleteMany({ categoryId: { $in: allCategoryIds } });
+  await Category.deleteMany({ _id: { $in: allCategoryIds } });
 }
 
 async function seedWires() {
-  const existing = await Category.findOne({ slug: "wires" });
-  if (existing) return { skipped: true, categories: 0, products: 0 };
-
   const wiresRoot = await Category.create({
     name: "Wires",
     slug: "wires",
@@ -79,6 +107,11 @@ async function seedWires() {
       size: p.size || "",
       length: p.length || "",
       priceINR: p.priceINR ?? undefined,
+      shortDescription: p.shortDesc || "",
+      description: p.description || "",
+      highlights: p.highlights || [],
+      specs: p.specs || [],
+      datasheetUrl: p.datasheetUrl || "",
       displayOrder: i,
       status: "active",
     }));
@@ -87,13 +120,10 @@ async function seedWires() {
     productCount += productDocs.length;
   }
 
-  return { skipped: false, categories: categoryCount, products: productCount };
+  return { categories: categoryCount, products: productCount };
 }
 
 async function seedCables() {
-  const existing = await Category.findOne({ slug: "cables" });
-  if (existing) return { skipped: true, categories: 0, products: 0 };
-
   const cablesRoot = await Category.create({
     name: "Cables",
     slug: "cables",
@@ -139,6 +169,11 @@ async function seedCables() {
         sourceProductId: p.prodKey,
         sourceUrl: p.url,
         imageUrl: p.image,
+        shortDescription: p.shortDesc || "",
+        description: p.description || "",
+        highlights: p.highlights || [],
+        specs: p.specs || [],
+        datasheetUrl: p.datasheetUrl || "",
         displayOrder: i,
         status: "active",
       }));
@@ -148,7 +183,7 @@ async function seedCables() {
     }
   }
 
-  return { skipped: false, categories: categoryCount, products: productCount };
+  return { categories: categoryCount, products: productCount };
 }
 
 export async function POST(req: NextRequest) {
@@ -157,14 +192,30 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
+  const force = req.nextUrl.searchParams.get("force") === "true";
+
   try {
     await dbConnect();
 
-    const wires = await seedWires();
-    const cables = await seedCables();
+    if (force) {
+      await deleteTree("wires");
+      await deleteTree("cables");
+    }
+
+    const wiresExisting = await Category.findOne({ slug: "wires" });
+    const cablesExisting = await Category.findOne({ slug: "cables" });
+
+    const wires = wiresExisting
+      ? { skipped: true, categories: 0, products: 0 }
+      : { skipped: false, ...(await seedWires()) };
+
+    const cables = cablesExisting
+      ? { skipped: true, categories: 0, products: 0 }
+      : { skipped: false, ...(await seedCables()) };
 
     return NextResponse.json({
       success: true,
+      forced: force,
       wires,
       cables,
     });
