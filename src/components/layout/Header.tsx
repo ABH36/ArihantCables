@@ -19,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -27,11 +28,21 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const entrance = (delay: string) =>
+    `transition-all duration-700 ease-out ${delay} ${
+      mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
+    }`;
+
   return (
     <>
       <header className="relative z-40 w-full font-sans">
         {/* Tier 1: Top Bright Orange Bar (#fc6601) */}
-        <div className="bg-[#fc6601] text-white relative z-20">
+        <div className={`bg-[#fc6601] text-white relative z-20 ${entrance("")}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3.5 sm:py-4">
               {/* Left tagline with solid white bullet dot */}
@@ -56,7 +67,7 @@ export default function Header() {
         </div>
 
         {/* Tier 2: Middle Dark Charcoal Bar (#141414) */}
-        <div className="bg-[#141414] text-white relative py-10 sm:py-12 border-b border-[#222] z-20">
+        <div className={`bg-[#141414] text-white relative py-10 sm:py-12 border-b border-[#222] z-20 ${entrance("delay-150")}`}>
           {/* Top-Left Slanted Orange Triangle Accent */}
           <div className="hidden lg:block absolute left-0 top-0 w-20 h-20 bg-[#fc6601] [clip-path:polygon(0_0,100%_0,0_100%)] z-10 pointer-events-none" />
 
@@ -69,7 +80,7 @@ export default function Header() {
                   alt="Arihant Cables"
                   width={260}
                   height={75}
-                  className="h-14 sm:h-16 lg:h-[4.5rem] w-auto object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                  className="h-14 sm:h-16 lg:h-[4.5rem] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_0_16px_rgba(252,102,1,0.55)]"
                   priority
                 />
               </Link>
@@ -131,7 +142,7 @@ export default function Header() {
           className={`w-full transition-all duration-300 ${
             isScrolled
               ? "fixed top-0 left-0 right-0 shadow-2xl bg-white/95 backdrop-blur-md z-50 py-0 border-b border-slate-200"
-              : "relative -mt-8 sm:-mt-10 lg:-mt-12 z-30"
+              : `relative -mt-8 sm:-mt-10 lg:-mt-12 z-30 ${entrance("delay-300")}`
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,10 +155,14 @@ export default function Header() {
                     <div key={link.label} className="flex items-center">
                       <Link
                         href={link.href}
-                        className="flex items-center gap-2 px-6 py-5 text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
+                        className="group/link relative flex items-center gap-2 px-6 py-5 text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
                       >
-                        <Icon size={18} className="text-slate-700" />
+                        <Icon
+                          size={18}
+                          className="text-slate-700 transition-colors duration-300 group-hover/link:text-[#fc6601]"
+                        />
                         <span>{link.label}</span>
+                        <span className="absolute left-6 right-6 bottom-3 h-[2px] bg-[#fc6601] scale-x-0 origin-left transition-transform duration-300 group-hover/link:scale-x-100" />
                       </Link>
                       {idx < navLinks.length - 1 && (
                         <span className="h-5 w-[1px] bg-slate-300 mx-1" aria-hidden="true" />
@@ -161,13 +176,14 @@ export default function Header() {
               <div className="flex items-center py-2.5 pr-2.5 pl-1">
                 <Link
                   href="/contact#inquiry"
-                  className="group flex items-center gap-2 bg-gradient-to-r from-[#fc6601] to-[#ff8a3d] text-white font-semibold text-sm uppercase tracking-wide px-7 py-3.5 rounded-full shadow-[0_6px_18px_-4px_rgba(252,102,1,0.55)] hover:shadow-[0_10px_24px_-4px_rgba(252,102,1,0.7)] hover:-translate-y-0.5 transition-all duration-300 font-heading"
+                  className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#fc6601] to-[#ff8a3d] text-white font-semibold text-sm uppercase tracking-wide px-7 py-3.5 rounded-full shadow-[0_6px_18px_-4px_rgba(252,102,1,0.55)] hover:shadow-[0_10px_24px_-4px_rgba(252,102,1,0.7)] hover:-translate-y-0.5 transition-all duration-300 font-heading"
                   id="header-get-in-touch"
                 >
-                  Get In Touch
+                  <span className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                  <span className="relative z-10">Get In Touch</span>
                   <ArrowRight
                     size={16}
-                    className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                    className="relative z-10 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </Link>
               </div>
