@@ -43,12 +43,15 @@ export default function AboutSection() {
             stacked items. On xl screens the text card (.about-widget) is pulled
             up and left with negative margins so it overlaps the big image. */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8">
-          {/* LEFT column: title + small wire image */}
-          <div className={`lg:col-span-5 ${fadeUp("")}`}>
-            <p className="section-subtitle">About Us</p>
-            <h2 className="section-title mb-8">Welcome to Arihant Cables</h2>
+          {/* LEFT column: title on top, small wire image pushed down to bottom-align
+              with wherever the overlapping paragraph card (in the right column) ends */}
+          <div className={`lg:col-span-5 lg:flex lg:flex-col ${fadeUp("")}`}>
+            <div>
+              <p className="section-subtitle">About Us</p>
+              <h2 className="section-title mb-8">Welcome to Arihant Cables</h2>
+            </div>
 
-            <div className={zoomIn("delay-200")}>
+            <div className={`mt-8 lg:mt-auto ${zoomIn("delay-200")}`}>
               <div className="relative aspect-[4/3] max-w-xs rounded-xl overflow-hidden shadow-card">
                 <Image
                   src="/brand/about-1.png"
@@ -60,9 +63,9 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* RIGHT column: large truck image, then the overlapping text card */}
+          {/* RIGHT column: large truck image (slightly reduced), then the overlapping text card */}
           <div className="lg:col-span-7">
-            <div className={zoomIn("delay-150")}>
+            <div className={`xl:max-w-[82%] ${zoomIn("delay-150")}`}>
               <div className="relative rounded-xl overflow-hidden shadow-card-hover border border-slate-100 group">
                 <Image
                   src="/brand/about-2.png"
