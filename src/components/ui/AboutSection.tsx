@@ -40,7 +40,8 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} className="section-py bg-section-gradient">
       <div className="section-container">
-        {/* Centered header, matching the Products section's icon + title treatment */}
+        {/* Centered header — icon + "About Us" as the section title in black,
+            exactly matching the Products section's icon + title treatment */}
         <div className={`text-center mb-14 ${fadeUp("")}`}>
           <Image
             src="/brand/icon-mark.svg"
@@ -49,13 +50,15 @@ export default function AboutSection() {
             height={40}
             className="mx-auto mb-3"
           />
-          <p className="section-subtitle">About Us</p>
-          <h2 className="section-title">Welcome to Arihant Cables</h2>
+          <h2 className="section-title">About Us</h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* LEFT: copy */}
+          {/* LEFT: secondary heading + copy */}
           <div className={fadeUp("delay-150")}>
+            <h3 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 mb-4">
+              Welcome to Arihant Cables
+            </h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
               For over three decades,{" "}
               <strong className="text-navy-950">
