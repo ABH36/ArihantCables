@@ -8,6 +8,7 @@ import {
   Download,
 } from "lucide-react";
 import HeroSlider from "@/components/ui/HeroSlider";
+import AboutSection from "@/components/ui/AboutSection";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -41,48 +42,7 @@ export default function HomePage() {
       />
 
       {/* ========= ABOUT ========= */}
-      <section className="section-py bg-white">
-        <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p className="section-subtitle">About Us</p>
-              <h2 className="section-title mb-6">Welcome to Arihant Cables</h2>
-              <div className="relative rounded-2xl overflow-hidden shadow-card max-w-sm">
-                <Image
-                  src="/brand/about-1.png"
-                  alt="Polycab wire construction"
-                  width={480}
-                  height={320}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="relative rounded-2xl overflow-hidden shadow-card mb-6">
-                <Image
-                  src="/brand/about-2.png"
-                  alt="Arihant Cables warehouse"
-                  width={640}
-                  height={420}
-                  className="w-full h-auto"
-                />
-              </div>
-              <p className="text-slate-600 leading-relaxed mb-3">
-                For over three decades, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
-                has been a Leading Distributor of{" "}
-                <strong className="text-primary-500">POLYCAB WIRES &amp; CABLES</strong>, offering
-                a wide range of high-quality cables ready for immediate dispatch. Our commitment
-                to quality, reliability, and customer satisfaction has earned us a strong
-                reputation in the industry. We are catering to both domestic and international
-                markets.
-              </p>
-              <Link href="/about" className="btn-primary">
-                More Explore <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* ========= PRODUCTS ========= */}
       <section className="section-py bg-section-gradient">
