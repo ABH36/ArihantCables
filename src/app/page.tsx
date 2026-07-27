@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Phone,
-  Mail,
-  Download,
-} from "lucide-react";
+import { ArrowRight, Phone, Mail } from "lucide-react";
 import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
 import ApplicationsSection from "@/components/ui/ApplicationsSection";
+import DownloadsSection from "@/components/ui/DownloadsSection";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -43,54 +39,7 @@ export default function HomePage() {
       <ApplicationsSection />
 
       {/* ========= QUICK DOWNLOADS ========= */}
-      <section className="section-py bg-section-gradient" aria-label="Downloads">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <p className="section-subtitle">Documents</p>
-            <h2 className="section-title">Pricelists &amp; Catalogues</h2>
-            <p className="text-slate-500 mt-4">
-              Download our latest pricelists for quick reference.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
-            <a
-              href="/documents/Arihant-ARMOURED-Jun-2026.pdf"
-              download
-              className="download-card flex-1"
-              id="download-armoured-pricelist"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center">
-                <Download size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h4 className="font-heading font-bold text-navy-950">Armoured Cables</h4>
-                <p className="text-slate-500 text-sm">Pricelist — June 2026</p>
-              </div>
-              <span className="badge-primary">PDF</span>
-            </a>
-            <a
-              href="/documents/Arihant-FLEXIBLE-May-2026.pdf"
-              download
-              className="download-card flex-1"
-              id="download-flexible-pricelist"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-navy-900/10 flex items-center justify-center">
-                <Download size={24} className="text-navy-900" />
-              </div>
-              <div>
-                <h4 className="font-heading font-bold text-navy-950">Flexible Cables</h4>
-                <p className="text-slate-500 text-sm">Pricelist — May 2026</p>
-              </div>
-              <span className="badge-primary">PDF</span>
-            </a>
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/pricelist" className="btn-secondary">
-              View All Pricelists <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <DownloadsSection />
 
       {/* ========= INQUIRY CTA ========= */}
       <section className="section-py bg-navy-900" aria-label="Contact CTA">
