@@ -58,31 +58,38 @@ export default function LocationsSection() {
             {locations.map((loc, i) => (
               <div
                 key={loc.label}
-                className={`card p-8 sm:p-9 ${fadeUp(i === 0 ? "delay-150" : "delay-300")}`}
+                className={`relative overflow-hidden bg-[#ececec] rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 p-8 sm:p-9 ${fadeUp(
+                  i === 0 ? "delay-150" : "delay-300"
+                )}`}
+                style={{
+                  backgroundImage: "url(/brand/widget-texture.svg)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "top right",
+                }}
               >
-                <div className="flex items-start gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
+                <div className="relative flex items-start gap-3 mb-5">
+                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
                     <MapPin size={16} className="text-primary-500" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary-500">
+                    <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
                       {loc.label}
                     </p>
                     <p className="font-heading font-bold text-navy-950 text-sm">{loc.name}</p>
                   </div>
                 </div>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5">{loc.address}</p>
+                <p className="relative text-navy-500 text-sm leading-relaxed mb-5">{loc.address}</p>
 
-                <div className="flex items-start gap-3 mb-6">
-                  <div className="w-9 h-9 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
+                <div className="relative flex items-start gap-3 mb-6">
+                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
                     <Phone size={16} className="text-primary-500" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary-500 mb-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-primary-600 mb-1">
                       Contact
                     </p>
                     {loc.phones.map((p) => (
-                      <p key={p} className="text-slate-600 text-sm">
+                      <p key={p} className="text-navy-600 text-sm">
                         {p}
                       </p>
                     ))}
@@ -93,7 +100,7 @@ export default function LocationsSection() {
                   href={loc.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary text-sm"
+                  className="relative inline-flex btn-secondary text-sm bg-white"
                 >
                   View Map <ExternalLink size={14} />
                 </a>
