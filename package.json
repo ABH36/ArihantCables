@@ -1,0 +1,37 @@
+{
+  "name": "arihant-cables",
+  "version": "1.0.0",
+  "description": "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "node scripts/seed.mjs",
+    "scrape:wires": "node scripts/scrape-wires.mjs",
+    "scrape:cables": "node scripts/scrape-cables.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.3",
+    "@types/nodemailer": "^6.4.17",
+    "autoprefixer": "^10.4.21",
+    "cheerio": "^1.2.0",
+    "lucide-react": "^0.511.0",
+    "mongoose": "^8.16.2",
+    "next": "^14.2.30",
+    "nodemailer": "^7.0.5",
+    "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.60.0",
+    "tailwindcss": "^3.4.17",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.34",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.8.3"
+  }
+}
