@@ -29,9 +29,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative z-50 w-full font-sans">
-        {/* Tier 1: Top Bright Orange Bar (#fc6601) - Increased Height (py-3 sm:py-3.5) */}
-        <div className="bg-[#fc6601] text-white">
+      <header className="relative z-40 w-full font-sans">
+        {/* Tier 1: Top Bright Orange Bar (#fc6601) */}
+        <div className="bg-[#fc6601] text-white relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3 sm:py-3.5">
               {/* Left tagline with solid white bullet dot */}
@@ -55,14 +55,14 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Tier 2: Middle Dark Charcoal Bar (#141414) - Increased Height (py-7 sm:py-9) & Centered Content */}
-        <div className="bg-[#141414] text-white relative py-7 sm:py-9 border-b border-[#222]">
+        {/* Tier 2: Middle Dark Charcoal Bar (#141414) */}
+        <div className="bg-[#141414] text-white relative py-7 sm:py-9 border-b border-[#222] z-20">
           {/* Top-Left Slanted Orange Triangle Accent */}
           <div className="hidden lg:block absolute left-0 top-0 w-20 h-20 bg-[#fc6601] [clip-path:polygon(0_0,100%_0,0_100%)] z-10 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div className="flex items-center justify-between">
-              {/* Larger Logo */}
+              {/* Logo */}
               <Link href="/" className="flex items-center flex-shrink-0 pl-2 sm:pl-4 group">
                 <Image
                   src="/brand/logo.svg"
@@ -74,51 +74,52 @@ export default function Header() {
                 />
               </Link>
 
-              {/* Contact Info (Desktop) - Perfectly Mid-Aligned with Micro-Animations */}
+              {/* Contact Info (Desktop) - Perfectly Centered Icons & Text */}
               <div className="hidden md:flex items-center gap-10 lg:gap-14">
                 {/* Phone Block */}
                 <a
                   href="tel:+919819898469"
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
-                  <div className="text-[#fc6601] flex-shrink-0 group-hover:scale-[1.15] group-hover:-rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(252,102,1,0.7)]">
-                    {/* Larger Telephone Handset SVG */}
+                  <div className="text-[#fc6601] flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:-rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
+                    {/* Exact Telephone Handset SVG with Coiled Cord */}
                     <svg
-                      width="42"
-                      height="36"
-                      viewBox="0 0 36 32"
+                      width="44"
+                      height="40"
+                      viewBox="0 0 44 40"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M23 18.5C25.5 21 28 22.5 29.5 21L27 17L24.5 18.5C22.5 17.5 20.5 15.5 19.5 13.5L21 11L17 8.5C15.5 10 17 12.5 19.5 15C20.5 16 21.8 17.3 23 18.5Z"
+                        d="M26 23.5C28.5 26 31 27.5 32.5 26L30 22L27.5 23.5C25.5 22.5 23.5 20.5 22.5 18.5L24 16L20 13.5C18.5 15 20 17.5 22.5 20C23.5 21 24.8 22.3 26 23.5Z"
                         stroke="#fc6601"
-                        strokeWidth="2.4"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                       <path
-                        d="M24 6C27 6 30 9 30 12"
+                        d="M27 11C30 11 33 14 33 17"
                         stroke="#fc6601"
                         strokeWidth="2.2"
                         strokeLinecap="round"
                       />
                       <path
-                        d="M24 2C29 2 33 6 33 11"
+                        d="M27 7C34 7 38 11 38 17"
                         stroke="#fc6601"
                         strokeWidth="2.2"
                         strokeLinecap="round"
                       />
                       <path
-                        d="M13 26C14.5 24 15.5 28 17 26C18.5 24 19.5 28 21 26"
+                        d="M12 32C13.5 29.5 15 34.5 17 32C19 29.5 20.5 34.5 22.5 32C24.5 29.5 26 34.5 28 32"
                         stroke="#fc6601"
-                        strokeWidth="2"
+                        strokeWidth="2.2"
                         strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
-                    <span className="text-white font-extrabold text-sm sm:text-base tracking-wide group-hover:text-slate-100 transition-colors">
+                    <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Phone No
                     </span>
                     <span className="text-[#fc6601] font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
@@ -132,41 +133,53 @@ export default function Header() {
                   href="mailto:sales@arihantcables.com"
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
-                  <div className="text-[#fc6601] flex-shrink-0 group-hover:scale-[1.15] group-hover:rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(252,102,1,0.7)]">
-                    {/* Larger Envelope SVG */}
+                  <div className="text-[#fc6601] flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
+                    {/* Exact Envelope SVG with Speed Dashes */}
                     <svg
-                      width="46"
-                      height="36"
-                      viewBox="0 0 40 32"
+                      width="48"
+                      height="40"
+                      viewBox="0 0 48 40"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M2 10H10M4 16H12M2 22H10"
+                        d="M2 13H11M5 20H14M2 27H11"
                         stroke="#fc6601"
-                        strokeWidth="2.4"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
                       />
                       <rect
-                        x="15"
-                        y="6"
-                        width="23"
-                        height="19"
-                        rx="2"
+                        x="16"
+                        y="8"
+                        width="28"
+                        height="23"
+                        rx="2.5"
                         stroke="#fc6601"
-                        strokeWidth="2.4"
+                        strokeWidth="2.5"
                       />
                       <path
-                        d="M15 8L26.5 17L38 8"
+                        d="M16 10.5L30 21.5L44 10.5"
                         stroke="#fc6601"
-                        strokeWidth="2.2"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                      />
+                      <path
+                        d="M16 29.5L25 21"
+                        stroke="#fc6601"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M44 29.5L35 21"
+                        stroke="#fc6601"
+                        strokeWidth="2"
+                        strokeLinecap="round"
                       />
                     </svg>
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
-                    <span className="text-white font-extrabold text-sm sm:text-base tracking-wide group-hover:text-slate-100 transition-colors">
+                    <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Email Address
                     </span>
                     <span className="text-[#fc6601] font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
@@ -193,8 +206,8 @@ export default function Header() {
         <div
           className={`w-full transition-all duration-300 ${
             isScrolled
-              ? "fixed top-0 left-0 right-0 shadow-xl bg-white/95 backdrop-blur-md z-50 py-0 border-b border-slate-200"
-              : "relative -mt-7 sm:-mt-9 lg:-mt-10 z-30"
+              ? "fixed top-0 left-0 right-0 shadow-2xl bg-white/95 backdrop-blur-md z-50 py-0 border-b border-slate-200"
+              : "relative -mt-7 sm:-mt-9 lg:-mt-11 z-30"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -217,9 +230,8 @@ export default function Header() {
                 ))}
               </nav>
 
-              {/* Right: Solid Orange GET IN TOUCH Button with Left Tab Notch & Hover Effect */}
+              {/* Right: Solid Orange GET IN TOUCH Button with Left Tab Notch */}
               <div className="relative flex items-center self-stretch overflow-visible group">
-                {/* Top-left tab accent notch */}
                 <span className="absolute -top-1.5 -left-2.5 w-4 h-4 bg-[#fc6601] rounded-sm z-10 shadow-sm" />
                 <Link
                   href="/contact#inquiry"

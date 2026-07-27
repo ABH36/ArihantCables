@@ -20,7 +20,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full aspect-[2500/988] overflow-hidden bg-navy-950">
+    <div className="relative w-full aspect-[2500/988] overflow-hidden bg-navy-950 -mt-12 sm:-mt-16 lg:-mt-24 z-10">
       {slides.map((slide, i) => (
         <Image
           key={slide.src}
@@ -34,14 +34,14 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
         />
       ))}
       {slides.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {slides.map((slide, i) => (
             <button
               key={slide.src}
               aria-label={`Show slide ${i + 1}`}
               onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                i === active ? "bg-primary-500" : "bg-white/60"
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === active ? "bg-[#fc6601] w-6" : "bg-white/70 hover:bg-white"
               }`}
             />
           ))}
