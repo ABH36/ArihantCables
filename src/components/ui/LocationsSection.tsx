@@ -50,9 +50,11 @@ export default function LocationsSection() {
 
   return (
     <>
-      <section ref={sectionRef} className="section-py bg-white">
+      <section ref={sectionRef} className="relative pt-16 md:pt-24 pb-0 bg-white">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* Pulled down with a negative bottom margin + z-10 so the cards
+              overlap the footer below instead of leaving a plain gap. */}
+          <div className="relative z-10 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-[-88px] md:mb-[-108px]">
             {locations.map((loc, i) => (
               <div
                 key={loc.label}

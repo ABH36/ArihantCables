@@ -37,9 +37,9 @@ export default function RequestQuoteSection() {
       />
 
       <div className="section-container relative">
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex justify-center">
           <div
-            className={`relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 sm:p-10 overflow-hidden transition-all duration-700 ease-out ${
+            className={`relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden transition-all duration-700 ease-out ${
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
