@@ -40,19 +40,22 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} className="section-py bg-section-gradient">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* LEFT: heading (Products-style icon treatment, left-aligned) + copy */}
-          <div className={fadeUp("")}>
-            <Image
-              src="/brand/icon-mark.svg"
-              alt=""
-              width={40}
-              height={40}
-              className="mb-3"
-            />
-            <p className="section-subtitle">About Us</p>
-            <h2 className="section-title mb-6">Welcome to Arihant Cables</h2>
+        {/* Centered header, matching the Products section's icon + title treatment */}
+        <div className={`text-center mb-14 ${fadeUp("")}`}>
+          <Image
+            src="/brand/icon-mark.svg"
+            alt=""
+            width={40}
+            height={40}
+            className="mx-auto mb-3"
+          />
+          <p className="section-subtitle">About Us</p>
+          <h2 className="section-title">Welcome to Arihant Cables</h2>
+        </div>
 
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          {/* LEFT: copy */}
+          <div className={fadeUp("delay-150")}>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
               For over three decades,{" "}
               <strong className="text-navy-950">
