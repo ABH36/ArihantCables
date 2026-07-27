@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
+import ProductsSection from "@/components/ui/ProductsSection";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -45,65 +46,7 @@ export default function HomePage() {
       <AboutSection />
 
       {/* ========= PRODUCTS ========= */}
-      <section className="section-py bg-section-gradient">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <Image
-              src="/brand/icon-mark.svg"
-              alt=""
-              width={40}
-              height={40}
-              className="mx-auto mb-3"
-            />
-            <h2 className="section-title">Products</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="card overflow-hidden group">
-              <div className="aspect-[16/10] bg-white flex items-center justify-center p-6 overflow-hidden">
-                <Image
-                  src="/brand/widget-wires.png"
-                  alt="Polycab Wires"
-                  width={400}
-                  height={260}
-                  className="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6 md:p-8 border-t border-slate-100">
-                <h4 className="font-heading font-bold text-navy-950 text-xl mb-2">Wires</h4>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                  Power your world with Polycab Wires – where safety, reliability, and innovation
-                  meet to elevate your electrical solutions.
-                </p>
-                <Link href="/products/wires" className="btn-primary" id="explore-wires">
-                  Explore <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            <div className="card overflow-hidden group">
-              <div className="aspect-[16/10] bg-white flex items-center justify-center p-6 overflow-hidden">
-                <Image
-                  src="/brand/widget-cables.png"
-                  alt="Polycab Cables"
-                  width={400}
-                  height={260}
-                  className="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6 md:p-8 border-t border-slate-100">
-                <h4 className="font-heading font-bold text-navy-950 text-xl mb-2">Cables</h4>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                  Elevate your electrical systems with Polycab Cables, engineered for reliability
-                  and performance to power your world.
-                </p>
-                <Link href="/products/cables" className="btn-primary" id="explore-cables">
-                  Explore <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductsSection />
 
       {/* ========= APPLICATIONS ========= */}
       <section className="section-py bg-white">
