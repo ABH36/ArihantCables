@@ -38,17 +38,23 @@ export default function AboutSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="relative section-py bg-white">
-      {/* Decorative ambient glow */}
-      <div className="absolute top-10 right-0 w-96 h-96 bg-primary-50 rounded-full blur-3xl opacity-70 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-slate-50 rounded-full blur-3xl pointer-events-none" />
+    <section ref={sectionRef} className="section-py bg-section-gradient">
+      <div className="section-container">
+        <div className={`text-center mb-14 ${fadeUp("")}`}>
+          <Image
+            src="/brand/icon-mark.svg"
+            alt=""
+            width={40}
+            height={40}
+            className="mx-auto mb-3"
+          />
+          <p className="section-subtitle">About Us</p>
+          <h2 className="section-title">Welcome to Arihant Cables</h2>
+        </div>
 
-      <div className="section-container relative">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* LEFT: copy */}
-          <div className={fadeUp("")}>
-            <p className="section-subtitle">About Us</p>
-            <h2 className="section-title mb-6">Welcome to Arihant Cables</h2>
+          <div className={fadeUp("delay-150")}>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
               For over three decades,{" "}
               <strong className="text-navy-950">
@@ -78,7 +84,7 @@ export default function AboutSection() {
           {/* RIGHT: self-contained image collage — small photo insets onto the
               large one, both scoped to this single wrapper so nothing depends
               on the left column's height (no more stray gaps). */}
-          <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-150")}`}>
+          <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-300")}`}>
             <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
               <Image
                 src="/brand/about-2.png"
@@ -101,7 +107,7 @@ export default function AboutSection() {
 
             <div
               className={`absolute bottom-0 right-0 w-32 sm:w-40 md:w-44 aspect-square rounded-xl overflow-hidden shadow-2xl ring-4 ring-white ${zoomIn(
-                "delay-300"
+                "delay-500"
               )}`}
             >
               <Image

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   Phone,
@@ -10,6 +9,7 @@ import {
 import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
+import ApplicationsSection from "@/components/ui/ApplicationsSection";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -21,15 +21,6 @@ export const metadata: Metadata = {
       "30+ years of trusted distribution of Polycab Wires & Cables. Shop at Lohar Chawl, Mumbai.",
   },
 };
-
-const applications = [
-  { label: "Residential", image: "/brand/app-residential.png" },
-  { label: "Industrial", image: "/brand/app-industrial.png" },
-  { label: "Healthcare", image: "/brand/app-healthcare.png" },
-  { label: "Telecommunication", image: "/brand/app-telecom.png" },
-  { label: "Hotels", image: "/brand/app-hotels.png" },
-  { label: "Commercial", image: "/brand/app-commercial.png" },
-];
 
 export default function HomePage() {
   return (
@@ -49,38 +40,7 @@ export default function HomePage() {
       <ProductsSection />
 
       {/* ========= APPLICATIONS ========= */}
-      <section className="section-py bg-white">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <Image
-              src="/brand/icon-mark.svg"
-              alt=""
-              width={40}
-              height={40}
-              className="mx-auto mb-3"
-            />
-            <h2 className="section-title">Applications</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {applications.map((app) => (
-              <div key={app.label} className="rounded-2xl overflow-hidden shadow-card group relative">
-                <div className="aspect-[3/4] relative">
-                  <Image
-                    src={app.image}
-                    alt={app.label}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent" />
-                </div>
-                <p className="absolute bottom-3 left-0 right-0 text-center text-white font-heading font-bold text-sm">
-                  {app.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ApplicationsSection />
 
       {/* ========= QUICK DOWNLOADS ========= */}
       <section className="section-py bg-section-gradient" aria-label="Downloads">
