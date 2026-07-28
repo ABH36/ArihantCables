@@ -60,16 +60,16 @@ export default async function CableApplicationPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section-py bg-primary-500">
+      <section className="section-py bg-navy-900">
         <div className="section-container text-center">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
             Need a Custom Quote?
           </h2>
-          <p className="text-white/80 mb-8 max-w-md mx-auto">
+          <p className="text-white/70 mb-8 max-w-md mx-auto">
             Contact Arihant Cables for bulk pricing, custom specs, and immediate dispatch.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact#inquiry" className="btn-ghost">
+            <Link href="/contact#inquiry" className="btn-primary">
               Send Inquiry <ArrowRight size={16} />
             </Link>
             <a href="tel:+919819898469" className="btn-ghost">
