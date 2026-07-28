@@ -70,9 +70,14 @@ export default async function WiresPage() {
                       <Link
                         key={line.id}
                         href={`/products/wires/${line.slug}`}
-                        className="group/card relative overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+                        className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+                        style={{
+                          backgroundImage: "url(/brand/widget-texture.svg)",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "top right",
+                        }}
                       >
-                        <div className="aspect-square bg-slate-50 flex items-center justify-center p-6 overflow-hidden">
+                        <div className="aspect-square bg-white/70 flex items-center justify-center p-6 overflow-hidden">
                           {line.imageUrl ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img

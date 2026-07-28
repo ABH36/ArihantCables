@@ -93,14 +93,19 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
             <Link
               key={p.id}
               href={`/product/${p.slug}`}
-              className="group/card rounded-xl border border-slate-100 p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-white flex flex-col"
+              className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] flex flex-col"
+              style={{
+                backgroundImage: "url(/brand/widget-texture.svg)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "top right",
+              }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={p.imageUrl}
                 alt={p.name}
                 loading="lazy"
-                className="w-full aspect-square object-contain rounded-lg bg-slate-50 mb-2 transition-transform duration-500 group-hover/card:scale-105"
+                className="w-full aspect-square object-contain rounded-lg bg-white/70 mb-2 transition-transform duration-500 group-hover/card:scale-105"
               />
               <p className="text-xs font-semibold text-navy-900 leading-snug line-clamp-2 mb-1">
                 {p.name}
