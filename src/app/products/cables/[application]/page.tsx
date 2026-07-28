@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight, ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { getCableApplicationDetail } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import CategoryProductsGrid from "@/components/ui/CategoryProductsGrid";
 import Reveal from "@/components/ui/Reveal";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export const revalidate = 3600;
 
@@ -32,17 +33,9 @@ export default async function CableApplicationPage({ params }: Props) {
 
       <section className="section-py bg-white">
         <div className="section-container">
-          <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-primary-700 transition-colors">
-              Home
-            </Link>
-            <ChevronRight size={14} className="text-slate-300" />
-            <Link href="/products/cables" className="hover:text-primary-700 transition-colors">
-              Cables
-            </Link>
-            <ChevronRight size={14} className="text-slate-300" />
-            <span className="text-primary-700 font-medium">{app.name}</span>
-          </nav>
+          <Breadcrumbs
+            items={[{ name: "Cables", href: "/products/cables" }, { name: app.name }]}
+          />
 
           <Reveal className="text-center mb-10">
             <p className="section-subtitle">{app.clusterName}</p>

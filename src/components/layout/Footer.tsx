@@ -12,6 +12,7 @@ import {
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { cldImage } from "@/lib/cloudinary";
+import { locations } from "@/data/locations";
 
 const usefulLinks = [
   { label: "Home", href: "/" },
@@ -194,7 +195,9 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Shop Address */}
+              {/* Shop Address — short label text is a deliberately compact
+                  rendering for this narrow column; mapUrl is sourced from the
+                  shared locations data so it can't drift out of sync. */}
               <div className="group flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white flex items-center justify-center flex-shrink-0 p-1.5">
                   <Image src={cldImage("icons/icons8-google-maps-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
@@ -202,7 +205,7 @@ export default function Footer() {
                 <div>
                   <p className="text-white/50 text-xs mb-1">Shop Address</p>
                   <a
-                    href="https://maps.app.goo.gl/MGesV8scY7MJELeDA"
+                    href={locations[0].mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/80 hover:text-accent-DEFAULT transition-colors text-sm leading-relaxed flex gap-1"
@@ -221,7 +224,7 @@ export default function Footer() {
                 <div>
                   <p className="text-white/50 text-xs mb-1">Godown Address</p>
                   <a
-                    href="https://maps.app.goo.gl/8Eyev7QJfC5JmEJU7"
+                    href={locations[1].mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/80 hover:text-accent-DEFAULT transition-colors text-sm leading-relaxed flex gap-1"

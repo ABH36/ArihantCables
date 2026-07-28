@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ChevronRight, Download, Phone, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Download, Phone, CheckCircle2 } from "lucide-react";
 import { getProductDetail } from "@/lib/catalogue";
 import Reveal from "@/components/ui/Reveal";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export const revalidate = 3600;
 
@@ -29,32 +30,10 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <>
-      {/* Breadcrumb */}
-      <nav className="bg-slate-50 border-b border-slate-100 py-3" aria-label="Breadcrumb">
-        <div className="section-container">
-          <ol className="flex items-center gap-2 text-sm text-slate-500 flex-wrap">
-            <li>
-              <Link href="/" className="hover:text-primary-700 transition-colors">
-                Home
-              </Link>
-            </li>
-            {product.breadcrumb.map((b, i) => (
-              <span key={`${b.name}-${i}`} className="flex items-center gap-2">
-                <ChevronRight size={14} className="text-slate-300" />
-                {i === product.breadcrumb.length - 1 ? (
-                  <span className="text-slate-600">{b.name}</span>
-                ) : (
-                  <Link href={b.href} className="hover:text-primary-700 transition-colors">
-                    {b.name}
-                  </Link>
-                )}
-              </span>
-            ))}
-            <ChevronRight size={14} className="text-slate-300" />
-            <li className="text-primary-700 font-medium truncate max-w-[200px]">{product.name}</li>
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumbs
+        variant="bar"
+        items={[...product.breadcrumb, { name: product.name }]}
+      />
 
       {/* Product */}
       <section className="section-py bg-white">

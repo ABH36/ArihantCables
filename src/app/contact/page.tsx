@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
 import PageBanner from "@/components/ui/PageBanner";
 import Reveal from "@/components/ui/Reveal";
+import LocationCards from "@/components/ui/LocationCards";
 import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
@@ -18,26 +18,6 @@ export const metadata: Metadata = {
     "Arihant Cables phone number",
   ],
 };
-
-const locations = [
-  {
-    label: "Shop Address",
-    name: "ARIHANT CABLES",
-    icon: "icons/icons8-google-maps-100.png",
-    address: "27, Shreenath Bhavan, 6/12 Picket X Road, Lohar Chawl, Mumbai – 400 002",
-    phones: ["022-22084443 / 22084447", "022-22084450 / 22069420"],
-    mapUrl: "https://maps.app.goo.gl/MGesV8scY7MJELeDA",
-  },
-  {
-    label: "Godown Address",
-    name: "RAJ CABLE WAREHOUSE",
-    icon: "icons/icons8-warehouse-100.png",
-    address:
-      "Haribhau Patil Compound, K-square Prakhyat Industrial Park, Opposite Urban Tadka Hotel, Mumbai-Nashik Highway, Village Kurund, Padgha Bhiwandi – 421101",
-    phones: ["9702333505 / 9821155960 / 9930543276"],
-    mapUrl: "https://maps.app.goo.gl/8Eyev7QJfC5JmEJU7",
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -136,55 +116,7 @@ export default function ContactPage() {
             />
           </Reveal>
 
-          <Reveal
-            delay="delay-150"
-            className="relative z-10 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-[-88px] md:mb-[-108px]"
-          >
-            {locations.map((loc) => (
-              <div
-                key={loc.label}
-                className="relative overflow-hidden bg-[#ececec] widget-card rounded-2xl shadow-card-hover p-8 sm:p-9"
-              >
-                <div className="flex items-start gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0 p-1.5">
-                    <Image src={cldImage(loc.icon)} alt="" width={18} height={18} className="w-full h-full object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
-                      {loc.label}
-                    </p>
-                    <p className="font-heading font-bold text-navy-950 text-sm">{loc.name}</p>
-                  </div>
-                </div>
-                <p className="text-navy-500 text-sm leading-relaxed mb-5">{loc.address}</p>
-
-                <div className="flex items-start gap-3 mb-6">
-                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0 p-1.5">
-                    <Image src={cldImage("icons/icons8-call-100.png")} alt="" width={18} height={18} className="w-full h-full object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary-600 mb-1">
-                      Contact
-                    </p>
-                    {loc.phones.map((p) => (
-                      <p key={p} className="text-navy-600 text-sm">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                <a
-                  href={loc.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex btn-secondary text-sm bg-white"
-                >
-                  View Map <ExternalLink size={14} />
-                </a>
-              </div>
-            ))}
-          </Reveal>
+          <LocationCards />
         </div>
       </section>
     </>

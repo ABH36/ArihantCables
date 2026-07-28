@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import CatalogueGrid from "@/components/ui/CatalogueGrid";
 import Reveal from "@/components/ui/Reveal";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import catalogueData from "@/data/catalogue.json";
 
 export const metadata: Metadata = {
@@ -19,17 +20,7 @@ export default function WiresCataloguePage() {
 
       <section className="section-py bg-white">
         <div className="section-container">
-          <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-primary-700 transition-colors">
-              Home
-            </Link>
-            <ChevronRight size={14} className="text-slate-300" />
-            <Link href="/catalogue" className="hover:text-primary-700 transition-colors">
-              Catalogue
-            </Link>
-            <ChevronRight size={14} className="text-slate-300" />
-            <span className="text-primary-700 font-medium">Wires</span>
-          </nav>
+          <Breadcrumbs items={[{ name: "Catalogue", href: "/catalogue" }, { name: "Wires" }]} />
 
           <Reveal className="text-center mb-14">
             <p className="section-subtitle">Product Literature</p>
