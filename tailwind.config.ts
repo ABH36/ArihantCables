@@ -59,6 +59,7 @@ module.exports = {
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
         marquee: "marquee 28s linear infinite",
+        "logo-pulse": "logoPulse 1.8s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -68,6 +69,10 @@ module.exports = {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        logoPulse: {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.08)", opacity: "0.85" },
         },
       },
     },
