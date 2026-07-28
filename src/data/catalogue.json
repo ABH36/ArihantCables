@@ -1,0 +1,20 @@
+{
+  "cables": [
+    { "title": "Uninyvin Cable", "image": "/brand/catalogue-card/1.png", "pdf": "https://arihantcables.com/assets/img/catalogue/uninyvin-cable-compressed.pdf" },
+    { "title": "LT Cable", "image": "/brand/catalogue-card/2.jpg", "pdf": "https://arihantcables.com/assets/img/catalogue/lt-catalogue-ord_17720_v2.pdf" },
+    { "title": "HT Cable", "image": "/brand/catalogue-card/3.png", "pdf": "https://arihantcables.com/assets/img/catalogue/ht-cable-catalogue.pdf" },
+    { "title": "Fire Survival Cable Brochure", "image": "/brand/catalogue-card/4.png", "pdf": "https://arihantcables.com/assets/img/catalogue/fire-survival-cable-brochure-artwork_2.pdf" },
+    { "title": "EHV", "image": "/brand/catalogue-card/5.png", "pdf": "https://arihantcables.com/assets/img/catalogue/polycab-ehv-brochure.pdf" },
+    { "title": "Rubber Cable Catalogue", "image": "/brand/catalogue-card/6.png", "pdf": "https://arihantcables.com/assets/img/catalogue/final_rubber-cable_catalogue.pdf" },
+    { "title": "Instrumentation Cable Catalogue", "image": "/brand/catalogue-card/7.png", "pdf": "https://arihantcables.com/assets/img/catalogue/instrumentation-cable_catalogue_innerpage_v9_ord-10763-final-c2c.pdf" },
+    { "title": "Housewire Catalogue", "image": "/brand/catalogue-card/8.png", "pdf": "https://arihantcables.com/assets/img/catalogue/housewire-catalogue.pdf" },
+    { "title": "B2B All Products Catalogue", "image": "/brand/catalogue-card/9.png", "pdf": "https://arihantcables.com/assets/img/catalogue/b2b-all-products-catalogue.pdf" },
+    { "title": "Dowells Brochure", "image": "/brand/catalogue-card/10.png", "pdf": "https://arihantcables.com/assets/img/catalogue/dowells-brochure.pdf" },
+    { "title": "Communication & Data Cable", "image": "/brand/catalogue-card/11.png", "pdf": "https://arihantcables.com/assets/img/catalogue/approved_communicaton-cable-catlogue.pdf" }
+  ],
+  "wires": [
+    { "title": "House Wires Catalogue", "image": "/brand/catalogue-card/wire_1.png", "pdf": "https://arihantcables.com/assets/img/catalogue/house-wires-catalogue-with-suprema-march-25.pdf" },
+    { "title": "Polycab Green Wire", "image": "/brand/catalogue-card/wire_2.png", "pdf": "https://arihantcables.com/assets/img/catalogue/polycab-green-wire-leaflet.pdf" },
+    { "title": "Polycab Sync Leaflet", "image": "/brand/catalogue-card/wire_3.png", "pdf": "https://arihantcables.com/assets/img/catalogue/sync-leaflet_web.pdf" }
+  ]
+}
