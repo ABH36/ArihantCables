@@ -94,7 +94,7 @@ export default function ContactSection({ showForm = true, children }: ContactSec
         {!showForm && children && (
           <div className="flex justify-center mb-16 md:mb-24">
             <div
-              className={`relative w-full max-w-3xl bg-[#ececec] rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
+              className={`relative w-full max-w-4xl bg-[#ececec] rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
               style={widgetCardStyle}
             >
               <div className="relative">{children}</div>

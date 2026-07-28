@@ -150,9 +150,9 @@ export default async function WiresPage() {
         </div>
       </section>
 
-      <WhyChoosePolycabSection />
-
-      <ContactSection />
+      <ContactSection showForm={false}>
+        <WhyChoosePolycabSection />
+      </ContactSection>
     </>
   );
 }
