@@ -30,7 +30,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full aspect-[2500/988] overflow-hidden bg-navy-950 -mt-12 sm:-mt-16 lg:-mt-24 z-10">
+    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2500/988] overflow-hidden bg-navy-950 -mt-12 sm:-mt-16 lg:-mt-24 z-10">
       {slides.map((slide, i) => (
         <Image
           key={slide.src}
