@@ -242,8 +242,16 @@ export default function Footer() {
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Arihant Cables. All rights reserved.</p>
           <p>
-            GST: <span className="text-white/70 font-mono">27AABFA3073E1ZW</span> &middot; Authorised
-            Distributors of Polycab Wires &amp; Cables — Mumbai, India
+            GST: <span className="text-white/70 font-mono">27AABFA3073E1ZW</span> &middot; Designed
+            &amp; Developed by{" "}
+            <a
+              href="https://www.bdminfotech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-400 hover:text-primary-300 font-semibold transition-colors"
+            >
+              BDM Infotech
+            </a>
           </p>
           <div className="flex items-center gap-3">
             {socialLinks.map((s) => (
