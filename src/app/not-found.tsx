@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="min-h-[75vh] flex items-center justify-center section-py bg-white">
       <div className="section-container text-center max-w-lg">
-        <span className="text-7xl font-heading font-black text-primary-500 block mb-4">
+        <span className="text-7xl font-heading font-black text-primary-700 block mb-4">
           404
         </span>
         <h1 className="text-2xl md:text-3xl font-heading font-bold text-navy-900 mb-4">
@@ -30,15 +30,15 @@ export default function NotFound() {
             Quick Links
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-600">
-            <Link href="/products/wires" className="hover:text-primary-500 transition-colors">
+            <Link href="/products/wires" className="hover:text-primary-700 transition-colors">
               Polycab Wires
             </Link>
             <span>•</span>
-            <Link href="/products/cables" className="hover:text-primary-500 transition-colors">
+            <Link href="/products/cables" className="hover:text-primary-700 transition-colors">
               Polycab Cables
             </Link>
             <span>•</span>
-            <Link href="/pricelist" className="hover:text-primary-500 transition-colors">
+            <Link href="/pricelist" className="hover:text-primary-700 transition-colors">
               Pricelist
             </Link>
           </div>

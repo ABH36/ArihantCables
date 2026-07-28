@@ -105,7 +105,7 @@
 
   /* Secondary Button — orange outline, black flaps open on hover */
   .btn-secondary {
-    @apply bg-transparent text-primary-500 rounded-lg border-2 border-primary-500
+    @apply bg-transparent text-primary-700 rounded-lg border-2 border-primary-500
            transition-colors duration-300 hover:text-white hover:border-navy-950;
   }
   .btn-secondary::before,
@@ -140,7 +140,7 @@
 
   /* Section Subtitle */
   .section-subtitle {
-    @apply text-primary-500 font-semibold text-sm uppercase tracking-widest mb-3;
+    @apply text-primary-700 font-semibold text-sm uppercase tracking-widest mb-3;
   }
 
   /* Card Base */

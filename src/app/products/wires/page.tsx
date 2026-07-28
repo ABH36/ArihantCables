@@ -101,7 +101,7 @@ export default async function WiresPage() {
                             </span>
                             <ArrowRight
                               size={15}
-                              className="text-primary-500 transition-transform duration-300 group-hover/card:translate-x-1"
+                              className="text-primary-700 transition-transform duration-300 group-hover/card:translate-x-1"
                             />
                           </div>
                         </div>

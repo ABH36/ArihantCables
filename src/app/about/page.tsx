@@ -32,7 +32,7 @@ export default function AboutPage() {
           <Reveal className="text-center mb-14">
             <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
             <h2 className="section-title">
-              Welcome to <span className="text-primary-500">Arihant Cables</span>
+              Welcome to <span className="text-primary-700">Arihant Cables</span>
             </h2>
           </Reveal>
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="col-span-2 border-2 border-primary-500 rounded-2xl py-6 text-center">
-                <p className="text-4xl md:text-5xl font-heading font-black text-primary-500">30+</p>
+                <p className="text-4xl md:text-5xl font-heading font-black text-primary-700">30+</p>
                 <p className="text-sm font-bold text-navy-950 uppercase tracking-wide mt-1">
                   Years of Experience
                 </p>
@@ -74,7 +74,7 @@ export default function AboutPage() {
               <p>
                 For over three decades, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
                 has been a Leading Distributor of{" "}
-                <strong className="text-primary-500">POLYCAB WIRES &amp; CABLES</strong>, offering
+                <strong className="text-primary-700">POLYCAB WIRES &amp; CABLES</strong>, offering
                 a wide range of high-quality cables ready for immediate dispatch. Our commitment
                 to quality, reliability, and customer satisfaction has earned us a strong
                 reputation in the industry. We are catering to both domestic and international
@@ -84,7 +84,7 @@ export default function AboutPage() {
               <p>
                 Recognizing this need, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
                 distributes a comprehensive range of{" "}
-                <strong className="text-primary-500">POLYCAB WIRES &amp; CABLES</strong> across
+                <strong className="text-primary-700">POLYCAB WIRES &amp; CABLES</strong> across
                 India and abroad at competitive prices.
               </p>
               <p>
@@ -127,7 +127,7 @@ export default function AboutPage() {
             <Reveal zoom className="text-center">
               <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
               <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
-                <Target size={24} className="text-primary-500" />
+                <Target size={24} className="text-primary-700" />
               </div>
               <h3 className="section-title !text-2xl md:!text-3xl mb-4">Mission</h3>
               <p className="text-slate-600 leading-relaxed">
@@ -166,7 +166,7 @@ export default function AboutPage() {
           <ul className="text-left space-y-3 inline-block">
             {whyChoosePoints.map((point) => (
               <li key={point} className="flex items-start gap-3 text-slate-700">
-                <CheckCircle2 size={18} className="text-primary-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-primary-700 flex-shrink-0 mt-0.5" />
                 {point}
               </li>
             ))}

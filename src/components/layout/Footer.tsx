@@ -146,7 +146,7 @@ export default function Footer() {
                   >
                     <ChevronRight
                       size={14}
-                      className="text-primary-500 flex-shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100"
+                      className="text-primary-700 flex-shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100"
                     />
                     <span className="transition-transform duration-300 group-hover/link:translate-x-1">
                       {link.label}

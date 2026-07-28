@@ -18,7 +18,7 @@ export default function Error({
   return (
     <div className="min-h-[75vh] flex items-center justify-center section-py bg-white">
       <div className="section-container text-center max-w-lg">
-        <span className="text-7xl font-heading font-black text-primary-500 block mb-4">
+        <span className="text-7xl font-heading font-black text-primary-700 block mb-4">
           Oops
         </span>
         <h1 className="text-2xl md:text-3xl font-heading font-bold text-navy-900 mb-4">

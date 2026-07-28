@@ -100,7 +100,7 @@ export default function Header() {
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Phone No
                     </span>
-                    <span className="text-[#fc6601] font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
+                    <span className="text-primary-700 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
                       +91-9819898469
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export default function Header() {
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Email Address
                     </span>
-                    <span className="text-[#fc6601] font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
+                    <span className="text-primary-700 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
                       sales@arihantcables.com
                     </span>
                   </div>
@@ -146,11 +146,11 @@ export default function Header() {
                     <div key={link.label} className="flex items-center">
                       <Link
                         href={link.href}
-                        className="group/link relative flex items-center gap-2 px-6 py-5 text-slate-900 font-semibold text-base hover:text-[#fc6601] transition-colors"
+                        className="group/link relative flex items-center gap-2 px-6 py-5 text-slate-900 font-semibold text-base hover:text-primary-700 transition-colors"
                       >
                         <Icon
                           size={18}
-                          className="text-slate-700 transition-colors duration-300 group-hover/link:text-[#fc6601]"
+                          className="text-slate-700 transition-colors duration-300 group-hover/link:text-primary-700"
                         />
                         <span>{link.label}</span>
                         <span className="absolute left-6 right-6 bottom-3 h-[2px] bg-[#fc6601] scale-x-0 origin-left transition-transform duration-300 group-hover/link:scale-x-100" />
@@ -184,7 +184,7 @@ export default function Header() {
               <span className="font-semibold text-slate-900 text-base">Navigation</span>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="text-[#fc6601] font-semibold text-base flex items-center gap-2"
+                className="text-primary-700 font-semibold text-base flex items-center gap-2"
               >
                 <span>Menu</span>
                 <Menu size={20} />

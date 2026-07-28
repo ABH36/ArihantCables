@@ -34,7 +34,7 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="section-container">
           <ol className="flex items-center gap-2 text-sm text-slate-500 flex-wrap">
             <li>
-              <Link href="/" className="hover:text-primary-500 transition-colors">
+              <Link href="/" className="hover:text-primary-700 transition-colors">
                 Home
               </Link>
             </li>
@@ -44,14 +44,14 @@ export default async function ProductDetailPage({ params }: Props) {
                 {i === product.breadcrumb.length - 1 ? (
                   <span className="text-slate-600">{b.name}</span>
                 ) : (
-                  <Link href={b.href} className="hover:text-primary-500 transition-colors">
+                  <Link href={b.href} className="hover:text-primary-700 transition-colors">
                     {b.name}
                   </Link>
                 )}
               </span>
             ))}
             <ChevronRight size={14} className="text-slate-300" />
-            <li className="text-primary-500 font-medium truncate max-w-[200px]">{product.name}</li>
+            <li className="text-primary-700 font-medium truncate max-w-[200px]">{product.name}</li>
           </ol>
         </div>
       </nav>
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <ul className="grid sm:grid-cols-2 gap-2.5">
                     {product.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2 text-sm text-slate-600">
-                        <CheckCircle2 size={16} className="text-primary-500 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-primary-700 flex-shrink-0 mt-0.5" />
                         {h}
                       </li>
                     ))}

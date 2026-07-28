@@ -33,15 +33,15 @@ export default async function CableApplicationPage({ params }: Props) {
       <section className="section-py bg-white">
         <div className="section-container">
           <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-primary-500 transition-colors">
+            <Link href="/" className="hover:text-primary-700 transition-colors">
               Home
             </Link>
             <ChevronRight size={14} className="text-slate-300" />
-            <Link href="/products/cables" className="hover:text-primary-500 transition-colors">
+            <Link href="/products/cables" className="hover:text-primary-700 transition-colors">
               Cables
             </Link>
             <ChevronRight size={14} className="text-slate-300" />
-            <span className="text-primary-500 font-medium">{app.name}</span>
+            <span className="text-primary-700 font-medium">{app.name}</span>
           </nav>
 
           <Reveal className="text-center mb-10">

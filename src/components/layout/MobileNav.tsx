@@ -121,19 +121,19 @@ export default function MobileNav({ isOpen, onClose, navLinks }: MobileNavProps)
         <div className="border-t border-slate-100 p-6 bg-slate-50 space-y-3">
           <a
             href="tel:+919819898469"
-            className="flex items-center gap-3 text-slate-700 hover:text-primary-500 transition-colors"
+            className="flex items-center gap-3 text-slate-700 hover:text-primary-700 transition-colors"
           >
             <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
-              <Phone size={14} className="text-primary-500" />
+              <Phone size={14} className="text-primary-700" />
             </div>
             <span className="font-medium text-sm">+91-9819898469</span>
           </a>
           <a
             href="mailto:sales@arihantcables.com"
-            className="flex items-center gap-3 text-slate-700 hover:text-primary-500 transition-colors"
+            className="flex items-center gap-3 text-slate-700 hover:text-primary-700 transition-colors"
           >
             <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
-              <Mail size={14} className="text-primary-500" />
+              <Mail size={14} className="text-primary-700" />
             </div>
             <span className="font-medium text-sm">sales@arihantcables.com</span>
           </a>

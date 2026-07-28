@@ -31,7 +31,7 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
             className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-300 ${
               active === name
                 ? "bg-primary-500 text-white border-primary-500 shadow-cta"
-                : "bg-white text-navy-900 border-slate-200 hover:border-primary-500 hover:text-primary-500"
+                : "bg-white text-navy-900 border-slate-200 hover:border-primary-500 hover:text-primary-700"
             }`}
           >
             {name}
@@ -75,7 +75,7 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
                       </span>
                       <ArrowRight
                         size={15}
-                        className="text-primary-500 transition-transform duration-300 group-hover/card:translate-x-1"
+                        className="text-primary-700 transition-transform duration-300 group-hover/card:translate-x-1"
                       />
                     </div>
                   </div>

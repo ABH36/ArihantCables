@@ -145,7 +145,7 @@ export default function ContactPage() {
               >
                 <div className="flex items-start gap-3 mb-5">
                   <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
-                    <MapPin size={16} className="text-primary-500" />
+                    <MapPin size={16} className="text-primary-700" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
@@ -158,7 +158,7 @@ export default function ContactPage() {
 
                 <div className="flex items-start gap-3 mb-6">
                   <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
-                    <Phone size={16} className="text-primary-500" />
+                    <Phone size={16} className="text-primary-700" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-primary-600 mb-1">
