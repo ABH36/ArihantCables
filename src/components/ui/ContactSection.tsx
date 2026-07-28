@@ -31,9 +31,10 @@ const widgetCardStyle: React.CSSProperties = {
 
 interface ContactSectionProps {
   showForm?: boolean;
+  children?: React.ReactNode;
 }
 
-export default function ContactSection({ showForm = true }: ContactSectionProps) {
+export default function ContactSection({ showForm = true, children }: ContactSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -63,7 +64,7 @@ export default function ContactSection({ showForm = true }: ContactSectionProps)
   return (
     <section
       ref={sectionRef}
-      className={`relative pb-0 ${showForm ? "pt-16 md:pt-24" : "pt-10 md:pt-14"}`}
+      className={`relative pb-0 ${showForm || children ? "pt-16 md:pt-24" : "pt-10 md:pt-14"}`}
       id="inquiry"
     >
       {/* Single continuous background image behind both the form and the
@@ -86,6 +87,17 @@ export default function ContactSection({ showForm = true }: ContactSectionProps)
 
                 <InquiryForm sourcePage="/" variant="compact" submitLabel="Submit Now" />
               </div>
+            </div>
+          </div>
+        )}
+
+        {!showForm && children && (
+          <div className="flex justify-center mb-16 md:mb-24">
+            <div
+              className={`relative w-full max-w-3xl bg-[#ececec] rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
+              style={widgetCardStyle}
+            >
+              <div className="relative">{children}</div>
             </div>
           </div>
         )}

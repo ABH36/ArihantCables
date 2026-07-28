@@ -143,11 +143,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="section-py bg-white">
-        <div className="section-container max-w-3xl mx-auto text-center">
+      <ContactSection showForm={false}>
+        <div className="text-center">
           <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
-          <h2 className="section-title mb-6">Why Choose Arihant Cables?</h2>
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy-950 mb-6">
+            Why Choose Arihant Cables?
+          </h2>
           <p className="text-slate-600 leading-relaxed text-justify mb-8">
             Selecting the right vendor can be challenging due to the numerous manufacturers
             offering high-quality products. Each vendor claims to use the best raw materials, such
@@ -164,9 +165,7 @@ export default function AboutPage() {
             ))}
           </ul>
         </div>
-      </section>
-
-      <ContactSection showForm={false} />
+      </ContactSection>
     </>
   );
 }
