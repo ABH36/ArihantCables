@@ -11,10 +11,15 @@ interface CategoryProductsGridProps {
 
 const ALL = "All";
 
+function specValue(p: CatalogueProduct, label: string) {
+  return p.specs?.find((s) => s.label === label)?.value;
+}
+
 export default function CategoryProductsGrid({ products }: CategoryProductsGridProps) {
   const [query, setQuery] = useState("");
   const [size, setSize] = useState(ALL);
   const [length, setLength] = useState(ALL);
+  const [standard, setStandard] = useState(ALL);
 
   const sizes = useMemo(
     () => [ALL, ...Array.from(new Set(products.map((p) => p.size).filter(Boolean) as string[]))],
@@ -24,6 +29,15 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
     () => [ALL, ...Array.from(new Set(products.map((p) => p.length).filter(Boolean) as string[]))],
     [products]
   );
+  const standards = useMemo(
+    () => [
+      ALL,
+      ...Array.from(
+        new Set(products.map((p) => specValue(p, "Standards")).filter(Boolean) as string[])
+      ),
+    ],
+    [products]
+  );
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -31,9 +45,10 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
       if (q && !p.name.toLowerCase().includes(q)) return false;
       if (size !== ALL && p.size !== size) return false;
       if (length !== ALL && p.length !== length) return false;
+      if (standard !== ALL && specValue(p, "Standards") !== standard) return false;
       return true;
     });
-  }, [products, query, size, length]);
+  }, [products, query, size, length, standard]);
 
   return (
     <div>
@@ -73,6 +88,20 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
             {lengths.map((l) => (
               <option key={l} value={l}>
                 {l === ALL ? "All Lengths" : l}
+              </option>
+            ))}
+          </select>
+        )}
+
+        {standards.length > 1 && (
+          <select
+            value={standard}
+            onChange={(e) => setStandard(e.target.value)}
+            className="flex-shrink-0 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition-colors sm:w-auto"
+          >
+            {standards.map((s) => (
+              <option key={s} value={s}>
+                {s === ALL ? "All Standards" : s}
               </option>
             ))}
           </select>
@@ -122,8 +151,17 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
                   </span>
                 )}
               </div>
-              <div className="mt-auto flex items-center justify-end pt-1">
-                <ArrowRight size={13} className="text-slate-400" />
+
+              <div className="relative mt-auto h-7 pt-1">
+                <div className="absolute inset-x-0 top-1 flex items-center justify-end transition-all duration-300 group-hover/card:opacity-0 group-hover/card:-translate-y-1">
+                  <ArrowRight size={13} className="text-slate-400" />
+                </div>
+                <div className="absolute inset-x-0 top-1 flex items-center justify-center opacity-0 translate-y-1 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:translate-y-0">
+                  <span className="btn-primary !w-full !justify-center !gap-1.5 !px-3 !py-1.5 !text-[11px] !rounded-lg">
+                    Explore
+                    <ArrowRight size={11} />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

@@ -11,6 +11,7 @@ export interface CatalogueProduct {
   size?: string;
   length?: string;
   priceINR?: number;
+  specs?: ProductSpec[];
 }
 
 export interface WireLine {
@@ -87,6 +88,7 @@ function toProduct(p: any): CatalogueProduct {
     size: p.size || undefined,
     length: p.length || undefined,
     priceINR: typeof p.priceINR === "number" ? p.priceINR : undefined,
+    specs: p.specs || undefined,
   };
 }
 
