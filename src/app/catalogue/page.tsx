@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
@@ -15,14 +16,16 @@ const categories = [
   {
     name: "Cables",
     tagline: "LT, HT, EHV, Fire Survival, Rubber, Instrumentation and more Polycab cable catalogues.",
-    image: "/brand/widget-cables.png",
+    image: "/brand/hero-cables.png",
+    position: "object-right",
     href: "/catalogue/cables",
     count: catalogueData.cables.length,
   },
   {
     name: "Wires",
     tagline: "House Wires, Green Wire and Sync leaflet catalogues from Polycab.",
-    image: "/brand/widget-wires.png",
+    image: "/brand/hero-wires.png",
+    position: "object-right",
     href: "/catalogue/wires",
     count: catalogueData.wires.length,
   },
@@ -49,27 +52,21 @@ export default function CataloguePage() {
               <Link
                 key={c.name}
                 href={c.href}
-                className="group relative overflow-hidden bg-[#ececec] min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover"
-                style={{
-                  backgroundImage: "url(/brand/widget-texture.svg)",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "top right",
-                }}
+                className="group relative overflow-hidden rounded-2xl min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
               >
-                <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[45%] max-w-[300px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={c.image}
-                    alt={`Polycab ${c.name}`}
-                    className="w-full h-auto rounded-xl"
-                  />
-                </div>
+                <Image
+                  src={c.image}
+                  alt={`Polycab ${c.name}`}
+                  fill
+                  className={`object-cover ${c.position} transition-transform duration-700 group-hover:scale-105`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/60 to-navy-950/20" />
 
-                <div className="relative z-10 max-w-[75%] sm:max-w-[68%]">
-                  <h3 className="font-heading font-bold text-2xl text-navy-950 mb-0">
+                <div className="relative z-10 max-w-[85%] sm:max-w-[70%]">
+                  <h3 className="font-heading font-bold text-2xl text-white mb-0">
                     {c.name} Catalogues
                   </h3>
-                  <p className="text-navy-400 text-sm leading-[1.8] my-6">{c.tagline}</p>
+                  <p className="text-white/75 text-sm leading-[1.8] my-6">{c.tagline}</p>
                   <span className="badge-primary text-xs mb-6 inline-block">
                     {c.count} catalogues
                   </span>
