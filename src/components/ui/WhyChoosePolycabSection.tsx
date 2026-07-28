@@ -2,20 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ShieldCheck } from "lucide-react";
 
 const cards = [
   {
     title: "Strong Backward Integration",
     image: "/brand/app-industrial.png",
+    position: "object-center",
   },
   {
     title: "EC Copper Is 99.97% Pure",
-    image: "/brand/inner-banner.png",
+    image: "/brand/hero-wires.png",
+    position: "object-right-top",
   },
   {
     title: "Wires Complying To Highest Level Of Electrical Safety",
-    icon: true,
+    image: "/brand/app-commercial.png",
+    position: "object-center",
   },
 ];
 
@@ -59,26 +61,16 @@ export default function WhyChoosePolycabSection() {
         {cards.map((card, i) => (
           <div
             key={card.title}
-            className={`group relative overflow-hidden rounded-xl aspect-[4/3] shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-500 ${fadeUp(
+            className={`group relative overflow-hidden rounded-xl aspect-[3/4] shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-500 ${fadeUp(
               i === 0 ? "delay-150" : i === 1 ? "delay-300" : "delay-[450ms]"
             )}`}
           >
-            {card.icon ? (
-              <div className="absolute inset-0 bg-navy-950 flex items-center justify-center">
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_60%,theme(colors.primary.500),transparent_65%)]" />
-                <ShieldCheck
-                  size={44}
-                  className="relative text-primary-500/70 group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            ) : (
-              <Image
-                src={card.image!}
-                alt={card.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            )}
+            <Image
+              src={card.image}
+              alt={card.title}
+              fill
+              className={`object-cover ${card.position} transition-transform duration-700 group-hover:scale-105`}
+            />
             <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-navy-950/85 via-navy-950/30 to-transparent" />
             <h3 className="absolute top-3 left-3 right-3 font-heading font-bold text-[11px] sm:text-xs text-white uppercase leading-snug">
               {card.title}

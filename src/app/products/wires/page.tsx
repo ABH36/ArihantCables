@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getWiresCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
@@ -118,35 +118,6 @@ export default async function WiresPage() {
             Specifications shown are as listed by Polycab and are indicative — contact
             Arihant Cables for confirmed distributor pricing and stock availability.
           </p>
-        </div>
-      </section>
-
-      {/* Downloads */}
-      <section className="section-py bg-section-gradient">
-        <div className="section-container">
-          <div className="text-center mb-10">
-            <p className="section-subtitle">Documents</p>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-navy-900">
-              Pricelists &amp; Catalogues
-            </h2>
-          </div>
-          <div className="flex justify-center">
-            <a
-              href="/documents/Arihant-ARMOURED-Jun-2026.pdf"
-              download
-              className="download-card max-w-xs w-full"
-              id="wires-download-armoured"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center">
-                <Download size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h4 className="font-heading font-bold text-navy-900">Polycab Armoured</h4>
-                <p className="text-slate-500 text-sm">Pricelist — June 2026</p>
-              </div>
-              <span className="badge-primary">Download PDF</span>
-            </a>
-          </div>
         </div>
       </section>
 
