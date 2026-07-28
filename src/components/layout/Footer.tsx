@@ -238,7 +238,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative border-t border-white/10">
+      <div className="relative border-t border-primary-500/40">
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Arihant Cables. All rights reserved.</p>
           <p>
