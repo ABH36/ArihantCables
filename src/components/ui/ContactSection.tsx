@@ -29,7 +29,11 @@ const widgetCardStyle: React.CSSProperties = {
   backgroundPosition: "top right",
 };
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  showForm?: boolean;
+}
+
+export default function ContactSection({ showForm = true }: ContactSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -57,28 +61,34 @@ export default function ContactSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="relative pt-16 md:pt-24 pb-0" id="inquiry">
+    <section
+      ref={sectionRef}
+      className={`relative pb-0 ${showForm ? "pt-16 md:pt-24" : "pt-10 md:pt-14"}`}
+      id="inquiry"
+    >
       {/* Single continuous background image behind both the form and the
           address cards below it — no seam, no separate white section. */}
       <Image src="/homeenqurybackground.png" alt="" fill className="object-cover" />
 
       <div className="section-container relative">
         {/* Request a Quote form */}
-        <div className="flex justify-center mb-16 md:mb-24">
-          <div
-            className={`relative w-full max-w-2xl bg-[#ececec] rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
-            style={widgetCardStyle}
-          >
-            <div className="relative">
-              <p className="section-subtitle mb-1">Get In Touch</p>
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy-950 mb-7">
-                Request A Quote
-              </h2>
+        {showForm && (
+          <div className="flex justify-center mb-16 md:mb-24">
+            <div
+              className={`relative w-full max-w-2xl bg-[#ececec] rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
+              style={widgetCardStyle}
+            >
+              <div className="relative">
+                <p className="section-subtitle mb-1">Get In Touch</p>
+                <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy-950 mb-7">
+                  Request A Quote
+                </h2>
 
-              <InquiryForm sourcePage="/" variant="compact" submitLabel="Submit Now" />
+                <InquiryForm sourcePage="/" variant="compact" submitLabel="Submit Now" />
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Location cards — top half rides the background image above,
             bottom half overlaps the footer via the negative margin. */}

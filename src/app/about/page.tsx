@@ -27,7 +27,9 @@ export default function AboutPage() {
         <div className="section-container">
           <div className="text-center mb-14">
             <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
-            <h2 className="section-title">Welcome to Arihant Cables</h2>
+            <h2 className="section-title">
+              Welcome to <span className="text-primary-500">Arihant Cables</span>
+            </h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
@@ -164,7 +166,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ContactSection />
+      <ContactSection showForm={false} />
     </>
   );
 }
