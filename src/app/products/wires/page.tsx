@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { getWiresCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
-import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
-import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
 import { cardRevealDelays } from "@/lib/animation";
+
+const WhyChoosePolycabSection = dynamic(() => import("@/components/ui/WhyChoosePolycabSection"));
+const ContactSection = dynamic(() => import("@/components/ui/ContactSection"));
 
 export const revalidate = 3600;
 

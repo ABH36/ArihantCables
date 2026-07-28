@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Target, Eye, CheckCircle2 } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
-import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
 import { cldImage } from "@/lib/cloudinary";
+
+const ContactSection = dynamic(() => import("@/components/ui/ContactSection"));
 
 export const metadata: Metadata = {
   title: "About Us — Arihant Cables Mumbai | 30+ Years of Polycab Distribution",

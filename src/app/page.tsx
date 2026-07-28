@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import HeroSlider from "@/components/ui/HeroSlider";
 import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
-import ApplicationsSection from "@/components/ui/ApplicationsSection";
-import ContactSection from "@/components/ui/ContactSection";
 import { cldImage } from "@/lib/cloudinary";
+
+// Below-the-fold sections — code-split into their own chunks so they don't
+// add to the JS the browser has to parse/execute for the initial hero view.
+// ssr stays on (the default) so their content is still in the server HTML
+// for SEO/crawlers; only the client-side JS bundle is deferred.
+const ApplicationsSection = dynamic(() => import("@/components/ui/ApplicationsSection"));
+const ContactSection = dynamic(() => import("@/components/ui/ContactSection"));
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
