@@ -91,7 +91,6 @@ export default function AboutSection() {
                 width={900}
                 height={600}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                priority
               />
               <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
                 <Image

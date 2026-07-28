@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Inquiry from "@/lib/models/Inquiry";
 import { inquirySchema } from "@/lib/validation/inquiry";
+import { sendInquiryNotification } from "@/lib/mailer";
 
 export async function POST(req: NextRequest) {
   try {
@@ -27,9 +28,14 @@ export async function POST(req: NextRequest) {
       sourcePage: parsed.data.sourcePage || "/contact",
     });
 
-    // Optional: send email notification
-    // We skip actual email sending in Phase 1 to avoid SMTP config complexity
-    // Can be enabled once email credentials are configured
+    await sendInquiryNotification({
+      name: parsed.data.name,
+      company: parsed.data.company,
+      phone: parsed.data.phone,
+      email: parsed.data.email,
+      message: parsed.data.message,
+      sourcePage: inquiry.sourcePage,
+    });
 
     return NextResponse.json(
       {
