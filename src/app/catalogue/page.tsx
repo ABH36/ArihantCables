@@ -53,7 +53,7 @@ export default function CataloguePage() {
             >
               <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[42%] max-w-[220px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.image} alt={`Polycab ${c.name}`} className="w-full h-auto rounded-xl" />
+                <img src={c.image} alt={`Polycab ${c.name}`} loading="lazy" className="w-full h-auto rounded-xl" />
               </div>
 
               <div className="relative z-10 max-w-[75%] sm:max-w-[65%]">
