@@ -156,4 +156,13 @@
   .badge-primary {
     @apply badge bg-primary-100 text-primary-700;
   }
+
+  /* Widget card background — the hexagon texture used behind #ececec
+     product/category cards site-wide (Products, Wires/Cables listings,
+     Catalogue, Footer, ContactSection). */
+  .widget-card-bg {
+    background-image: url("/brand/widget-texture.svg");
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
 }

@@ -5,13 +5,13 @@ import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import type { CatalogueProduct } from "@/lib/catalogue";
 import Reveal from "@/components/ui/Reveal";
+import { cardRevealDelays } from "@/lib/animation";
 
 interface CategoryProductsGridProps {
   products: CatalogueProduct[];
 }
 
 const ALL = "All";
-const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 function specValue(p: CatalogueProduct, label: string) {
   return p.specs?.find((s) => s.label === label)?.value;
@@ -121,15 +121,10 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {filtered.map((p, i) => (
-            <Reveal key={p.id} zoom delay={cardDelays[i % cardDelays.length]}>
+            <Reveal key={p.id} zoom delay={cardRevealDelays[i % cardRevealDelays.length]}>
             <Link
               href={`/product/${p.slug}`}
-              className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] flex flex-col"
-              style={{
-                backgroundImage: "url(/brand/widget-texture.svg)",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "top right",
-              }}
+              className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] widget-card-bg flex flex-col"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

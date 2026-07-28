@@ -5,13 +5,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { CableCluster } from "@/lib/catalogue";
 import Reveal from "@/components/ui/Reveal";
+import { cardRevealDelays } from "@/lib/animation";
 
 interface CablesCatalogueBrowserProps {
   catalogue: CableCluster[];
 }
 
 const ALL = "All Categories";
-const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBrowserProps) {
   const [active, setActive] = useState(ALL);
@@ -47,15 +47,10 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {cluster.applications.map((app, i) => (
-                <Reveal key={app.id} zoom delay={cardDelays[i % cardDelays.length]}>
+                <Reveal key={app.id} zoom delay={cardRevealDelays[i % cardRevealDelays.length]}>
                 <Link
                   href={`/products/cables/${app.slug}`}
-                  className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
-                  style={{
-                    backgroundImage: "url(/brand/widget-texture.svg)",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "top right",
-                  }}
+                  className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] widget-card-bg shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="aspect-square bg-white/70 flex items-center justify-center p-6 overflow-hidden">
                     {app.imageUrl ? (

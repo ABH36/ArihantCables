@@ -6,8 +6,7 @@ import PageBanner from "@/components/ui/PageBanner";
 import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
 import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
-
-const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
+import { cardRevealDelays } from "@/lib/animation";
 
 export const revalidate = 3600;
 
@@ -72,15 +71,10 @@ export default async function WiresPage() {
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
                     {group.lines.map((line, i) => (
-                      <Reveal key={line.id} zoom delay={cardDelays[i % cardDelays.length]}>
+                      <Reveal key={line.id} zoom delay={cardRevealDelays[i % cardRevealDelays.length]}>
                       <Link
                         href={`/products/wires/${line.slug}`}
-                        className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
-                        style={{
-                          backgroundImage: "url(/brand/widget-texture.svg)",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "top right",
-                        }}
+                        className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] widget-card-bg shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                       >
                         <div className="aspect-square bg-white/70 flex items-center justify-center p-6 overflow-hidden">
                           {line.imageUrl ? (

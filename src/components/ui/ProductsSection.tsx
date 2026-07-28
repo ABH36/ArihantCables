@@ -67,14 +67,9 @@ export default function ProductsSection() {
           {products.map((p, i) => (
             <div
               key={p.name}
-              className={`group relative overflow-hidden bg-[#ececec] min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover ${fadeUp(
+              className={`group relative overflow-hidden bg-[#ececec] widget-card-bg min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover ${fadeUp(
                 i === 0 ? "delay-150" : "delay-300"
               )}`}
-              style={{
-                backgroundImage: "url(/brand/widget-texture.svg)",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "top right",
-              }}
             >
               {/* Product photo — bleeds off the bottom-right corner, behind the text */}
               <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[45%] max-w-[300px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">

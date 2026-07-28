@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { Download } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { cardRevealDelays } from "@/lib/animation";
 
 export interface CatalogueItem {
   title: string;
   image: string;
   pdf: string;
 }
-
-const delays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 export default function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
   return (
@@ -17,13 +16,8 @@ export default function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
         <Reveal
           key={item.title}
           zoom
-          delay={delays[i % delays.length]}
-          className="group relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
-          style={{
-            backgroundImage: "url(/brand/widget-texture.svg)",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top right",
-          }}
+          delay={cardRevealDelays[i % cardRevealDelays.length]}
+          className="group relative overflow-hidden rounded-2xl bg-[#ececec] widget-card-bg shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
         >
           <div className="relative aspect-[3/4] bg-white/70 overflow-hidden">
             <Image

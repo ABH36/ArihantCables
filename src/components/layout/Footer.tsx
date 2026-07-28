@@ -90,14 +90,7 @@ export default function Footer() {
         className="object-cover opacity-60 pointer-events-none select-none"
       />
       <div className="absolute inset-0 bg-navy-900/85 pointer-events-none" />
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: "url(/brand/widget-texture.svg)",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "top right",
-        }}
-      />
+      <div className="absolute inset-0 opacity-10 pointer-events-none widget-card-bg" />
 
       {/* Main Footer — extra top padding so this content clears the
           ContactSection location cards that overlap down onto the footer above. */}
