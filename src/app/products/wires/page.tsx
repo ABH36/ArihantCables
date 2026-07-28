@@ -9,7 +9,7 @@ import Reveal from "@/components/ui/Reveal";
 
 const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Polycab Wires — Arihant Cables Mumbai",

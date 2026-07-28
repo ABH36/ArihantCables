@@ -77,15 +77,15 @@ const nextConfig = {
       "/speaker-cable/polycab-speaker-cable.php",
     ];
 
-    const catalogue = ["/catalogue.php", "/catalogue_cables.php", "/catalogue_wires.php"];
-
     return [
       // Top-level pages
       { source: "/index.php", destination: "/", permanent: true },
       { source: "/about.php", destination: "/about", permanent: true },
       { source: "/pricelist.php", destination: "/pricelist", permanent: true },
       { source: "/contact.php", destination: "/contact", permanent: true },
-      ...catalogue.map((source) => ({ source, destination: "/catalogue", permanent: true })),
+      { source: "/catalogue.php", destination: "/catalogue", permanent: true },
+      { source: "/catalogue_cables.php", destination: "/catalogue/cables", permanent: true },
+      { source: "/catalogue_wires.php", destination: "/catalogue/wires", permanent: true },
 
       // Every legacy wires page (product-line pages under /building-wire/, /service-wire/, etc.)
       // now consolidates into the single, fully-catalogued Wires page.

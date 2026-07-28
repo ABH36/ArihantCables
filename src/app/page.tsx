@@ -19,6 +19,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <h1 className="sr-only">
+        Arihant Cables — Authorised Distributors of Polycab Wires &amp; Cables, Mumbai
+      </h1>
+
       {/* ========= HERO ========= */}
       <HeroSlider
         slides={[

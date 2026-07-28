@@ -43,6 +43,14 @@ export const metadata: Metadata = {
     title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
     description:
       "Over 30 years of trusted distribution of Polycab Wires & Cables across India.",
+    images: [{ url: "/brand/hero-cables.png", width: 2500, height: 988, alt: "Arihant Cables — Polycab Cables" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
+    description:
+      "Over 30 years of trusted distribution of Polycab Wires & Cables across India.",
+    images: ["/brand/hero-cables.png"],
   },
   robots: {
     index: true,

@@ -5,7 +5,7 @@ import { ArrowRight, ChevronRight, Download, Phone, CheckCircle2 } from "lucide-
 import { getProductDetail } from "@/lib/catalogue";
 import Reveal from "@/components/ui/Reveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 interface Props {
   params: { slug: string };

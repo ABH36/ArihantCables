@@ -7,7 +7,7 @@ import PageBanner from "@/components/ui/PageBanner";
 import CategoryProductsGrid from "@/components/ui/CategoryProductsGrid";
 import Reveal from "@/components/ui/Reveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 interface Props {
   params: { line: string };
