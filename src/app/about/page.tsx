@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Target, Eye, CheckCircle2 } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "About Us — Arihant Cables Mumbai | 30+ Years of Polycab Distribution",
@@ -25,16 +26,16 @@ export default function AboutPage() {
       {/* Welcome / Main Content */}
       <section className="section-py bg-white">
         <div className="section-container">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
             <h2 className="section-title">
               Welcome to <span className="text-primary-500">Arihant Cables</span>
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
             {/* LEFT: image collage + stat */}
-            <div className="grid grid-cols-2 grid-rows-2 gap-4">
+            <Reveal zoom delay="delay-150" className="grid grid-cols-2 grid-rows-2 gap-4">
               <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5]">
                 <Image
                   src="/brand/widget-cables.png"
@@ -60,10 +61,13 @@ export default function AboutPage() {
                   Years of Experience
                 </p>
               </div>
-            </div>
+            </Reveal>
 
             {/* RIGHT: copy */}
-            <div className="text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify">
+            <Reveal
+              delay="delay-300"
+              className="text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify"
+            >
               <p>
                 For over three decades, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
                 has been a Leading Distributor of{" "}
@@ -87,11 +91,11 @@ export default function AboutPage() {
                 enable us to collaborate with some of India&apos;s most esteemed companies. Our
                 dedication to quality has earned us an impressive list of clients.
               </p>
-            </div>
+            </Reveal>
           </div>
 
           {/* Full-width closing copy */}
-          <div className="max-w-5xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify">
+          <Reveal className="max-w-5xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify">
             <p>
               We compete primarily based on product quality and performance, reliable supply,
               timely delivery, excellent customer service, and competitive pricing. Established
@@ -109,7 +113,7 @@ export default function AboutPage() {
               quality, technology, and performance, while continuously exploring new business
               opportunities. Our organizational culture promotes constant growth and improvement.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -117,7 +121,7 @@ export default function AboutPage() {
       <section className="section-py bg-section-gradient">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-            <div className="text-center">
+            <Reveal zoom className="text-center">
               <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
               <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
                 <Target size={24} className="text-primary-500" />
@@ -127,8 +131,8 @@ export default function AboutPage() {
                 To build a strong brand and maintain superior quality standards for ultimate
                 customer satisfaction.
               </p>
-            </div>
-            <div className="text-center">
+            </Reveal>
+            <Reveal zoom delay="delay-150" className="text-center">
               <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
               <div className="w-14 h-14 rounded-2xl bg-navy-950/10 flex items-center justify-center mx-auto mb-4">
                 <Eye size={24} className="text-navy-950" />
@@ -138,7 +142,7 @@ export default function AboutPage() {
                 To achieve the number one position in the cable industry in terms of volume,
                 turnover, and quality within the Asian continent.
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

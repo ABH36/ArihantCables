@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, ArrowRight, Phone } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import CatalogueGrid from "@/components/ui/CatalogueGrid";
+import Reveal from "@/components/ui/Reveal";
 import catalogueData from "@/data/catalogue.json";
 
 export const metadata: Metadata = {
@@ -30,14 +31,14 @@ export default function CablesCataloguePage() {
             <span className="text-primary-500 font-medium">Cables</span>
           </nav>
 
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <p className="section-subtitle">Product Literature</p>
             <h2 className="section-title">Cables Catalogues</h2>
             <p className="text-slate-500 mt-4 max-w-xl mx-auto">
               {catalogueData.cables.length} official Polycab cable catalogues and brochures,
               ready to download.
             </p>
-          </div>
+          </Reveal>
 
           <CatalogueGrid items={catalogueData.cables} />
 

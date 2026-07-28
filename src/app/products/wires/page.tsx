@@ -5,6 +5,9 @@ import { getWiresCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
 import ContactSection from "@/components/ui/ContactSection";
+import Reveal from "@/components/ui/Reveal";
+
+const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 export const dynamic = "force-dynamic";
 
@@ -39,7 +42,7 @@ export default async function WiresPage() {
       {/* Full Catalogue */}
       <section className="section-py bg-white">
         <div className="section-container">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <p className="section-subtitle">Complete Range</p>
             <h2 className="section-title">Home Wires &amp; 180 Meter Range</h2>
             {totalProducts > 0 && (
@@ -48,7 +51,7 @@ export default async function WiresPage() {
                 every size, length, and variant currently offered.
               </p>
             )}
-          </div>
+          </Reveal>
 
           {!catalogue || catalogue.length === 0 ? (
             <div className="card p-10 text-center max-w-lg mx-auto">
@@ -68,9 +71,9 @@ export default async function WiresPage() {
                     {group.name}
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-                    {group.lines.map((line) => (
+                    {group.lines.map((line, i) => (
+                      <Reveal key={line.id} zoom delay={cardDelays[i % cardDelays.length]}>
                       <Link
-                        key={line.id}
                         href={`/products/wires/${line.slug}`}
                         className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                         style={{
@@ -107,6 +110,7 @@ export default async function WiresPage() {
                           </div>
                         </div>
                       </Link>
+                      </Reveal>
                     ))}
                   </div>
                 </div>

@@ -6,6 +6,7 @@ import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import CablesCatalogueBrowser from "@/components/ui/CablesCatalogueBrowser";
 import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
+import Reveal from "@/components/ui/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,7 @@ export default async function CablesPage() {
       {/* Full Catalogue by Industry */}
       <section className="section-py bg-white">
         <div className="section-container">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <p className="section-subtitle">Complete Range, By Industry</p>
             <h2 className="section-title">Cables For Every Industry</h2>
             {totalProducts > 0 && (
@@ -47,7 +48,7 @@ export default async function CablesPage() {
                 Exploration, Manufacturing, and Mobility Infrastructure applications.
               </p>
             )}
-          </div>
+          </Reveal>
 
           {!catalogue || catalogue.length === 0 ? (
             <div className="card p-10 text-center max-w-lg mx-auto">

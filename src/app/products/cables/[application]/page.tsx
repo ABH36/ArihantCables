@@ -5,6 +5,7 @@ import { ChevronRight, ArrowRight, Phone } from "lucide-react";
 import { getCableApplicationDetail } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import CategoryProductsGrid from "@/components/ui/CategoryProductsGrid";
+import Reveal from "@/components/ui/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -43,13 +44,13 @@ export default async function CableApplicationPage({ params }: Props) {
             <span className="text-primary-500 font-medium">{app.name}</span>
           </nav>
 
-          <div className="text-center mb-10">
+          <Reveal className="text-center mb-10">
             <p className="section-subtitle">{app.clusterName}</p>
             <h2 className="section-title">{app.name}</h2>
             <p className="text-slate-500 mt-4 max-w-xl mx-auto">
               {app.products.length} products available — search below to find the right cable.
             </p>
-          </div>
+          </Reveal>
 
           <CategoryProductsGrid products={app.products} />
 

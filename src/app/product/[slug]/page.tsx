@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ChevronRight, Download, Phone, CheckCircle2 } from "lucide-react";
 import { getProductDetail } from "@/lib/catalogue";
+import Reveal from "@/components/ui/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -60,17 +61,17 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Image */}
-            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8 flex items-center justify-center aspect-square">
+            <Reveal zoom className="rounded-2xl border border-slate-100 bg-slate-50 p-8 flex items-center justify-center aspect-square">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={product.imageUrl}
                 alt={product.name}
                 className="max-h-full max-w-full object-contain"
               />
-            </div>
+            </Reveal>
 
             {/* Info */}
-            <div>
+            <Reveal delay="delay-150">
               <h1 className="text-2xl md:text-3xl font-heading font-black text-navy-950 mb-3 leading-tight">
                 {product.name}
               </h1>
@@ -121,12 +122,12 @@ export default async function ProductDetailPage({ params }: Props) {
                   </a>
                 )}
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* Specifications */}
           {product.specs.length > 0 && (
-            <div className="mt-16 max-w-2xl">
+            <Reveal className="mt-16 max-w-2xl">
               <h2 className="font-heading font-bold text-navy-950 text-xl mb-4">Specifications</h2>
               <div className="rounded-2xl border border-slate-100 overflow-hidden">
                 <table className="w-full text-sm">
@@ -142,7 +143,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </Reveal>
           )}
         </div>
       </section>

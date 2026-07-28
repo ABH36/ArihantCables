@@ -4,12 +4,14 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import type { CatalogueProduct } from "@/lib/catalogue";
+import Reveal from "@/components/ui/Reveal";
 
 interface CategoryProductsGridProps {
   products: CatalogueProduct[];
 }
 
 const ALL = "All";
+const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 function specValue(p: CatalogueProduct, label: string) {
   return p.specs?.find((s) => s.label === label)?.value;
@@ -53,7 +55,7 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
   return (
     <div>
       {/* Search + Filter bar — row-wise */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10 bg-slate-50 border border-slate-100 rounded-2xl p-4">
+      <Reveal className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10 bg-slate-50 border border-slate-100 rounded-2xl p-4">
         <div className="relative flex-1 min-w-0">
           <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
@@ -110,7 +112,7 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
         <span className="flex-shrink-0 text-xs font-semibold text-slate-500 px-2">
           {filtered.length} of {products.length} products
         </span>
-      </div>
+      </Reveal>
 
       {filtered.length === 0 ? (
         <p className="text-center text-slate-500 py-16">
@@ -118,9 +120,9 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
         </p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-          {filtered.map((p) => (
+          {filtered.map((p, i) => (
+            <Reveal key={p.id} zoom delay={cardDelays[i % cardDelays.length]}>
             <Link
-              key={p.id}
               href={`/product/${p.slug}`}
               className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] flex flex-col"
               style={{
@@ -164,6 +166,7 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
                 </div>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       )}

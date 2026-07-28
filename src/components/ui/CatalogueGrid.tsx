@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Download } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 export interface CatalogueItem {
   title: string;
@@ -7,12 +8,16 @@ export interface CatalogueItem {
   pdf: string;
 }
 
+const delays = ["", "delay-150", "delay-300", "delay-[450ms]"];
+
 export default function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-      {items.map((item) => (
-        <div
+      {items.map((item, i) => (
+        <Reveal
           key={item.title}
+          zoom
+          delay={delays[i % delays.length]}
           className="group relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
           style={{
             backgroundImage: "url(/brand/widget-texture.svg)",
@@ -36,7 +41,7 @@ export default function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
               <Download size={14} /> Download PDF
             </a>
           </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   );

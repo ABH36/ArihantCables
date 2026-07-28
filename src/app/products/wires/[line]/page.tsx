@@ -5,6 +5,7 @@ import { ChevronRight, ArrowRight, Phone } from "lucide-react";
 import { getWireLineDetail } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import CategoryProductsGrid from "@/components/ui/CategoryProductsGrid";
+import Reveal from "@/components/ui/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -43,14 +44,14 @@ export default async function WireLinePage({ params }: Props) {
             <span className="text-primary-500 font-medium">{line.name}</span>
           </nav>
 
-          <div className="text-center mb-10">
+          <Reveal className="text-center mb-10">
             <p className="section-subtitle">{line.groupName}</p>
             <h2 className="section-title">{line.name}</h2>
             <p className="text-slate-500 mt-4 max-w-xl mx-auto">
               {line.products.length} products available — search or filter by size and length
               below.
             </p>
-          </div>
+          </Reveal>
 
           <CategoryProductsGrid products={line.products} />
 

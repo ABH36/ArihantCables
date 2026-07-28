@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Download, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Pricelist — Polycab Cables & Wires | Arihant Cables Mumbai",
@@ -57,9 +58,11 @@ export default function PricelistPage() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
-          {pricelists.map((doc) => (
-            <div
+          {pricelists.map((doc, i) => (
+            <Reveal
               key={doc.id}
+              zoom
+              delay={i === 0 ? "" : i === 1 ? "delay-150" : "delay-300"}
               className="group relative overflow-hidden rounded-xl aspect-[3/4] shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-500"
             >
               <Image
@@ -93,7 +96,7 @@ export default function PricelistPage() {
                   )}
                 </a>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </ContactSection>

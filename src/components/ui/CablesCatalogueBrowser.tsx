@@ -4,12 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { CableCluster } from "@/lib/catalogue";
+import Reveal from "@/components/ui/Reveal";
 
 interface CablesCatalogueBrowserProps {
   catalogue: CableCluster[];
 }
 
 const ALL = "All Categories";
+const cardDelays = ["", "delay-150", "delay-300", "delay-[450ms]"];
 
 export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBrowserProps) {
   const [active, setActive] = useState(ALL);
@@ -44,9 +46,9 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
               {cluster.name}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-              {cluster.applications.map((app) => (
+              {cluster.applications.map((app, i) => (
+                <Reveal key={app.id} zoom delay={cardDelays[i % cardDelays.length]}>
                 <Link
-                  key={app.id}
                   href={`/products/cables/${app.slug}`}
                   className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                   style={{
@@ -83,6 +85,7 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
                     </div>
                   </div>
                 </Link>
+                </Reveal>
               ))}
             </div>
           </div>

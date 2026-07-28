@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
+import Reveal from "@/components/ui/Reveal";
 import catalogueData from "@/data/catalogue.json";
 
 export const metadata: Metadata = {
@@ -35,17 +36,17 @@ export default function CataloguePage() {
       <PageBanner title="Catalogue" crumb="Catalogue" />
 
       <ContactSection showForm={false}>
-        <div className="text-center mb-6">
+        <Reveal className="text-center mb-6">
           <Image src="/brand/icon-mark.svg" alt="" width={32} height={32} className="mx-auto mb-2" />
           <h2 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 uppercase">
             Cables &amp; Wires Catalogues
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-4">
-          {categories.map((c) => (
+          {categories.map((c, i) => (
+            <Reveal key={c.name} delay={i === 0 ? "delay-150" : "delay-300"}>
             <Link
-              key={c.name}
               href={c.href}
               className="group relative overflow-hidden rounded-xl bg-white min-h-[220px] sm:min-h-[260px] p-6 sm:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
               style={{
@@ -76,6 +77,7 @@ export default function CataloguePage() {
                 </span>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </ContactSection>
