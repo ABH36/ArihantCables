@@ -8,15 +8,14 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="!fixed bottom-24 right-6 z-40 w-14 h-14 flex items-center justify-center rounded-full bg-[#25D366] overflow-hidden transition-transform duration-300 hover:scale-110 shadow-[0_6px_18px_-4px_rgba(37,211,102,0.6)]"
+      className="btn-primary !fixed bottom-24 right-6 z-40 !w-14 !h-14 !p-0 !rounded-full justify-center !bg-white !shadow-[0_6px_18px_-4px_rgba(37,211,102,0.6)]"
     >
       <Image
-        src={cldImage("icons/icons8-whatsapp-logo-100.gif")}
+        src={cldImage("icons/icons8-whatsapp-transparent.png")}
         alt=""
-        width={40}
-        height={40}
-        unoptimized
-        className="w-10 h-10 object-contain"
+        width={32}
+        height={32}
+        className="w-8 h-8 object-contain relative z-10"
       />
     </a>
   );

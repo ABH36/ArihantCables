@@ -63,6 +63,7 @@ const iconFiles = [
   "icons8-instagram-100.gif",
   "icons8-linkedin-circled-100.gif",
   "icons8-whatsapp-logo-100.gif",
+  "icons8-whatsapp-transparent.png",
 ];
 for (const name of iconFiles) {
   const abs = path.join("public", name);
