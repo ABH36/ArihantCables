@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Download } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import catalogueData from "@/data/catalogue.json";
@@ -8,58 +8,27 @@ import catalogueData from "@/data/catalogue.json";
 export const metadata: Metadata = {
   title: "Catalogue — Polycab Cables & Wires | Arihant Cables Mumbai",
   description:
-    "Download Polycab product catalogues from Arihant Cables Mumbai — LT, HT, EHV, Fire Survival, Rubber, Instrumentation, House Wires, Communication cables and more.",
+    "Browse and download Polycab product catalogues from Arihant Cables Mumbai — Cables catalogues and Wires catalogues, organised for quick reference.",
 };
 
-interface CatalogueItem {
-  title: string;
-  image: string;
-  pdf: string;
-}
-
-function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
-  return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-      {items.map((item) => (
-        <div
-          key={item.title}
-          className="group relative overflow-hidden rounded-2xl bg-[#ececec] shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
-          style={{
-            backgroundImage: "url(/brand/widget-texture.svg)",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top right",
-          }}
-        >
-          <div className="relative aspect-[3/4] bg-white/70 overflow-hidden">
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div className="p-4">
-            <p className="font-heading font-bold text-navy-900 text-sm sm:text-base leading-snug mb-3 line-clamp-2">
-              {item.title}
-            </p>
-            <a
-              href={item.pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary w-full justify-center !text-xs !py-2.5"
-            >
-              <Download size={14} /> Download PDF
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+const categories = [
+  {
+    name: "Cables",
+    tagline: "LT, HT, EHV, Fire Survival, Rubber, Instrumentation and more Polycab cable catalogues.",
+    image: "/brand/widget-cables.png",
+    href: "/catalogue/cables",
+    count: catalogueData.cables.length,
+  },
+  {
+    name: "Wires",
+    tagline: "House Wires, Green Wire and Sync leaflet catalogues from Polycab.",
+    image: "/brand/widget-wires.png",
+    href: "/catalogue/wires",
+    count: catalogueData.wires.length,
+  },
+];
 
 export default function CataloguePage() {
-  const { cables, wires } = catalogueData as { cables: CatalogueItem[]; wires: CatalogueItem[] };
-
   return (
     <>
       <PageBanner title="Catalogue" crumb="Catalogue" />
@@ -70,31 +39,51 @@ export default function CataloguePage() {
             <p className="section-subtitle">Product Literature</p>
             <h2 className="section-title">Cables &amp; Wires Catalogues</h2>
             <p className="text-slate-500 mt-4 max-w-xl mx-auto">
-              Download official Polycab product catalogues and brochures — organised by
-              Cables and Wires, ready for immediate reference.
+              Choose a category to browse and download official Polycab product catalogues
+              and brochures.
             </p>
           </div>
 
-          <div className="space-y-16">
-            <div>
-              <h3 className="text-xl md:text-2xl font-heading font-bold text-navy-900 mb-6 pb-3 border-b border-slate-100">
-                Cables Catalogues
-              </h3>
-              <CatalogueGrid items={cables} />
-            </div>
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {categories.map((c) => (
+              <Link
+                key={c.name}
+                href={c.href}
+                className="group relative overflow-hidden bg-[#ececec] min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover"
+                style={{
+                  backgroundImage: "url(/brand/widget-texture.svg)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "top right",
+                }}
+              >
+                <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[45%] max-w-[300px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.image}
+                    alt={`Polycab ${c.name}`}
+                    className="w-full h-auto rounded-xl"
+                  />
+                </div>
 
-            <div>
-              <h3 className="text-xl md:text-2xl font-heading font-bold text-navy-900 mb-6 pb-3 border-b border-slate-100">
-                Wires Catalogues
-              </h3>
-              <CatalogueGrid items={wires} />
-            </div>
+                <div className="relative z-10 max-w-[75%] sm:max-w-[68%]">
+                  <h3 className="font-heading font-bold text-2xl text-navy-950 mb-0">
+                    {c.name} Catalogues
+                  </h3>
+                  <p className="text-navy-400 text-sm leading-[1.8] my-6">{c.tagline}</p>
+                  <span className="badge-primary text-xs mb-6 inline-block">
+                    {c.count} catalogues
+                  </span>
+                  <span className="group/btn btn-primary !rounded-none font-bold text-sm uppercase tracking-wide px-8 py-4 font-heading w-fit">
+                    Explore
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
-
-          <p className="text-center text-slate-400 text-xs mt-10">
-            Catalogues open in a new tab. Contact Arihant Cables for the latest pricing and
-            stock availability on any product shown.
-          </p>
         </div>
       </section>
 
