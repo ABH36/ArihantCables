@@ -5,6 +5,7 @@ import { getCablesCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import CablesCatalogueBrowser from "@/components/ui/CablesCatalogueBrowser";
+import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
 
 export const dynamic = "force-dynamic";
 
@@ -69,7 +70,9 @@ export default async function CablesPage() {
         </div>
       </section>
 
-      <ContactSection showForm={false} />
+      <ContactSection showForm={false}>
+        <WhyChoosePolycabSection />
+      </ContactSection>
     </>
   );
 }
