@@ -124,7 +124,7 @@ export default function CategoryProductsGrid({ products }: CategoryProductsGridP
             <Reveal key={p.id} zoom delay={cardRevealDelays[i % cardRevealDelays.length]}>
             <Link
               href={`/product/${p.slug}`}
-              className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] widget-card-bg flex flex-col"
+              className="group/card rounded-xl p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-[#ececec] widget-card flex flex-col"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

@@ -17,7 +17,7 @@ export default function CatalogueGrid({ items }: { items: CatalogueItem[] }) {
           key={item.title}
           zoom
           delay={cardRevealDelays[i % cardRevealDelays.length]}
-          className="group relative overflow-hidden rounded-2xl bg-[#ececec] widget-card-bg shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+          className="group relative overflow-hidden rounded-2xl bg-[#ececec] widget-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
         >
           <div className="relative aspect-[3/4] bg-white/70 overflow-hidden">
             <Image

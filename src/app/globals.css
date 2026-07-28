@@ -157,13 +157,19 @@
     @apply badge bg-primary-100 text-primary-700;
   }
 
-  /* Widget card background — the hexagon texture used behind #ececec
-     product/category cards site-wide (Products, Wires/Cables listings,
-     Catalogue, Footer, ContactSection). */
+  /* Widget card background — just the hexagon texture, used both as a
+     decorative full-bleed overlay (Footer) and as the base for real cards. */
   .widget-card-bg {
-    @apply border border-slate-200/80;
     background-image: url("https://res.cloudinary.com/ijn0usib/image/upload/brand/widget-texture.svg");
     background-repeat: no-repeat;
     background-position: top right;
+  }
+
+  /* Widget card — the actual #ececec product/category/address card variant
+     (Products, Wires/Cables listings, Catalogue, ContactSection), with a
+     clearly visible border + shadow so it reads as a card, not a floating
+     image, even at small screenshot sizes. */
+  .widget-card {
+    @apply widget-card-bg border-2 border-slate-300 shadow-md;
   }
 }

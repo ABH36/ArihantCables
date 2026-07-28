@@ -71,7 +71,7 @@ export default function ContactSection({ showForm = true, children }: ContactSec
         {showForm && (
           <div className="flex justify-center mb-16 md:mb-24">
             <div
-              className={`relative w-full max-w-2xl bg-[#ececec] widget-card-bg rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
+              className={`relative w-full max-w-2xl bg-[#ececec] widget-card rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
             >
               <div className="relative">
                 <p className="section-subtitle mb-1">Get In Touch</p>
@@ -88,7 +88,7 @@ export default function ContactSection({ showForm = true, children }: ContactSec
         {!showForm && children && (
           <div className="flex justify-center mb-16 md:mb-24">
             <div
-              className={`relative w-full max-w-4xl bg-[#ececec] widget-card-bg rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
+              className={`relative w-full max-w-4xl bg-[#ececec] widget-card rounded-2xl shadow-2xl p-8 sm:p-12 overflow-hidden ${fadeUp("")}`}
             >
               <div className="relative">{children}</div>
             </div>
@@ -101,7 +101,7 @@ export default function ContactSection({ showForm = true, children }: ContactSec
           {locations.map((loc, i) => (
             <div
               key={loc.label}
-              className={`relative overflow-hidden bg-[#ececec] widget-card-bg rounded-2xl shadow-card-hover p-8 sm:p-9 ${fadeUp(
+              className={`relative overflow-hidden bg-[#ececec] widget-card rounded-2xl shadow-card-hover p-8 sm:p-9 ${fadeUp(
                 i === 0 ? "delay-150" : "delay-300"
               )}`}
             >

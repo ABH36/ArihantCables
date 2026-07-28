@@ -68,7 +68,7 @@ export default function ProductsSection() {
           {products.map((p, i) => (
             <div
               key={p.name}
-              className={`group relative overflow-hidden bg-[#ececec] widget-card-bg min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover ${fadeUp(
+              className={`group relative overflow-hidden bg-[#ececec] widget-card min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 transition-shadow duration-500 hover:shadow-card-hover ${fadeUp(
                 i === 0 ? "delay-150" : "delay-300"
               )}`}
             >

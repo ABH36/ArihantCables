@@ -141,7 +141,7 @@ export default function ContactPage() {
             {locations.map((loc) => (
               <div
                 key={loc.label}
-                className="relative overflow-hidden bg-[#ececec] widget-card-bg rounded-2xl shadow-card-hover p-8 sm:p-9"
+                className="relative overflow-hidden bg-[#ececec] widget-card rounded-2xl shadow-card-hover p-8 sm:p-9"
               >
                 <div className="flex items-start gap-3 mb-5">
                   <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
