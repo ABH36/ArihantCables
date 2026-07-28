@@ -30,9 +30,10 @@ function uploadLarge(filePath, options) {
   });
 }
 
-/** Recursively collect files under dir, returning {absPath, relPath}. */
+/** Recursively collect files under dir, returning {absPath, relPath}. Silent no-op if dir is missing. */
 function walk(dir, base = dir) {
   const out = [];
+  if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const abs = path.join(dir, entry.name);
     if (entry.isDirectory()) {

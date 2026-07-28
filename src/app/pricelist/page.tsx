@@ -4,7 +4,7 @@ import { Download, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
-import { cldImage } from "@/lib/cloudinary";
+import { cldImage, cldRaw } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Pricelist — Polycab Cables & Wires | Arihant Cables Mumbai",
@@ -17,7 +17,7 @@ const pricelists = [
     id: "armoured-jun-2026",
     title: "Polycab Armoured Cables",
     subtitle: "Pricelist — June 2026",
-    fileUrl: "/documents/Arihant-ARMOURED-Jun-2026.pdf",
+    fileUrl: cldRaw("documents/Arihant-ARMOURED-Jun-2026.pdf"),
     type: "Armoured",
     image: cldImage("brand/hero-cables.png"),
     fit: "object-cover object-right",
@@ -27,7 +27,7 @@ const pricelists = [
     id: "flexible-may-2026",
     title: "Polycab Flexible Cables",
     subtitle: "Pricelist — May 2026",
-    fileUrl: "/documents/Arihant-FLEXIBLE-May-2026.pdf",
+    fileUrl: cldRaw("documents/Arihant-FLEXIBLE-May-2026.pdf"),
     type: "Flexible",
     image: cldImage("brand/widget-wires.png"),
     fit: "object-contain bg-white",

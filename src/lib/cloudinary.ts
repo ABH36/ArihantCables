@@ -12,12 +12,10 @@ export function cldImage(relativePath: string): string {
  * since a plain HTML `download` attribute doesn't reliably trigger downloads for
  * cross-origin URLs like res.cloudinary.com.
  *
- * NOT currently used anywhere — this Cloudinary account has raw/PDF delivery
- * blocked by default (401 Unauthorized), which is a Cloudinary security setting
- * ("Allow delivery of PDF and ZIP files" under Console > Settings > Security),
- * not a code issue. All PDFs still link to /public/documents/... until that's
- * enabled; once it is, swap catalogue.json's `pdf` fields and pricelist/page.tsx's
- * `fileUrl` fields over to cldRaw(...) the same way the image fields use cldImage.
+ * A handful of the largest catalogue PDFs (12-31MB) still link to local
+ * /public/documents/... instead — this Cloudinary account's raw-upload size cap
+ * is 10MB even via chunked upload, which is a plan limit, not something fixable
+ * from code.
  */
 export function cldRaw(relativePath: string): string {
   const clean = relativePath.replace(/^\//, "");
