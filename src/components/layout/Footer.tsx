@@ -137,7 +137,7 @@ export default function Footer() {
                     key={p.name}
                     href={p.href}
                     className={`group flex items-start gap-3 ${
-                      i > 0 ? "pt-4 border-t border-white/10" : ""
+                      i > 0 ? "pt-4 border-t border-primary-500/40" : ""
                     }`}
                   >
                     <div className="w-11 h-11 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
