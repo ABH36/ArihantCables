@@ -16,16 +16,14 @@ const categories = [
   {
     name: "Cables",
     tagline: "LT, HT, EHV, Fire Survival, Rubber, Instrumentation and more Polycab cable catalogues.",
-    image: "/brand/hero-cables.png",
-    position: "object-right",
+    image: "/brand/widget-cables.png",
     href: "/catalogue/cables",
     count: catalogueData.cables.length,
   },
   {
     name: "Wires",
     tagline: "House Wires, Green Wire and Sync leaflet catalogues from Polycab.",
-    image: "/brand/hero-wires.png",
-    position: "object-right",
+    image: "/brand/widget-wires.png",
     href: "/catalogue/wires",
     count: catalogueData.wires.length,
   },
@@ -36,55 +34,51 @@ export default function CataloguePage() {
     <>
       <PageBanner title="Catalogue" crumb="Catalogue" />
 
-      <section className="section-py bg-white">
-        <div className="section-container">
-          <div className="text-center mb-14">
-            <p className="section-subtitle">Product Literature</p>
-            <h2 className="section-title">Cables &amp; Wires Catalogues</h2>
-            <p className="text-slate-500 mt-4 max-w-xl mx-auto">
-              Choose a category to browse and download official Polycab product catalogues
-              and brochures.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {categories.map((c) => (
-              <Link
-                key={c.name}
-                href={c.href}
-                className="group relative overflow-hidden rounded-2xl min-h-[300px] sm:min-h-[340px] p-8 sm:p-10 lg:p-12 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
-              >
-                <Image
-                  src={c.image}
-                  alt={`Polycab ${c.name}`}
-                  fill
-                  className={`object-cover ${c.position} transition-transform duration-700 group-hover:scale-105`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/60 to-navy-950/20" />
-
-                <div className="relative z-10 max-w-[85%] sm:max-w-[70%]">
-                  <h3 className="font-heading font-bold text-2xl text-white mb-0">
-                    {c.name} Catalogues
-                  </h3>
-                  <p className="text-white/75 text-sm leading-[1.8] my-6">{c.tagline}</p>
-                  <span className="badge-primary text-xs mb-6 inline-block">
-                    {c.count} catalogues
-                  </span>
-                  <span className="group/btn btn-primary !rounded-none font-bold text-sm uppercase tracking-wide px-8 py-4 font-heading w-fit">
-                    Explore
-                    <ArrowRight
-                      size={15}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+      <ContactSection showForm={false}>
+        <div className="text-center mb-6">
+          <Image src="/brand/icon-mark.svg" alt="" width={32} height={32} className="mx-auto mb-2" />
+          <h2 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 uppercase">
+            Cables &amp; Wires Catalogues
+          </h2>
         </div>
-      </section>
 
-      <ContactSection showForm={false} />
+        <div className="grid md:grid-cols-2 gap-4">
+          {categories.map((c) => (
+            <Link
+              key={c.name}
+              href={c.href}
+              className="group relative overflow-hidden rounded-xl bg-white min-h-[220px] sm:min-h-[260px] p-6 sm:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              style={{
+                backgroundImage: "url(/brand/widget-texture.svg)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "top right",
+              }}
+            >
+              <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[42%] max-w-[220px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.image} alt={`Polycab ${c.name}`} className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="relative z-10 max-w-[75%] sm:max-w-[65%]">
+                <h3 className="font-heading font-bold text-lg sm:text-xl text-navy-950 mb-0">
+                  {c.name} Catalogues
+                </h3>
+                <p className="text-navy-400 text-xs sm:text-sm leading-[1.7] my-4">{c.tagline}</p>
+                <span className="badge-primary text-[11px] mb-4 inline-block">
+                  {c.count} catalogues
+                </span>
+                <span className="group/btn btn-primary !rounded-none font-bold text-xs uppercase tracking-wide px-6 py-3 font-heading w-fit">
+                  Explore
+                  <ArrowRight
+                    size={13}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </ContactSection>
     </>
   );
 }
