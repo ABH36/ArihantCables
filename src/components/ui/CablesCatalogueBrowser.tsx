@@ -50,7 +50,7 @@ export default function CablesCatalogueBrowser({ catalogue }: CablesCatalogueBro
                 <Reveal key={app.id} zoom delay={cardRevealDelays[i % cardRevealDelays.length]}>
                 <Link
                   href={`/products/cables/${app.slug}`}
-                  className="group/card relative overflow-hidden rounded-2xl bg-[#ececec] widget-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+                  className="group/card block relative overflow-hidden rounded-2xl bg-[#ececec] widget-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="aspect-square bg-white/70 flex items-center justify-center p-6 overflow-hidden">
                     {app.imageUrl ? (

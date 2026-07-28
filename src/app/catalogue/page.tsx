@@ -51,7 +51,7 @@ export default function CataloguePage() {
             <Reveal key={c.name} delay={i === 0 ? "delay-150" : "delay-300"}>
             <Link
               href={c.href}
-              className="group relative overflow-hidden rounded-xl bg-white widget-card min-h-[220px] sm:min-h-[260px] p-6 sm:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group block relative overflow-hidden rounded-xl bg-white widget-card min-h-[220px] sm:min-h-[260px] p-6 sm:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               <div className="absolute right-0 bottom-0 z-0 w-1/2 sm:w-[42%] max-w-[220px] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-x-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
