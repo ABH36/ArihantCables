@@ -4,6 +4,7 @@ import { Download, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
+import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Pricelist — Polycab Cables & Wires | Arihant Cables Mumbai",
@@ -18,7 +19,7 @@ const pricelists = [
     subtitle: "Pricelist — June 2026",
     fileUrl: "/documents/Arihant-ARMOURED-Jun-2026.pdf",
     type: "Armoured",
-    image: "/brand/hero-cables.png",
+    image: cldImage("brand/hero-cables.png"),
     fit: "object-cover object-right",
     action: "download",
   },
@@ -28,7 +29,7 @@ const pricelists = [
     subtitle: "Pricelist — May 2026",
     fileUrl: "/documents/Arihant-FLEXIBLE-May-2026.pdf",
     type: "Flexible",
-    image: "/brand/widget-wires.png",
+    image: cldImage("brand/widget-wires.png"),
     fit: "object-contain bg-white",
     action: "download",
   },
@@ -38,7 +39,7 @@ const pricelists = [
     subtitle: "Contact us for specific product pricelists not listed here.",
     fileUrl: "/contact#inquiry",
     type: "On Request",
-    image: "/brand/widget-cables.png",
+    image: cldImage("brand/widget-cables.png"),
     fit: "object-contain bg-white",
     action: "request",
   },
@@ -51,7 +52,7 @@ export default function PricelistPage() {
 
       <ContactSection showForm={false}>
         <div className="text-center mb-6">
-          <Image src="/brand/icon-mark.svg" alt="" width={32} height={32} className="mx-auto mb-2" />
+          <Image src={cldImage("brand/icon-mark.svg")} alt="" width={32} height={32} className="mx-auto mb-2" />
           <h2 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 uppercase">
             Download Pricelists
           </h2>

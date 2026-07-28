@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { MapPin, Phone, ExternalLink } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
+import { cldImage } from "@/lib/cloudinary";
 
 const locations = [
   {
@@ -63,7 +64,7 @@ export default function ContactSection({ showForm = true, children }: ContactSec
     >
       {/* Single continuous background image behind both the form and the
           address cards below it — no seam, no separate white section. */}
-      <Image src="/homeenqurybackground.png" alt="" fill className="object-cover" />
+      <Image src={cldImage("homeenqurybackground.png")} alt="" fill className="object-cover" />
 
       <div className="section-container relative">
         {/* Request a Quote form */}

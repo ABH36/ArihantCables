@@ -6,6 +6,7 @@ import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
 import catalogueData from "@/data/catalogue.json";
+import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Catalogue — Polycab Cables & Wires | Arihant Cables Mumbai",
@@ -17,14 +18,14 @@ const categories = [
   {
     name: "Cables",
     tagline: "LT, HT, EHV, Fire Survival, Rubber, Instrumentation and more Polycab cable catalogues.",
-    image: "/brand/widget-cables.png",
+    image: cldImage("brand/widget-cables.png"),
     href: "/catalogue/cables",
     count: catalogueData.cables.length,
   },
   {
     name: "Wires",
     tagline: "House Wires, Green Wire and Sync leaflet catalogues from Polycab.",
-    image: "/brand/widget-wires.png",
+    image: cldImage("brand/widget-wires.png"),
     href: "/catalogue/wires",
     count: catalogueData.wires.length,
   },
@@ -37,7 +38,7 @@ export default function CataloguePage() {
 
       <ContactSection showForm={false}>
         <Reveal className="text-center mb-6">
-          <Image src="/brand/icon-mark.svg" alt="" width={32} height={32} className="mx-auto mb-2" />
+          <Image src={cldImage("brand/icon-mark.svg")} alt="" width={32} height={32} className="mx-auto mb-2" />
           <h2 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 uppercase">
             Cables &amp; Wires Catalogues
           </h2>

@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
 import PageBanner from "@/components/ui/PageBanner";
 import Reveal from "@/components/ui/Reveal";
+import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Contact Us — Arihant Cables Mumbai",
@@ -45,7 +46,7 @@ export default function ContactPage() {
       <section className="section-py bg-white" id="inquiry">
         <div className="section-container">
           <Reveal className="text-center mb-12">
-            <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
+            <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
             <p className="section-subtitle">Keep In Touch</p>
             <h2 className="section-title max-w-2xl mx-auto">
               Please Do Not Hesitate To Contact Us
@@ -117,7 +118,7 @@ export default function ContactPage() {
 
       {/* Map + Address cards — orange background image, cards overlapping the footer */}
       <section className="relative pt-16 md:pt-20 pb-0">
-        <Image src="/homeenqurybackground.png" alt="" fill className="object-cover" />
+        <Image src={cldImage("homeenqurybackground.png")} alt="" fill className="object-cover" />
 
         <div className="section-container relative">
           <Reveal className="max-w-5xl mx-auto h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-2xl mb-16 md:mb-20">

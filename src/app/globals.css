@@ -161,7 +161,7 @@
      product/category cards site-wide (Products, Wires/Cables listings,
      Catalogue, Footer, ContactSection). */
   .widget-card-bg {
-    background-image: url("/brand/widget-texture.svg");
+    background-image: url("https://res.cloudinary.com/ijn0usib/image/upload/brand/widget-texture.svg");
     background-repeat: no-repeat;
     background-position: top right;
   }

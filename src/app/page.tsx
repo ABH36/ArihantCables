@@ -4,6 +4,7 @@ import AboutSection from "@/components/ui/AboutSection";
 import ProductsSection from "@/components/ui/ProductsSection";
 import ApplicationsSection from "@/components/ui/ApplicationsSection";
 import ContactSection from "@/components/ui/ContactSection";
+import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Arihant Cables — Authorised Distributors of Polycab Wires & Cables, Mumbai",
@@ -26,8 +27,8 @@ export default function HomePage() {
       {/* ========= HERO ========= */}
       <HeroSlider
         slides={[
-          { src: "/brand/hero-wires.png", alt: "Polycab Wires — Arihant Cables" },
-          { src: "/brand/hero-cables.png", alt: "Polycab Cables — Arihant Cables" },
+          { src: cldImage("brand/hero-wires.png"), alt: "Polycab Wires — Arihant Cables" },
+          { src: cldImage("brand/hero-cables.png"), alt: "Polycab Cables — Arihant Cables" },
         ]}
       />
 

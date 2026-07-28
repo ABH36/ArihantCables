@@ -104,6 +104,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "arihantcables.com",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 };

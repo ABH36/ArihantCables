@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { cldImage } from "@/lib/cloudinary";
 
 interface PageBannerProps {
   title: string;
@@ -11,7 +12,7 @@ export default function PageBanner({ title, crumb }: PageBannerProps) {
   return (
     <section className="relative -mt-6 sm:-mt-8 lg:-mt-10 h-[220px] md:h-[280px] flex items-center overflow-hidden bg-navy-950">
       <Image
-        src="/brand/inner-banner.png"
+        src={cldImage("brand/inner-banner.png")}
         alt=""
         fill
         priority

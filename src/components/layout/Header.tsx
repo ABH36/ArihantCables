@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, Home as HomeIcon, Info, Cable, Plug, Tag, BookOpen, Phone, ArrowRight } from "lucide-react";
 import MobileNav from "./MobileNav";
+import { cldImage } from "@/lib/cloudinary";
 
 const navLinks = [
   { label: "Home", href: "/", icon: HomeIcon },
@@ -54,7 +55,7 @@ export default function Header() {
               {/* Right: Polycab white logo */}
               <div className="hidden sm:flex items-center">
                 <Image
-                  src="/brand/polycab-white.png"
+                  src={cldImage("brand/polycab-white.png")}
                   alt="Polycab Ideas. Connected."
                   width={160}
                   height={44}
@@ -76,7 +77,7 @@ export default function Header() {
               {/* Logo */}
               <Link href="/" className="flex items-center flex-shrink-0 pl-2 sm:pl-4 group">
                 <Image
-                  src="/brand/logo.svg"
+                  src={cldImage("brand/logo.svg")}
                   alt="Arihant Cables"
                   width={260}
                   height={75}
@@ -93,7 +94,7 @@ export default function Header() {
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
                   <div className="flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:-rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
-                    <Image src="/brand/icon-phone.svg" alt="" width={38} height={38} className="w-9 h-9 sm:w-10 sm:h-10" />
+                    <Image src={cldImage("brand/icon-phone.svg")} alt="" width={38} height={38} className="w-9 h-9 sm:w-10 sm:h-10" />
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
@@ -111,7 +112,7 @@ export default function Header() {
                   className="flex items-center gap-4 group transition-all duration-300"
                 >
                   <div className="flex-shrink-0 flex items-center justify-center group-hover:scale-[1.15] group-hover:rotate-6 transition-transform duration-300 group-hover:drop-shadow-[0_0_12px_rgba(252,102,1,0.8)]">
-                    <Image src="/brand/icon-email.svg" alt="" width={47} height={39} className="w-11 h-9 sm:w-12 sm:h-10" />
+                    <Image src={cldImage("brand/icon-email.svg")} alt="" width={47} height={39} className="w-11 h-9 sm:w-12 sm:h-10" />
                   </div>
                   <div className="flex flex-col justify-center leading-tight">
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">

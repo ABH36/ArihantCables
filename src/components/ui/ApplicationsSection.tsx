@@ -2,14 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { cldImage } from "@/lib/cloudinary";
 
 const applications = [
-  { label: "Residential", image: "/brand/app-residential.png" },
-  { label: "Industrial", image: "/brand/app-industrial.png" },
-  { label: "Healthcare", image: "/brand/app-healthcare.png" },
-  { label: "Telecommunication", image: "/brand/app-telecom.png" },
-  { label: "Hotels", image: "/brand/app-hotels.png" },
-  { label: "Commercial", image: "/brand/app-commercial.png" },
+  { label: "Residential", image: cldImage("brand/app-residential.png") },
+  { label: "Industrial", image: cldImage("brand/app-industrial.png") },
+  { label: "Healthcare", image: cldImage("brand/app-healthcare.png") },
+  { label: "Telecommunication", image: cldImage("brand/app-telecom.png") },
+  { label: "Hotels", image: cldImage("brand/app-hotels.png") },
+  { label: "Commercial", image: cldImage("brand/app-commercial.png") },
 ];
 
 // Duplicated once so the marquee can loop seamlessly at translateX(-50%).
@@ -47,7 +48,7 @@ export default function ApplicationsSection() {
       <div className="section-container">
         <div className={`text-center mb-12 ${fadeUp("")}`}>
           <Image
-            src="/brand/icon-mark.svg"
+            src={cldImage("brand/icon-mark.svg")}
             alt=""
             width={40}
             height={40}

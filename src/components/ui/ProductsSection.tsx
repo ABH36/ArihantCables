@@ -4,20 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { cldImage } from "@/lib/cloudinary";
 
 const products = [
   {
     name: "Wires",
     tagline:
       "Power your world with Polycab Wires – where safety, reliability, and innovation meet to elevate your electrical solutions.",
-    image: "/brand/widget-wires.png",
+    image: cldImage("brand/widget-wires.png"),
     href: "/products/wires",
   },
   {
     name: "Cables",
     tagline:
       "Elevate your electrical systems with Polycab Cables, engineered for reliability and performance to power your world.",
-    image: "/brand/widget-cables.png",
+    image: cldImage("brand/widget-cables.png"),
     href: "/products/cables",
   },
 ];
@@ -54,7 +55,7 @@ export default function ProductsSection() {
       <div className="section-container">
         <div className={`text-center mb-12 ${fadeUp("")}`}>
           <Image
-            src="/brand/icon-mark.svg"
+            src={cldImage("brand/icon-mark.svg")}
             alt=""
             width={40}
             height={40}

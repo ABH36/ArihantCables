@@ -1,20 +1,20 @@
 {
   "cables": [
-    { "title": "Uninyvin Cable", "image": "/brand/catalogue-card/1.png", "pdf": "/documents/catalogue/uninyvin-cable-compressed.pdf" },
-    { "title": "LT Cable", "image": "/brand/catalogue-card/2.jpg", "pdf": "/documents/catalogue/lt-catalogue-ord_17720_v2.pdf" },
-    { "title": "HT Cable", "image": "/brand/catalogue-card/3.png", "pdf": "/documents/catalogue/ht-cable-catalogue.pdf" },
-    { "title": "Fire Survival Cable Brochure", "image": "/brand/catalogue-card/4.png", "pdf": "/documents/catalogue/fire-survival-cable-brochure-artwork_2.pdf" },
-    { "title": "EHV", "image": "/brand/catalogue-card/5.png", "pdf": "/documents/catalogue/polycab-ehv-brochure.pdf" },
-    { "title": "Rubber Cable Catalogue", "image": "/brand/catalogue-card/6.png", "pdf": "/documents/catalogue/final_rubber-cable_catalogue.pdf" },
-    { "title": "Instrumentation Cable Catalogue", "image": "/brand/catalogue-card/7.png", "pdf": "/documents/catalogue/instrumentation-cable_catalogue_innerpage_v9_ord-10763-final-c2c.pdf" },
-    { "title": "Housewire Catalogue", "image": "/brand/catalogue-card/8.png", "pdf": "/documents/catalogue/housewire-catalogue.pdf" },
-    { "title": "B2B All Products Catalogue", "image": "/brand/catalogue-card/9.png", "pdf": "/documents/catalogue/b2b-all-products-catalogue.pdf" },
-    { "title": "Dowells Brochure", "image": "/brand/catalogue-card/10.png", "pdf": "/documents/catalogue/dowells-brochure.pdf" },
-    { "title": "Communication & Data Cable", "image": "/brand/catalogue-card/11.png", "pdf": "/documents/catalogue/approved_communicaton-cable-catlogue.pdf" }
+    { "title": "Uninyvin Cable", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/1.png", "pdf": "/documents/catalogue/uninyvin-cable-compressed.pdf" },
+    { "title": "LT Cable", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/2.jpg", "pdf": "/documents/catalogue/lt-catalogue-ord_17720_v2.pdf" },
+    { "title": "HT Cable", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/3.png", "pdf": "/documents/catalogue/ht-cable-catalogue.pdf" },
+    { "title": "Fire Survival Cable Brochure", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/4.png", "pdf": "/documents/catalogue/fire-survival-cable-brochure-artwork_2.pdf" },
+    { "title": "EHV", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/5.png", "pdf": "/documents/catalogue/polycab-ehv-brochure.pdf" },
+    { "title": "Rubber Cable Catalogue", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/6.png", "pdf": "/documents/catalogue/final_rubber-cable_catalogue.pdf" },
+    { "title": "Instrumentation Cable Catalogue", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/7.png", "pdf": "/documents/catalogue/instrumentation-cable_catalogue_innerpage_v9_ord-10763-final-c2c.pdf" },
+    { "title": "Housewire Catalogue", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/8.png", "pdf": "/documents/catalogue/housewire-catalogue.pdf" },
+    { "title": "B2B All Products Catalogue", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/9.png", "pdf": "/documents/catalogue/b2b-all-products-catalogue.pdf" },
+    { "title": "Dowells Brochure", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/10.png", "pdf": "/documents/catalogue/dowells-brochure.pdf" },
+    { "title": "Communication & Data Cable", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/11.png", "pdf": "/documents/catalogue/approved_communicaton-cable-catlogue.pdf" }
   ],
   "wires": [
-    { "title": "House Wires Catalogue", "image": "/brand/catalogue-card/wire_1.png", "pdf": "/documents/catalogue/house-wires-catalogue-with-suprema-march-25.pdf" },
-    { "title": "Polycab Green Wire", "image": "/brand/catalogue-card/wire_2.png", "pdf": "/documents/catalogue/polycab-green-wire-leaflet.pdf" },
-    { "title": "Polycab Sync Leaflet", "image": "/brand/catalogue-card/wire_3.png", "pdf": "/documents/catalogue/sync-leaflet_web.pdf" }
+    { "title": "House Wires Catalogue", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/wire_1.png", "pdf": "/documents/catalogue/house-wires-catalogue-with-suprema-march-25.pdf" },
+    { "title": "Polycab Green Wire", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/wire_2.png", "pdf": "/documents/catalogue/polycab-green-wire-leaflet.pdf" },
+    { "title": "Polycab Sync Leaflet", "image": "https://res.cloudinary.com/ijn0usib/image/upload/brand/catalogue-card/wire_3.png", "pdf": "/documents/catalogue/sync-leaflet_web.pdf" }
   ]
 }

@@ -22,6 +22,7 @@ import {
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import NewsletterForm from "@/components/ui/NewsletterForm";
+import { cldImage } from "@/lib/cloudinary";
 
 const usefulLinks = [
   { label: "Home", href: "/" },
@@ -84,7 +85,7 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-primary-700 via-primary-500 to-accent-DEFAULT" />
 
       <Image
-        src="/footerbg.png"
+        src={cldImage("footerbg.png")}
         alt=""
         fill
         className="object-cover opacity-60 pointer-events-none select-none"
@@ -100,7 +101,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex mb-4 group">
               <Image
-                src="/brand/logo.svg"
+                src={cldImage("brand/logo.svg")}
                 alt="Arihant Cables"
                 width={240}
                 height={78}

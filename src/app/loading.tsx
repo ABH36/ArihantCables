@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cldImage } from "@/lib/cloudinary";
 
 export default function Loading() {
   return (
@@ -8,7 +9,7 @@ export default function Loading() {
         <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary-500 border-r-primary-500 animate-spin [animation-duration:1.1s]" />
         <div className="w-14 h-14 rounded-xl overflow-hidden shadow-cta animate-logo-pulse">
           <Image
-            src="/brand/icon-mark.svg"
+            src={cldImage("brand/icon-mark.svg")}
             alt="Arihant Cables"
             width={56}
             height={50}

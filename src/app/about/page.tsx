@@ -4,6 +4,7 @@ import { Target, Eye, CheckCircle2 } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
+import { cldImage } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "About Us — Arihant Cables Mumbai | 30+ Years of Polycab Distribution",
@@ -27,7 +28,7 @@ export default function AboutPage() {
       <section className="section-py bg-white">
         <div className="section-container">
           <Reveal className="text-center mb-14">
-            <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
+            <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
             <h2 className="section-title">
               Welcome to <span className="text-primary-500">Arihant Cables</span>
             </h2>
@@ -38,18 +39,18 @@ export default function AboutPage() {
             <Reveal zoom delay="delay-150" className="grid grid-cols-2 grid-rows-2 gap-4">
               <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5]">
                 <Image
-                  src="/brand/widget-cables.png"
+                  src={cldImage("brand/widget-cables.png")}
                   alt="Polycab cable range"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
-                <Image src="/brand/about-1.png" alt="Polycab wire construction" fill className="object-cover" />
+                <Image src={cldImage("brand/about-1.png")} alt="Polycab wire construction" fill className="object-cover" />
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
                 <Image
-                  src="/brand/about-2.png"
+                  src={cldImage("brand/about-2.png")}
                   alt="Arihant Cables distribution truck"
                   fill
                   className="object-cover"
@@ -122,7 +123,7 @@ export default function AboutPage() {
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
             <Reveal zoom className="text-center">
-              <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
+              <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
               <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
                 <Target size={24} className="text-primary-500" />
               </div>
@@ -133,7 +134,7 @@ export default function AboutPage() {
               </p>
             </Reveal>
             <Reveal zoom delay="delay-150" className="text-center">
-              <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
+              <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
               <div className="w-14 h-14 rounded-2xl bg-navy-950/10 flex items-center justify-center mx-auto mb-4">
                 <Eye size={24} className="text-navy-950" />
               </div>
@@ -149,7 +150,7 @@ export default function AboutPage() {
 
       <ContactSection showForm={false}>
         <div className="text-center">
-          <Image src="/brand/icon-mark.svg" alt="" width={40} height={40} className="mx-auto mb-3" />
+          <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy-950 mb-6">
             Why Choose Arihant Cables?
           </h2>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { cldImage } from "@/lib/cloudinary";
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export default function AboutSection() {
             exactly matching the Products section's icon + title treatment */}
         <div className={`text-center mb-14 ${fadeUp("")}`}>
           <Image
-            src="/brand/icon-mark.svg"
+            src={cldImage("brand/icon-mark.svg")}
             alt=""
             width={40}
             height={40}
@@ -85,7 +86,7 @@ export default function AboutSection() {
           <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-300")}`}>
             <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
               <Image
-                src="/brand/about-2.png"
+                src={cldImage("brand/about-2.png")}
                 alt="Arihant Cables — Wires & Cables distribution logistics truck"
                 width={900}
                 height={600}
@@ -94,7 +95,7 @@ export default function AboutSection() {
               />
               <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
                 <Image
-                  src="/brand/icon-mark.svg"
+                  src={cldImage("brand/icon-mark.svg")}
                   alt=""
                   width={20}
                   height={18}
@@ -109,7 +110,7 @@ export default function AboutSection() {
               )}`}
             >
               <Image
-                src="/brand/about-1.png"
+                src={cldImage("brand/about-1.png")}
                 alt="Polycab wire construction"
                 fill
                 className="object-cover"

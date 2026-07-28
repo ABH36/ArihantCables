@@ -2,21 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { cldImage } from "@/lib/cloudinary";
 
 const cards = [
   {
     title: "Strong Backward Integration",
-    image: "/brand/app-industrial.png",
+    image: cldImage("brand/app-industrial.png"),
     position: "object-center",
   },
   {
     title: "EC Copper Is 99.97% Pure",
-    image: "/brand/hero-wires.png",
+    image: cldImage("brand/hero-wires.png"),
     position: "object-right-top",
   },
   {
     title: "Wires Complying To Highest Level Of Electrical Safety",
-    image: "/brand/app-commercial.png",
+    image: cldImage("brand/app-commercial.png"),
     position: "object-center",
   },
 ];
@@ -51,7 +52,7 @@ export default function WhyChoosePolycabSection() {
   return (
     <div ref={sectionRef}>
       <div className={`text-center mb-6 ${fadeUp("")}`}>
-        <Image src="/brand/icon-mark.svg" alt="" width={32} height={32} className="mx-auto mb-2" />
+        <Image src={cldImage("brand/icon-mark.svg")} alt="" width={32} height={32} className="mx-auto mb-2" />
         <h2 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 uppercase">
           Why Choose Polycab
         </h2>
