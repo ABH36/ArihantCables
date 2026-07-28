@@ -245,8 +245,7 @@ export default function Footer() {
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Arihant Cables. All rights reserved.</p>
           <p>
-            GST: <span className="text-white/70 font-mono">27AABFA3073E1ZW</span> &middot; Designed
-            &amp; Developed by{" "}
+            Designed &amp; Developed by{" "}
             <a
               href="https://www.bdminfotech.com/"
               target="_blank"
