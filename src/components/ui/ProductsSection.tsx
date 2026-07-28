@@ -93,7 +93,7 @@ export default function ProductsSection() {
                 <p className="text-navy-400 text-sm leading-[1.8] my-6">{p.tagline}</p>
                 <Link
                   href={p.href}
-                  className="group/btn relative inline-flex items-center gap-2 bg-primary-500 hover:bg-black text-white font-bold text-sm uppercase tracking-wide px-8 py-4 transition-colors duration-300 font-heading"
+                  className="group/btn btn-primary !rounded-none font-bold text-sm uppercase tracking-wide px-8 py-4 font-heading"
                   id={`explore-${p.name.toLowerCase()}`}
                 >
                   Explore

@@ -21,10 +21,10 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-primary-700 via-primary-500 to-accent-DEFAULT" />
 
       <Image
-        src="/brand/footer-bg.jpg"
+        src="/footerbg.png"
         alt=""
         fill
-        className="object-cover opacity-25 pointer-events-none select-none"
+        className="object-cover opacity-60 pointer-events-none select-none"
       />
       <div className="absolute inset-0 bg-navy-900/85 pointer-events-none" />
 
@@ -99,9 +99,9 @@ export default function Footer() {
             </h3>
             <div className="space-y-4">
               {/* Phone */}
-              <div className="group flex gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
-                  <Phone size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+              <div className="group flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 shadow-sm">
+                  <Phone size={16} className="text-[#22c55e]" fill="#22c55e" fillOpacity={0.15} />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Phone</p>
@@ -112,9 +112,9 @@ export default function Footer() {
               </div>
 
               {/* Email */}
-              <div className="group flex gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
-                  <Mail size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+              <div className="group flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 shadow-sm">
+                  <Mail size={16} className="text-[#ea4335]" fill="#ea4335" fillOpacity={0.12} />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Email</p>
@@ -125,9 +125,9 @@ export default function Footer() {
               </div>
 
               {/* Shop Address */}
-              <div className="group flex gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
-                  <MapPin size={14} className="text-primary-400 transition-colors duration-300 group-hover:text-white" />
+              <div className="group flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 shadow-sm">
+                  <MapPin size={16} className="text-[#ef4444]" fill="#ef4444" fillOpacity={0.15} />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Shop</p>
@@ -144,9 +144,9 @@ export default function Footer() {
               </div>
 
               {/* Godown Address */}
-              <div className="group flex gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary-500 group-hover:-rotate-6">
-                  <MapPin size={14} className="text-accent-DEFAULT transition-colors duration-300 group-hover:text-white" />
+              <div className="group flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 shadow-sm">
+                  <MapPin size={16} className="text-[#f59e0b]" fill="#f59e0b" fillOpacity={0.15} />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Godown</p>

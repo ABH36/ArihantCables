@@ -56,8 +56,8 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* LEFT: secondary heading + copy */}
           <div className={fadeUp("delay-150")}>
-            <h3 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 mb-4">
-              Welcome to Arihant Cables
+            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-4 sm:whitespace-nowrap">
+              Welcome to <span className="text-primary-500">Arihant Cables</span>
             </h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
               For over three decades,{" "}
