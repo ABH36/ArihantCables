@@ -37,7 +37,17 @@ export interface WireLineDetail {
 
 export interface CableApplication {
   id: string;
+  slug: string;
   name: string;
+  imageUrl?: string;
+  productCount: number;
+  products: CatalogueProduct[];
+}
+
+export interface CableApplicationDetail {
+  id: string;
+  name: string;
+  clusterName: string;
   products: CatalogueProduct[];
 }
 
@@ -173,7 +183,10 @@ export async function getCablesCatalogue(): Promise<CableCluster[] | null> {
           .lean<any[]>();
         appResults.push({
           id: String(app._id),
+          slug: (app.slug as string).replace(/^cables-app-/, ""),
           name: app.name,
+          imageUrl: products[0]?.imageUrl,
+          productCount: products.length,
           products: products.map(toProduct),
         });
       }
@@ -184,6 +197,37 @@ export async function getCablesCatalogue(): Promise<CableCluster[] | null> {
     return result;
   } catch (error) {
     console.error("getCablesCatalogue error:", error);
+    return null;
+  }
+}
+
+export async function getCableApplicationDetail(
+  slug: string
+): Promise<CableApplicationDetail | null> {
+  try {
+    await dbConnect();
+    const app = await Category.findOne({
+      slug: `cables-app-${slug}`,
+      status: "active",
+    }).lean<any>();
+    if (!app) return null;
+
+    const cluster = app.parentCategory
+      ? await Category.findById(app.parentCategory).lean<any>()
+      : null;
+
+    const products = await Product.find({ categoryId: app._id, status: "active" })
+      .sort({ displayOrder: 1 })
+      .lean<any[]>();
+
+    return {
+      id: String(app._id),
+      name: app.name,
+      clusterName: cluster?.name || "Cables",
+      products: products.map(toProduct),
+    };
+  } catch (error) {
+    console.error("getCableApplicationDetail error:", error);
     return null;
   }
 }
