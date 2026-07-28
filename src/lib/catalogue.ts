@@ -15,7 +15,10 @@ export interface CatalogueProduct {
 
 export interface WireLine {
   id: string;
+  slug: string;
   name: string;
+  imageUrl?: string;
+  productCount: number;
   products: CatalogueProduct[];
 }
 
@@ -23,6 +26,13 @@ export interface WireGroup {
   id: string;
   name: string;
   lines: WireLine[];
+}
+
+export interface WireLineDetail {
+  id: string;
+  name: string;
+  groupName: string;
+  products: CatalogueProduct[];
 }
 
 export interface CableApplication {
@@ -93,7 +103,10 @@ export async function getWiresCatalogue(): Promise<WireGroup[] | null> {
           .lean<any[]>();
         lineResults.push({
           id: String(line._id),
+          slug: (line.slug as string).replace(/^wires-line-/, ""),
           name: line.name,
+          imageUrl: products[0]?.imageUrl,
+          productCount: products.length,
           products: products.map(toProduct),
         });
       }
@@ -104,6 +117,35 @@ export async function getWiresCatalogue(): Promise<WireGroup[] | null> {
     return result;
   } catch (error) {
     console.error("getWiresCatalogue error:", error);
+    return null;
+  }
+}
+
+export async function getWireLineDetail(slug: string): Promise<WireLineDetail | null> {
+  try {
+    await dbConnect();
+    const line = await Category.findOne({
+      slug: `wires-line-${slug}`,
+      status: "active",
+    }).lean<any>();
+    if (!line) return null;
+
+    const group = line.parentCategory
+      ? await Category.findById(line.parentCategory).lean<any>()
+      : null;
+
+    const products = await Product.find({ categoryId: line._id, status: "active" })
+      .sort({ displayOrder: 1 })
+      .lean<any[]>();
+
+    return {
+      id: String(line._id),
+      name: line.name,
+      groupName: group?.name || "Wires",
+      products: products.map(toProduct),
+    };
+  } catch (error) {
+    console.error("getWireLineDetail error:", error);
     return null;
   }
 }

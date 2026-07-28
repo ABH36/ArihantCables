@@ -65,59 +65,41 @@ export default async function WiresPage() {
                   <h3 className="text-xl md:text-2xl font-heading font-bold text-navy-900 mb-6 pb-3 border-b border-slate-100">
                     {group.name}
                   </h3>
-                  <div className="space-y-4">
-                    {group.lines.map((line, idx) => (
-                      <details
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {group.lines.map((line) => (
+                      <Link
                         key={line.id}
-                        className="card overflow-hidden group/details"
-                        open={idx === 0}
+                        href={`/products/wires/${line.slug}`}
+                        className="group/card relative overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                       >
-                        <summary className="cursor-pointer list-none px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
-                          <span className="font-heading font-bold text-navy-900">
+                        <div className="aspect-square bg-slate-50 flex items-center justify-center p-6 overflow-hidden">
+                          {line.imageUrl ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={line.imageUrl}
+                              alt={line.name}
+                              loading="lazy"
+                              className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover/card:scale-110"
+                            />
+                          ) : (
+                            <span className="text-slate-300 text-sm">No image</span>
+                          )}
+                        </div>
+                        <div className="p-4">
+                          <p className="font-heading font-bold text-navy-900 text-sm sm:text-base leading-snug mb-1.5">
                             {line.name}
-                          </span>
-                          <span className="badge-primary text-xs flex-shrink-0 ml-4">
-                            {line.products.length} products
-                          </span>
-                        </summary>
-                        <div className="px-6 pb-6 pt-2">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {line.products.map((p) => (
-                              <Link
-                                key={p.id}
-                                href={`/product/${p.slug}`}
-                                className="rounded-xl border border-slate-100 p-3 hover:shadow-card-hover hover:-translate-y-0.5 transition-all bg-white flex flex-col"
-                              >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                  src={p.imageUrl}
-                                  alt={p.name}
-                                  loading="lazy"
-                                  className="w-full aspect-square object-contain rounded-lg bg-slate-50 mb-2"
-                                />
-                                <p className="text-xs font-semibold text-navy-900 leading-snug line-clamp-2 mb-1">
-                                  {p.name}
-                                </p>
-                                <div className="flex flex-wrap gap-1 mb-1">
-                                  {p.size && (
-                                    <span className="badge bg-slate-100 text-slate-600 text-[10px] px-1.5 py-0.5">
-                                      {p.size}
-                                    </span>
-                                  )}
-                                  {p.length && (
-                                    <span className="badge bg-slate-100 text-slate-600 text-[10px] px-1.5 py-0.5">
-                                      {p.length}
-                                    </span>
-                                  )}
-                                </div>
-                                <div className="mt-auto flex items-center justify-end pt-1">
-                                  <ArrowRight size={13} className="text-slate-400" />
-                                </div>
-                              </Link>
-                            ))}
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <span className="badge-primary text-[11px]">
+                              {line.productCount} products
+                            </span>
+                            <ArrowRight
+                              size={15}
+                              className="text-primary-500 transition-transform duration-300 group-hover/card:translate-x-1"
+                            />
                           </div>
                         </div>
-                      </details>
+                      </Link>
                     ))}
                   </div>
                 </div>
