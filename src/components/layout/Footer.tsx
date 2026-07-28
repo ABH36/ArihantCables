@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Mail,
   ExternalLink,
   ChevronRight,
   BadgeCheck,
@@ -9,13 +8,9 @@ import {
   Cable,
   Plug,
   ArrowRight,
-  ShieldCheck,
-  Truck,
-  Headphones,
 } from "lucide-react";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import NewsletterForm from "@/components/ui/NewsletterForm";
 import { cldImage } from "@/lib/cloudinary";
 
 const usefulLinks = [
@@ -40,29 +35,6 @@ const productLinks = [
     description: "Durable cables for power, control & industrial use.",
     icon: Plug,
     href: "/products/cables",
-  },
-];
-
-const trustBadges = [
-  {
-    icon: BadgeCheck,
-    title: "100% Genuine Products",
-    subtitle: "Original Polycab wires & cables",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Quality You Can Trust",
-    subtitle: "Tested for safety & performance",
-  },
-  {
-    icon: Truck,
-    title: "Pan India Delivery",
-    subtitle: "Fast & reliable shipping",
-  },
-  {
-    icon: Headphones,
-    title: "Dedicated Support",
-    subtitle: "We're here to help you",
   },
 ];
 
@@ -263,44 +235,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter */}
-        <div className="mt-14 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
-          <div className="flex items-center gap-4 flex-1 min-w-0">
-            <div className="w-12 h-12 rounded-full bg-primary-500/15 flex items-center justify-center flex-shrink-0">
-              <Mail size={20} className="text-primary-400" />
-            </div>
-            <div>
-              <p className="text-primary-400 text-xs font-bold uppercase tracking-widest mb-1">
-                Stay Connected
-              </p>
-              <h3 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">
-                Subscribe to Our Newsletter
-              </h3>
-              <p className="text-white/55 text-sm">
-                Get the latest updates, offers and industry insights.
-              </p>
-            </div>
-          </div>
-          <NewsletterForm />
-        </div>
-
-        {/* Trust badges */}
-        <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {trustBadges.map((b) => {
-            const Icon = b.icon;
-            return (
-              <div key={b.title} className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full border border-primary-500/40 flex items-center justify-center flex-shrink-0">
-                  <Icon size={20} className="text-primary-400" />
-                </div>
-                <div>
-                  <p className="font-heading font-bold text-white text-sm">{b.title}</p>
-                  <p className="text-white/50 text-xs">{b.subtitle}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </div>
 
       {/* Bottom Bar */}
