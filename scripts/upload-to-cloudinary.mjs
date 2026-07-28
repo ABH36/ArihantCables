@@ -18,7 +18,7 @@ if (!parsed) {
 const [, api_key, api_secret, cloud_name] = parsed;
 cloudinary.config({ cloud_name, api_key, api_secret, secure: true });
 
-const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".svg", ".webp"]);
+const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif"]);
 
 /** cloudinary.uploader.upload_large is callback-only in this SDK version. */
 function uploadLarge(filePath, options) {
@@ -51,6 +51,22 @@ const targets = [];
 for (const name of ["footerbg.png", "homeenqurybackground.png"]) {
   const abs = path.join("public", name);
   if (fs.existsSync(abs)) targets.push({ abs, rel: name });
+}
+
+// public/icons8-*.* (contact/social icon set)
+const iconFiles = [
+  "icons8-call-100.png",
+  "icons8-gmail-100.png",
+  "icons8-google-maps-100.png",
+  "icons8-warehouse-100.png",
+  "icons8-facebook-circled-100.gif",
+  "icons8-instagram-100.gif",
+  "icons8-linkedin-circled-100.gif",
+  "icons8-whatsapp-logo-100.gif",
+];
+for (const name of iconFiles) {
+  const abs = path.join("public", name);
+  if (fs.existsSync(abs)) targets.push({ abs, rel: `icons/${name}` });
 }
 
 // public/brand/** (skip the confirmed-dead footer-bg.jpg)

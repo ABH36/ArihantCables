@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Phone,
   Mail,
-  MapPin,
-  Warehouse,
   ExternalLink,
   ChevronRight,
   BadgeCheck,
@@ -15,9 +12,6 @@ import {
   ShieldCheck,
   Truck,
   Headphones,
-  Facebook,
-  Instagram,
-  Linkedin,
 } from "lucide-react";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -73,9 +67,9 @@ const trustBadges = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", icon: Facebook, href: "#" },
-  { label: "Instagram", icon: Instagram, href: "#" },
-  { label: "LinkedIn", icon: Linkedin, href: "#" },
+  { label: "Facebook", icon: "icons/icons8-facebook-circled-100.gif", href: "#" },
+  { label: "Instagram", icon: "icons/icons8-instagram-100.gif", href: "#" },
+  { label: "LinkedIn", icon: "icons/icons8-linkedin-circled-100.gif", href: "#" },
 ];
 
 export default function Footer() {
@@ -204,8 +198,8 @@ export default function Footer() {
             <div className="space-y-4">
               {/* Phone */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
-                  <Phone size={16} className="text-primary-400" />
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                  <Image src={cldImage("icons/icons8-call-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Phone</p>
@@ -217,8 +211,8 @@ export default function Footer() {
 
               {/* Email */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
-                  <Mail size={16} className="text-primary-400" />
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                  <Image src={cldImage("icons/icons8-gmail-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Email</p>
@@ -230,8 +224,8 @@ export default function Footer() {
 
               {/* Shop Address */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
-                  <MapPin size={16} className="text-primary-400" />
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                  <Image src={cldImage("icons/icons8-google-maps-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Shop Address</p>
@@ -249,8 +243,8 @@ export default function Footer() {
 
               {/* Godown Address */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
-                  <Warehouse size={16} className="text-primary-400" />
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                  <Image src={cldImage("icons/icons8-warehouse-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white/50 text-xs mb-1">Godown Address</p>
@@ -318,31 +312,26 @@ export default function Footer() {
             Distributors of Polycab Wires &amp; Cables — Mumbai, India
           </p>
           <div className="flex items-center gap-3">
-            {socialLinks.map((s) => {
-              const Icon = s.icon;
-              return (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-primary-500 hover:bg-primary-500/10 transition-colors duration-300"
-                >
-                  <Icon size={14} />
-                </a>
-              );
-            })}
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(252,102,1,0.35)] transition-all duration-300"
+              >
+                <Image src={cldImage(s.icon)} alt="" width={16} height={16} className="w-full h-full object-contain" unoptimized={s.icon.endsWith(".gif")} />
+              </a>
+            ))}
             <a
               href="https://wa.me/919819898469"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-primary-500 hover:bg-primary-500/10 transition-colors duration-300"
+              className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(37,211,102,0.35)] transition-all duration-300"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.86 14.01c-.25.7-1.45 1.35-2 1.43-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.77-2.18 1.04-2.48.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.31.4-.45.54-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.02.97.3.15.5.23.57.35.07.13.07.75-.18 1.45z" />
-              </svg>
+              <Image src={cldImage("icons/icons8-whatsapp-logo-100.gif")} alt="" width={16} height={16} className="w-full h-full object-contain" unoptimized />
             </a>
           </div>
         </div>

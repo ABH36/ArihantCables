@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
 import PageBanner from "@/components/ui/PageBanner";
 import Reveal from "@/components/ui/Reveal";
@@ -23,6 +23,7 @@ const locations = [
   {
     label: "Shop Address",
     name: "ARIHANT CABLES",
+    icon: "icons/icons8-google-maps-100.png",
     address: "27, Shreenath Bhavan, 6/12 Picket X Road, Lohar Chawl, Mumbai – 400 002",
     phones: ["022-22084443 / 22084447", "022-22084450 / 22069420"],
     mapUrl: "https://maps.app.goo.gl/MGesV8scY7MJELeDA",
@@ -30,6 +31,7 @@ const locations = [
   {
     label: "Godown Address",
     name: "RAJ CABLE WAREHOUSE",
+    icon: "icons/icons8-warehouse-100.png",
     address:
       "Haribhau Patil Compound, K-square Prakhyat Industrial Park, Opposite Urban Tadka Hotel, Mumbai-Nashik Highway, Village Kurund, Padgha Bhiwandi – 421101",
     phones: ["9702333505 / 9821155960 / 9930543276"],
@@ -75,8 +77,8 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="pb-6 border-b border-white/10">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center flex-shrink-0">
-                      <Phone size={16} className="text-white" />
+                    <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 p-1.5">
+                      <Image src={cldImage("icons/icons8-call-100.png")} alt="" width={18} height={18} className="w-full h-full object-contain" />
                     </div>
                     <p className="font-semibold text-sm">Phone No:</p>
                   </div>
@@ -87,8 +89,8 @@ export default function ContactPage() {
 
                 <div className="pb-6 border-b border-white/10">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center flex-shrink-0">
-                      <Mail size={16} className="text-white" />
+                    <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 p-1.5">
+                      <Image src={cldImage("icons/icons8-gmail-100.png")} alt="" width={18} height={18} className="w-full h-full object-contain" />
                     </div>
                     <p className="font-semibold text-sm">Email Address:</p>
                   </div>
@@ -102,8 +104,8 @@ export default function ContactPage() {
 
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center flex-shrink-0">
-                      <MapPin size={16} className="text-white" />
+                    <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 p-1.5">
+                      <Image src={cldImage("icons/icons8-google-maps-100.png")} alt="" width={18} height={18} className="w-full h-full object-contain" />
                     </div>
                   </div>
                   <p className="text-white/80 text-sm leading-relaxed">
@@ -144,8 +146,8 @@ export default function ContactPage() {
                 className="relative overflow-hidden bg-[#ececec] widget-card rounded-2xl shadow-card-hover p-8 sm:p-9"
               >
                 <div className="flex items-start gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
-                    <MapPin size={16} className="text-primary-700" />
+                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0 p-1.5">
+                    <Image src={cldImage(loc.icon)} alt="" width={18} height={18} className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
@@ -157,8 +159,8 @@ export default function ContactPage() {
                 <p className="text-navy-500 text-sm leading-relaxed mb-5">{loc.address}</p>
 
                 <div className="flex items-start gap-3 mb-6">
-                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0">
-                    <Phone size={16} className="text-primary-700" />
+                  <div className="w-9 h-9 rounded-lg bg-white shadow-sm flex items-center justify-center flex-shrink-0 p-1.5">
+                    <Image src={cldImage("icons/icons8-call-100.png")} alt="" width={18} height={18} className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-primary-600 mb-1">
