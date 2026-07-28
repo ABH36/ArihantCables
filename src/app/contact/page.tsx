@@ -66,7 +66,7 @@ export default function ContactPage() {
 
             {/* Information — dark panel */}
             <div className="bg-navy-950 p-8 sm:p-10 text-white">
-              <h3 className="text-xl font-heading font-bold mb-6 uppercase">Information</h3>
+              <h3 className="text-xl font-heading font-bold mb-6 uppercase text-white">Information</h3>
               <div className="space-y-6">
                 <div className="pb-6 border-b border-white/10">
                   <div className="flex items-center gap-3 mb-2">
@@ -112,9 +112,12 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="bg-white pb-4">
-        <div className="section-container">
-          <div className="h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-100">
+      {/* Map + Address cards — orange background image, cards overlapping the footer */}
+      <section className="relative pt-16 md:pt-20 pb-0">
+        <Image src="/homeenqurybackground.png" alt="" fill className="object-cover" />
+
+        <div className="section-container relative">
+          <div className="max-w-5xl mx-auto h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-2xl mb-16 md:mb-20">
             <iframe
               title="Arihant Cables Location Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482347.4024566663!2d72.55149878720063!3d19.180386731569573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce18eaaaaaab%3A0x7dfa50c5553fbf4a!2sArihant%20Cables!5e0!3m2!1sen!2sin!4v1717740097987!5m2!1sen!2sin"
@@ -126,17 +129,12 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-        </div>
-      </section>
 
-      {/* Compact address cards */}
-      <section className="section-py bg-white">
-        <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="relative z-10 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-[-88px] md:mb-[-108px]">
             {locations.map((loc) => (
               <div
                 key={loc.label}
-                className="relative overflow-hidden bg-[#ececec] rounded-2xl shadow-card p-8 sm:p-9"
+                className="relative overflow-hidden bg-[#ececec] rounded-2xl shadow-card-hover p-8 sm:p-9"
                 style={{
                   backgroundImage: "url(/brand/widget-texture.svg)",
                   backgroundRepeat: "no-repeat",
