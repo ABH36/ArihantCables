@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Download, Phone } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { getWiresCatalogue } from "@/lib/catalogue";
 import PageBanner from "@/components/ui/PageBanner";
+import WhyChoosePolycabSection from "@/components/ui/WhyChoosePolycabSection";
+import ContactSection from "@/components/ui/ContactSection";
 
 export const dynamic = "force-dynamic";
 
@@ -148,25 +150,9 @@ export default async function WiresPage() {
         </div>
       </section>
 
-      {/* Inquiry CTA */}
-      <section className="section-py bg-navy-900">
-        <div className="section-container text-center">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
-            Need a Custom Quote?
-          </h2>
-          <p className="text-white/70 mb-8 max-w-md mx-auto">
-            Contact Arihant Cables for bulk pricing, custom specifications, and delivery queries.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact#inquiry" className="btn-primary">
-              Send Inquiry <ArrowRight size={16} />
-            </Link>
-            <a href="tel:+919819898469" className="btn-ghost">
-              <Phone size={16} /> Call Now
-            </a>
-          </div>
-        </div>
-      </section>
+      <WhyChoosePolycabSection />
+
+      <ContactSection />
     </>
   );
 }
