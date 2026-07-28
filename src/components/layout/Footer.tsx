@@ -170,7 +170,7 @@ export default function Footer() {
             <div className="space-y-4">
               {/* Phone */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white flex items-center justify-center flex-shrink-0 p-1.5">
                   <Image src={cldImage("icons/icons8-call-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export default function Footer() {
 
               {/* Email */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white flex items-center justify-center flex-shrink-0 p-1.5">
                   <Image src={cldImage("icons/icons8-gmail-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
@@ -196,7 +196,7 @@ export default function Footer() {
 
               {/* Shop Address */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white flex items-center justify-center flex-shrink-0 p-1.5">
                   <Image src={cldImage("icons/icons8-google-maps-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
@@ -215,7 +215,7 @@ export default function Footer() {
 
               {/* Godown Address */}
               <div className="group flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white/90 flex items-center justify-center flex-shrink-0 p-1.5 transition-colors duration-300 group-hover:bg-white">
+                <div className="w-10 h-10 rounded-lg border border-primary-500/40 bg-white flex items-center justify-center flex-shrink-0 p-1.5">
                   <Image src={cldImage("icons/icons8-warehouse-100.png")} alt="" width={20} height={20} className="w-full h-full object-contain" />
                 </div>
                 <div>
@@ -253,7 +253,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(252,102,1,0.35)] transition-all duration-300"
+                className="w-8 h-8 rounded-full bg-white flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(252,102,1,0.35)] transition-all duration-300"
               >
                 <Image src={cldImage(s.icon)} alt="" width={16} height={16} className="w-full h-full object-contain" unoptimized={s.icon.endsWith(".gif")} />
               </a>
@@ -263,7 +263,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(37,211,102,0.35)] transition-all duration-300"
+              className="w-8 h-8 rounded-full bg-white flex items-center justify-center p-1 hover:scale-110 hover:shadow-[0_0_0_3px_rgba(37,211,102,0.35)] transition-all duration-300"
             >
               <Image src={cldImage("icons/icons8-whatsapp-logo-100.gif")} alt="" width={16} height={16} className="w-full h-full object-contain" unoptimized />
             </a>
