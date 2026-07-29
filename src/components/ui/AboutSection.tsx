@@ -16,6 +16,28 @@ const whyChoosePoints = [
   "Expert Technical Assistance & Dedicated Customer Support",
 ];
 
+function AboutImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 h-72 sm:h-96 lg:h-full group">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
+        <Image
+          src={cldImage("brand/icon-mark.svg")}
+          alt=""
+          width={20}
+          height={18}
+          className="w-5 h-[1.1rem] brightness-0 invert opacity-90"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -64,45 +86,9 @@ export default function AboutSection() {
           <h2 className="section-title">About Us</h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* LEFT: self-contained image collage — small photo insets onto the
-              large one, both scoped to this single wrapper so nothing depends
-              on the right column's height (no stray gaps). */}
-          <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-300")}`}>
-            <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
-              <Image
-                src={cldImage("aboutusfirstimage.png")}
-                alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
-                width={900}
-                height={600}
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
-                <Image
-                  src={cldImage("brand/icon-mark.svg")}
-                  alt=""
-                  width={20}
-                  height={18}
-                  className="w-5 h-[1.1rem] brightness-0 invert opacity-90"
-                />
-              </div>
-            </div>
-
-            <div
-              className={`absolute bottom-0 right-0 w-32 sm:w-40 md:w-44 aspect-square rounded-xl overflow-hidden shadow-2xl ring-4 ring-white ${zoomIn(
-                "delay-500"
-              )}`}
-            >
-              <Image
-                src={cldImage("aboutussecondimage.jpeg")}
-                alt="POLYCAB Wires & Cables Product Range"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* RIGHT: heading + copy + Why Choose Us checklist */}
+        {/* Row 1: intro copy (left) + truck photo (right) — image stretches
+            to match the copy's height so there's no leftover empty space. */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 mb-16 lg:mb-24">
           <div className={fadeUp("delay-150")}>
             <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-2 leading-tight">
               India&apos;s Leading Authorised Distributor of{" "}
@@ -127,7 +113,7 @@ export default function AboutSection() {
               industrial, infrastructure, EPC, manufacturing, construction, power, oil &amp; gas,
               and renewable energy projects.
             </p>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-8">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify">
               At Arihant Cables, we are committed to delivering 100% genuine POLYCAB products,
               expert technical support, prompt customer service, and dependable supply solutions
               that help businesses complete projects on time and within budget. Whether your
@@ -135,13 +121,33 @@ export default function AboutSection() {
               reliable, cost-effective, and high-performance cable solutions tailored to your
               needs.
             </p>
+          </div>
 
-            <h4 className="font-heading font-bold text-lg sm:text-xl text-navy-950 mb-4">
+          <div className={zoomIn("delay-300")}>
+            <AboutImage
+              src={cldImage("aboutusfirstimage.png")}
+              alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
+            />
+          </div>
+        </div>
+
+        {/* Row 2: product range photo (left) + Why Choose Us (right) — same
+            stretch treatment so the image matches the checklist's height. */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20">
+          <div className={zoomIn("delay-150")}>
+            <AboutImage
+              src={cldImage("aboutus-why-choose.jpeg")}
+              alt="POLYCAB Wires & Cables Product Range"
+            />
+          </div>
+
+          <div className={fadeUp("delay-300")}>
+            <h4 className="font-heading font-bold text-xl sm:text-2xl text-navy-950 mb-5">
               Why Choose Arihant Cables?
             </h4>
-            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+            <ul className="space-y-3 mb-7">
               {whyChoosePoints.map((point) => (
-                <li key={point} className="flex items-start gap-2 text-slate-700 text-sm">
+                <li key={point} className="flex items-start gap-2 text-slate-700 text-sm sm:text-base">
                   <CheckCircle2 size={16} className="text-primary-700 flex-shrink-0 mt-0.5" />
                   {point}
                 </li>
