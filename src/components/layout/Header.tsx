@@ -132,7 +132,7 @@ export default function Header() {
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Phone No
                     </span>
-                    <span className="text-primary-700 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
+                    <span className="text-primary-500 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
                       +91-9819898469
                     </span>
                   </div>
@@ -150,7 +150,7 @@ export default function Header() {
                     <span className="text-white font-extrabold text-base sm:text-lg tracking-wide group-hover:text-slate-100 transition-colors">
                       Email Address
                     </span>
-                    <span className="text-primary-700 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
+                    <span className="text-primary-500 font-extrabold text-base sm:text-lg tracking-wide mt-1 group-hover:underline">
                       sales@arihantcables.com
                     </span>
                   </div>
