@@ -16,14 +16,25 @@ const whyChoosePoints = [
   "Expert Technical Assistance & Dedicated Customer Support",
 ];
 
-function AboutImage({ src, alt }: { src: string; alt: string }) {
+function AboutImage({
+  src,
+  alt,
+  width,
+  height,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}) {
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 bg-[#ececec] h-72 sm:h-96 lg:h-[26rem] group">
+    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
       <Image
         src={src}
         alt={alt}
-        fill
-        className="object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-105"
+        width={width}
+        height={height}
+        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
       />
     </div>
   );
@@ -123,6 +134,8 @@ export default function AboutSection() {
             <AboutImage
               src={cldImage("aboutusfirstimage.png")}
               alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
+              width={1623}
+              height={969}
             />
           </div>
         </div>
@@ -133,6 +146,8 @@ export default function AboutSection() {
             <AboutImage
               src={cldImage("aboutus-why-choose.jpeg")}
               alt="POLYCAB Wires & Cables Product Range"
+              width={1254}
+              height={1254}
             />
           </div>
 
