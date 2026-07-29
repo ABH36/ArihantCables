@@ -42,8 +42,40 @@ export default function Header() {
   return (
     <>
       <header className="relative z-40 w-full font-sans">
-        {/* Tier 1: Top Bright Orange Bar (#fc6601) */}
-        <div className={`bg-[#fc6601] text-white relative z-20 ${entrance("")}`}>
+        {/* Mobile/Tablet Header Bar — compact logo + hamburger, replaces the
+            3-tier desktop header below `lg`. Sticky on scroll like the
+            desktop floating nav. */}
+        <div
+          className={`lg:hidden w-full transition-all duration-300 ${
+            isScrolled
+              ? "fixed top-0 left-0 right-0 z-50 shadow-2xl"
+              : `relative z-20 ${entrance("")}`
+          }`}
+        >
+          <div className="bg-[#141414] flex items-center justify-between px-4 sm:px-6 py-3">
+            <Link href="/" className="flex items-center">
+              <Image
+                src={cldImage("brand/logo.svg")}
+                alt="Arihant Cables"
+                width={180}
+                height={52}
+                className="h-9 w-auto object-contain"
+                priority
+              />
+            </Link>
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+              className="w-10 h-10 rounded-lg bg-[#fc6601] flex items-center justify-center flex-shrink-0"
+            >
+              <Menu size={22} className="text-white" />
+            </button>
+          </div>
+        </div>
+        {isScrolled && <div className="lg:hidden h-[60px]" />}
+
+        {/* Tier 1: Top Bright Orange Bar (#fc6601) — desktop only */}
+        <div className={`hidden lg:block bg-[#fc6601] text-white relative z-20 ${entrance("")}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3.5 sm:py-4">
               {/* Left tagline with solid white bullet dot */}
@@ -67,8 +99,8 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Tier 2: Middle Dark Charcoal Bar (#141414) */}
-        <div className={`bg-[#141414] text-white relative py-10 sm:py-12 border-b border-[#222] z-20 ${entrance("delay-150")}`}>
+        {/* Tier 2: Middle Dark Charcoal Bar (#141414) — desktop only */}
+        <div className={`hidden lg:block bg-[#141414] text-white relative py-10 sm:py-12 border-b border-[#222] z-20 ${entrance("delay-150")}`}>
           {/* Top-Left Slanted Orange Triangle Accent */}
           <div className="hidden lg:block absolute left-0 top-0 w-20 h-20 bg-[#fc6601] [clip-path:polygon(0_0,100%_0,0_100%)] z-10 pointer-events-none" />
 
@@ -128,16 +160,16 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Tier 3: Floating White Navigation Bar overlapping dark header & top of banner */}
+        {/* Tier 3: Floating White Navigation Bar overlapping dark header & top of banner — desktop only */}
         <div
-          className={`w-full transition-all duration-300 ${
+          className={`hidden lg:block w-full transition-all duration-300 ${
             isScrolled
               ? "fixed top-0 left-0 right-0 shadow-2xl bg-white/95 backdrop-blur-md z-50 py-0 border-b border-slate-200"
               : `relative -mt-8 sm:-mt-10 lg:-mt-12 z-30 ${entrance("delay-300")}`
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="hidden lg:flex items-center justify-between bg-white rounded-lg shadow-2xl border border-slate-200/90 overflow-visible">
+            <div className="flex items-center justify-between bg-white rounded-lg shadow-2xl border border-slate-200/90 overflow-visible">
               {/* Left: Nav links separated by dividers */}
               <nav className="flex items-center px-4 py-1" aria-label="Main navigation">
                 {navLinks.map((link, idx) => {
@@ -177,18 +209,6 @@ export default function Header() {
                   />
                 </Link>
               </div>
-            </div>
-
-            {/* Mobile Header Sub-Bar */}
-            <div className="lg:hidden flex items-center justify-between bg-white px-5 py-3.5 rounded-lg shadow-lg border border-slate-200">
-              <span className="font-semibold text-slate-900 text-base">Navigation</span>
-              <button
-                onClick={() => setMobileOpen(true)}
-                className="text-primary-700 font-semibold text-base flex items-center gap-2"
-              >
-                <span>Menu</span>
-                <Menu size={20} />
-              </button>
             </div>
           </div>
         </div>
