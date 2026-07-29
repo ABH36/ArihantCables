@@ -21,14 +21,18 @@ function AboutImage({
   alt,
   width,
   height,
+  wrapperClassName = "",
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
+  wrapperClassName?: string;
 }) {
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
+    <div
+      className={`relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group ${wrapperClassName}`}
+    >
       <Image
         src={src}
         alt={alt}
@@ -103,7 +107,7 @@ export default function AboutSection() {
 
         {/* Row 1: intro copy (left) + truck photo (right) — image sized
             slightly shorter than the copy so it doesn't dominate the row. */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 mb-16 lg:mb-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 mb-16 lg:mb-24 items-center">
           <div className={fadeUp("delay-150")}>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
               Arihant Cables is one of India&apos;s leading Authorised Distributors of POLYCAB
@@ -136,6 +140,7 @@ export default function AboutSection() {
               alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
               width={1623}
               height={969}
+              wrapperClassName="lg:w-[106%]"
             />
           </div>
         </div>
@@ -148,6 +153,7 @@ export default function AboutSection() {
               alt="POLYCAB Wires & Cables Product Range"
               width={1254}
               height={1254}
+              wrapperClassName="lg:w-[82%] lg:mx-auto"
             />
           </div>
 
