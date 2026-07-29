@@ -18,14 +18,14 @@ const whyChoosePoints = [
 
 function AboutImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 h-72 sm:h-96 lg:h-full group">
+    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 bg-[#ececec] h-72 sm:h-96 lg:h-full group">
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
+        className="object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center">
+      <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center z-10">
         <Image
           src={cldImage("brand/icon-mark.svg")}
           alt=""
