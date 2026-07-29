@@ -18,7 +18,7 @@ const whyChoosePoints = [
 
 function AboutImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 bg-[#ececec] h-72 sm:h-96 lg:h-full group">
+    <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 bg-[#ececec] h-72 sm:h-96 lg:h-[26rem] group">
       <Image
         src={src}
         alt={alt}
@@ -86,18 +86,23 @@ export default function AboutSection() {
           <h2 className="section-title">About Us</h2>
         </div>
 
-        {/* Row 1: intro copy (left) + truck photo (right) — image stretches
-            to match the copy's height so there's no leftover empty space. */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 mb-16 lg:mb-24">
-          <div className={fadeUp("delay-150")}>
-            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-2 leading-tight">
-              India&apos;s Leading Authorised Distributor of{" "}
-              <span className="text-primary-700">POLYCAB Wires &amp; Cables</span>
-            </h3>
-            <p className="text-primary-700 font-semibold text-sm sm:text-base mb-5">
-              30+ Years of Excellence in Delivering Genuine POLYCAB Cable Solutions
-            </p>
+        {/* Full-width heading — kept out of the 2-column grid below so it
+            gets the section's entire width instead of wrapping inside a
+            half-width column. */}
+        <div className={`mb-10 ${fadeUp("delay-150")}`}>
+          <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-2 leading-tight">
+            India&apos;s Leading Authorised Distributor of{" "}
+            <span className="text-primary-700">POLYCAB Wires &amp; Cables</span>
+          </h3>
+          <p className="text-primary-700 font-semibold text-sm sm:text-base">
+            30+ Years of Excellence in Delivering Genuine POLYCAB Cable Solutions
+          </p>
+        </div>
 
+        {/* Row 1: intro copy (left) + truck photo (right) — image sized
+            slightly shorter than the copy so it doesn't dominate the row. */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 mb-16 lg:mb-24 items-start">
+          <div className={fadeUp("delay-150")}>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
               Arihant Cables is one of India&apos;s leading Authorised Distributors of POLYCAB
               Wires &amp; Cables, serving customers with trusted electrical solutions for over 30
@@ -131,9 +136,8 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Row 2: product range photo (left) + Why Choose Us (right) — same
-            stretch treatment so the image matches the checklist's height. */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20">
+        {/* Row 2: product range photo (left) + Why Choose Us (right). */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
           <div className={zoomIn("delay-150")}>
             <AboutImage
               src={cldImage("aboutus-why-choose.jpeg")}
