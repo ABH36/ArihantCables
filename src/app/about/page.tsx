@@ -15,10 +15,34 @@ export const metadata: Metadata = {
 };
 
 const whyChoosePoints = [
-  "Confirmation of using superior raw materials.",
-  "Assurance of rigorous testing and quality control processes.",
-  "Commitment to meeting customer needs and expectations.",
-  "Proven record of accomplishment of reliability and customer satisfaction.",
+  "30+ Years of Industry Experience in electrical cable distribution.",
+  "Authorised Distributor of POLYCAB Wires & Cables ensuring genuine products.",
+  "Extensive Product Portfolio covering residential, commercial, industrial, and infrastructure applications.",
+  "Ready Stock Availability for faster order fulfilment.",
+  "Competitive Pricing with transparent business practices.",
+  "Fast Pan-India Delivery supported by efficient logistics.",
+  "Experienced Technical Team to recommend the right cable solutions.",
+  "Trusted by Leading Industries, Contractors, OEMs & EPC Companies.",
+  "Strict Quality Assurance with products manufactured to national and international standards.",
+  "Dedicated Customer Support before and after sales.",
+];
+
+const productRange = [
+  "House & Building Wires",
+  "FR, FRLS, HFFR & Fire Survival Cables",
+  "LT & HT Power Cables",
+  "XLPE Power Cables",
+  "Control & Instrumentation Cables",
+  "Flexible Cables",
+  "Solar Cables",
+  "Submersible Flat Cables",
+  "Marine & Ship Wiring Cables",
+  "Optical Fibre Cables (OFC)",
+  "CCTV & Coaxial Cables",
+  "LAN, Telephone & Communication Cables",
+  "Speaker Cables",
+  "Industrial & Speciality Cables",
+  "Cable Accessories",
 ];
 
 export default function AboutPage() {
@@ -32,8 +56,11 @@ export default function AboutPage() {
           <Reveal className="text-center mb-14">
             <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
             <h2 className="section-title">
-              Welcome to <span className="text-primary-700">Arihant Cables</span>
+              About <span className="text-primary-700">Arihant Cables</span>
             </h2>
+            <p className="text-primary-700 font-semibold text-sm sm:text-base mt-3">
+              India&apos;s Trusted Authorised Distributor of POLYCAB Wires &amp; Cables
+            </p>
           </Reveal>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
@@ -41,14 +68,19 @@ export default function AboutPage() {
             <Reveal zoom delay="delay-150" className="grid grid-cols-2 grid-rows-2 gap-4">
               <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5]">
                 <Image
-                  src={cldImage("brand/widget-cables.png")}
-                  alt="Polycab cable range"
+                  src={cldImage("aboutusfirstimage.png")}
+                  alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
-                <Image src={cldImage("brand/about-1.png")} alt="Polycab wire construction" fill className="object-cover" />
+                <Image
+                  src={cldImage("aboutus-why-choose.jpeg")}
+                  alt="POLYCAB Wires & Cables Product Range"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
                 <Image
@@ -72,27 +104,22 @@ export default function AboutPage() {
               className="text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify"
             >
               <p>
-                For over three decades, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
-                has been a Leading Distributor of{" "}
-                <strong className="text-primary-700">POLYCAB WIRES &amp; CABLES</strong>, offering
-                a wide range of high-quality cables ready for immediate dispatch. Our commitment
-                to quality, reliability, and customer satisfaction has earned us a strong
-                reputation in the industry. We are catering to both domestic and international
-                markets. Our focus on continuous improvement and excellence ensures we
-                consistently meet and exceed customer expectations.
+                <strong className="text-navy-950">Arihant Cables</strong> is one of India&apos;s
+                leading Authorised Distributors of{" "}
+                <strong className="text-primary-700">POLYCAB Wires &amp; Cables</strong>,
+                delivering genuine electrical wiring solutions for over 30 years. Built on a
+                foundation of trust, quality, and customer satisfaction, we have established
+                ourselves as a preferred distribution partner for industries, infrastructure
+                projects, electrical contractors, OEMs, builders, government organisations, and
+                dealers across India.
               </p>
               <p>
-                Recognizing this need, <strong className="text-navy-950">ARIHANT CABLES</strong>{" "}
-                distributes a comprehensive range of{" "}
-                <strong className="text-primary-700">POLYCAB WIRES &amp; CABLES</strong> across
-                India and abroad at competitive prices.
-              </p>
-              <p>
-                As a quality and customer-oriented company, we have achieved significant growth
-                and a strong reputation in dynamic markets by offering unparalleled Wires &amp;
-                Cables. Our experienced executives and top-quality Instrumentation Power Cables
-                enable us to collaborate with some of India&apos;s most esteemed companies. Our
-                dedication to quality has earned us an impressive list of clients.
+                With decades of experience in the electrical industry, we supply a comprehensive
+                range of POLYCAB electrical wires, power cables, industrial cables, communication
+                cables, and cable accessories with ready stock availability, competitive pricing,
+                and prompt nationwide delivery. Every product we supply is sourced directly through
+                authorised channels, ensuring complete authenticity, superior performance, and
+                compliance with the highest quality standards.
               </p>
             </Reveal>
           </div>
@@ -100,21 +127,33 @@ export default function AboutPage() {
           {/* Full-width closing copy */}
           <Reveal className="max-w-5xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed space-y-5 text-justify">
             <p>
-              We compete primarily based on product quality and performance, reliable supply,
-              timely delivery, excellent customer service, and competitive pricing. Established
-              with the sole objective of serving our valued customers with exceptional electrical
-              and electronic products—including{" "}
-              <strong className="text-navy-950">
-                Energy Cables, Special Cables, Communication Cables, Polycab Wires, Etira Wires,
-                LV/MV Power Cables, Building Wires, Fire Resistant Cable, Submersible Cable,
-                Instrumentation Cable, Marine/Shipwiring Cables, OFC Cable (Optical Fiber Cable),
-                CCTV Cable, Coaxial Cable, Telephone Cable, LAN Cable, Speaker Cable etc.
-              </strong>
+              Our extensive product portfolio includes Building Wires, House Wires, LV &amp; MV
+              Power Cables, HT Cables, Instrumentation Cables, Control Cables, Flexible Cables,
+              Fire Resistant Cables, Fire Survival Cables, Submersible Cables, Marine &amp; Ship
+              Wiring Cables, Solar Cables, Optical Fibre Cables (OFC), CCTV Cables, LAN Cables,
+              Coaxial Cables, Telephone Cables, Speaker Cables, Communication Cables, and Speciality
+              Cables, catering to residential, commercial, industrial, infrastructure, renewable
+              energy, telecom, and utility sectors.
             </p>
             <p>
-              We are committed to maintaining a leading position in our field, excelling in
-              quality, technology, and performance, while continuously exploring new business
-              opportunities. Our organizational culture promotes constant growth and improvement.
+              Over the years, Arihant Cables has earned the confidence of some of India&apos;s most
+              respected companies by consistently delivering genuine products, technical expertise,
+              timely deliveries, and exceptional customer support. Our experienced sales
+              professionals understand diverse project requirements and provide the right cable
+              solutions that maximise safety, efficiency, and long-term performance.
+            </p>
+            <p>
+              Our success is driven by our unwavering commitment to quality, reliability, ethical
+              business practices, competitive pricing, and customer-first service. By maintaining
+              ready inventory, efficient logistics, and strong relationships with manufacturers, we
+              ensure uninterrupted supply for projects of every scale—from individual residential
+              requirements to large industrial and infrastructure developments.
+            </p>
+            <p>
+              As we continue to grow, our vision remains focused on becoming India&apos;s most
+              trusted cable distribution company by embracing innovation, operational excellence,
+              and long-term customer partnerships while expanding our presence in both domestic and
+              international markets.
             </p>
           </Reveal>
         </div>
@@ -129,10 +168,11 @@ export default function AboutPage() {
               <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
                 <Target size={24} className="text-primary-700" />
               </div>
-              <h3 className="section-title !text-2xl md:!text-3xl mb-4">Mission</h3>
+              <h3 className="section-title !text-2xl md:!text-3xl mb-4">Our Mission</h3>
               <p className="text-slate-600 leading-relaxed">
-                To build a strong brand and maintain superior quality standards for ultimate
-                customer satisfaction.
+                To deliver genuine POLYCAB Wires &amp; Cables with unmatched quality, reliable
+                availability, competitive pricing, and exceptional customer service while building
+                long-term relationships based on trust, integrity, and customer satisfaction.
               </p>
             </Reveal>
             <Reveal zoom delay="delay-150" className="text-center">
@@ -140,13 +180,38 @@ export default function AboutPage() {
               <div className="w-14 h-14 rounded-2xl bg-navy-950/10 flex items-center justify-center mx-auto mb-4">
                 <Eye size={24} className="text-navy-950" />
               </div>
-              <h3 className="section-title !text-2xl md:!text-3xl mb-4">Vision</h3>
+              <h3 className="section-title !text-2xl md:!text-3xl mb-4">Our Vision</h3>
               <p className="text-slate-600 leading-relaxed">
-                To achieve the number one position in the cable industry in terms of volume,
-                turnover, and quality within the Asian continent.
+                To become India&apos;s most preferred and trusted authorised distributor of
+                electrical wires and cables by setting new benchmarks in quality, service
+                excellence, technology, and nationwide distribution.
               </p>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Our Product Range */}
+      <section className="section-py bg-white">
+        <div className="section-container">
+          <Reveal className="text-center mb-10">
+            <Image src={cldImage("brand/icon-mark.svg")} alt="" width={40} height={40} className="mx-auto mb-3" />
+            <h2 className="section-title">Our Product Range</h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              We supply a complete range of genuine POLYCAB products, including:
+            </p>
+          </Reveal>
+          <Reveal
+            delay="delay-150"
+            className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3"
+          >
+            {productRange.map((item) => (
+              <div key={item} className="flex items-start gap-2 text-slate-700 text-sm sm:text-base">
+                <CheckCircle2 size={16} className="text-primary-700 flex-shrink-0 mt-0.5" />
+                {item}
+              </div>
+            ))}
+          </Reveal>
         </div>
       </section>
 
@@ -156,21 +221,19 @@ export default function AboutPage() {
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy-950 mb-6">
             Why Choose Arihant Cables?
           </h2>
-          <p className="text-slate-600 leading-relaxed text-justify mb-8">
-            Selecting the right vendor can be challenging due to the numerous manufacturers
-            offering high-quality products. Each vendor claims to use the best raw materials, such
-            as electrolytic copper, high-grade aluminum, and the required grade of PVC,
-            particularly FR/FRLS grade insulation where specified. To make an informed decision,
-            purchasers should verify the following points from the vendor:
-          </p>
-          <ul className="text-left space-y-3 inline-block">
+          <ul className="text-left grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-3xl mx-auto mb-8">
             {whyChoosePoints.map((point) => (
-              <li key={point} className="flex items-start gap-3 text-slate-700">
+              <li key={point} className="flex items-start gap-3 text-slate-700 text-sm sm:text-base">
                 <CheckCircle2 size={18} className="text-primary-700 flex-shrink-0 mt-0.5" />
                 {point}
               </li>
             ))}
           </ul>
+          <p className="font-heading font-semibold text-navy-950 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto text-justify">
+            Arihant Cables continues to power homes, businesses, industries, and infrastructure
+            projects with genuine POLYCAB products, delivering quality, reliability, and service
+            excellence that customers have trusted for more than three decades.
+          </p>
         </div>
       </ContactSection>
     </>
