@@ -25,15 +25,6 @@ function AboutImage({ src, alt }: { src: string; alt: string }) {
         fill
         className="object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-navy-950 shadow-md flex items-center justify-center z-10">
-        <Image
-          src={cldImage("brand/icon-mark.svg")}
-          alt=""
-          width={20}
-          height={18}
-          className="w-5 h-[1.1rem] brightness-0 invert opacity-90"
-        />
-      </div>
     </div>
   );
 }
@@ -89,7 +80,7 @@ export default function AboutSection() {
         {/* Full-width heading — kept out of the 2-column grid below so it
             gets the section's entire width instead of wrapping inside a
             half-width column. */}
-        <div className={`mb-10 ${fadeUp("delay-150")}`}>
+        <div className={`text-center mb-10 ${fadeUp("delay-150")}`}>
           <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-2 leading-tight">
             India&apos;s Leading Authorised Distributor of{" "}
             <span className="text-primary-700">POLYCAB Wires &amp; Cables</span>
