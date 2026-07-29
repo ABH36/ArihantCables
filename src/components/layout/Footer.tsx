@@ -68,9 +68,9 @@ export default function Footer() {
               <Image
                 src={cldImage("brand/logo.svg")}
                 alt="Arihant Cables"
-                width={240}
-                height={78}
-                className="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                width={280}
+                height={91}
+                className="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             <p className="text-white/80 font-semibold text-sm mb-4">

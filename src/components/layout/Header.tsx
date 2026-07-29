@@ -57,9 +57,9 @@ export default function Header() {
               <Image
                 src={cldImage("brand/logo.svg")}
                 alt="Arihant Cables"
-                width={180}
-                height={52}
-                className="h-9 w-auto object-contain"
+                width={200}
+                height={58}
+                className="h-11 w-auto object-contain"
                 priority
               />
             </Link>
@@ -72,7 +72,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-        {isScrolled && <div className="lg:hidden h-[60px]" />}
+        {isScrolled && <div className="lg:hidden h-[68px]" />}
 
         {/* Tier 1: Top Bright Orange Bar (#fc6601) — desktop only */}
         <div className={`hidden lg:block bg-[#fc6601] text-white relative z-20 ${entrance("")}`}>
@@ -111,9 +111,9 @@ export default function Header() {
                 <Image
                   src={cldImage("brand/logo.svg")}
                   alt="Arihant Cables"
-                  width={260}
-                  height={75}
-                  className="h-14 sm:h-16 lg:h-[4.5rem] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_0_16px_rgba(252,102,1,0.55)]"
+                  width={280}
+                  height={81}
+                  className="h-16 sm:h-[4.5rem] lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_0_16px_rgba(252,102,1,0.55)]"
                   priority
                 />
               </Link>
