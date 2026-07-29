@@ -65,7 +65,7 @@ async function seedWires() {
     status: "active",
   });
 
-  const groupOrder: Record<string, number> = { "House Wires": 1, "180 Meter": 2 };
+  const groupOrder: Record<string, number> = { "House Wires 90 Meter": 1, "180 Meter": 2 };
   const groupCache: Record<string, any> = {};
   let categoryCount = 1;
   let productCount = 0;

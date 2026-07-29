@@ -2,7 +2,7 @@
   {
     "slug": "polycab-green-wireplus",
     "name": "Polycab Green Wire+",
-    "group": "House Wires",
+    "group": "House Wires 90 Meter",
     "expectedTotal": 34,
     "products": [
       {
@@ -1234,7 +1234,7 @@
   {
     "slug": "polycabsuprema-house-wires",
     "name": "Polycab Suprema E-Beam Wire",
-    "group": "House Wires",
+    "group": "House Wires 90 Meter",
     "expectedTotal": 30,
     "products": [
       {
@@ -2892,7 +2892,7 @@
   {
     "slug": "polycaboptima-plus",
     "name": "Polycab Optima+",
-    "group": "House Wires",
+    "group": "House Wires 90 Meter",
     "expectedTotal": 34,
     "products": [
       {
@@ -4702,7 +4702,7 @@
   {
     "slug": "polycabprimma-house-wires",
     "name": "Polycab Primma",
-    "group": "House Wires",
+    "group": "House Wires 90 Meter",
     "expectedTotal": 32,
     "products": [
       {
@@ -6406,7 +6406,7 @@
   {
     "slug": "etira-house-wires",
     "name": "Etira",
-    "group": "House Wires",
+    "group": "House Wires 90 Meter",
     "expectedTotal": 33,
     "products": [
       {

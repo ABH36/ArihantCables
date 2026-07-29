@@ -83,7 +83,7 @@ export default function Header() {
               {/* Left tagline with solid white bullet dot */}
               <div className="flex items-center gap-3 text-white font-bold text-xl tracking-wide">
                 <span className="w-2.5 h-2.5 rounded-full bg-white flex-shrink-0 inline-block shadow-md animate-pulse" />
-                <span>Arihant Cables,Authorised Distributors of Polycab Wires And Cables</span>
+                <span>Arihant Cables is an Authorised Distributor of POLYCAB Wires &amp; Cables</span>
               </div>
 
               {/* Right: Polycab white logo */}

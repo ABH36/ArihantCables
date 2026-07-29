@@ -135,7 +135,7 @@ async function seedWiresCatalogue() {
     status: "active",
   });
 
-  const groupOrder = { "House Wires": 1, "180 Meter": 2 };
+  const groupOrder = { "House Wires 90 Meter": 1, "180 Meter": 2 };
   const groupCache = {};
   let categoryCount = 1;
   let productCount = 0;
