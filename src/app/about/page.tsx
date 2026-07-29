@@ -63,37 +63,49 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
-            {/* LEFT: image collage + stat */}
-            <Reveal zoom delay="delay-150" className="grid grid-cols-2 grid-rows-2 gap-4">
-              <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5] bg-[#ececec]">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-12">
+            {/* LEFT: cascading image stack — each photo at its own natural
+                aspect ratio (no crop, no background fill), overlapping for a
+                premium layered look instead of a flat grid. */}
+            <Reveal zoom delay="delay-150" className="relative pb-10 pr-10 sm:pb-14 sm:pr-16">
+              <div className="relative rounded-2xl overflow-hidden shadow-card-hover">
                 <Image
                   src={cldImage("aboutusfirstimage.png")}
                   alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
-                  fill
-                  className="object-contain p-2"
+                  width={1623}
+                  height={969}
+                  className="w-full h-auto"
                 />
               </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3] bg-[#ececec]">
+
+              <div className="absolute bottom-4 left-4 w-[26%] sm:w-[22%] rounded-xl overflow-hidden shadow-2xl ring-4 ring-white z-10">
                 <Image
                   src={cldImage("aboutus-why-choose.jpeg")}
                   alt="POLYCAB Wires & Cables Product Range"
-                  fill
-                  className="object-contain p-2"
+                  width={1254}
+                  height={1254}
+                  className="w-full h-auto"
                 />
               </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3] bg-[#ececec]">
+
+              <div className="absolute bottom-0 right-6 sm:right-10 w-[30%] rounded-xl overflow-hidden shadow-2xl ring-4 ring-white z-20">
                 <Image
                   src={cldImage("brand/about-1.png")}
                   alt="Polycab wire construction"
-                  fill
-                  className="object-contain p-2"
+                  width={350}
+                  height={277}
+                  className="w-full h-auto"
                 />
               </div>
-              <div className="col-span-2 border-2 border-primary-500 rounded-2xl py-6 text-center">
-                <p className="text-4xl md:text-5xl font-heading font-black text-primary-700">30+</p>
-                <p className="text-sm font-bold text-navy-950 uppercase tracking-wide mt-1">
-                  Years of Experience
+
+              {/* 30+ Years badge — floats into the space to the right of the
+                  stack instead of a separate full-width bar below it. */}
+              <div className="absolute top-4 right-0 bg-white border-2 border-primary-500 rounded-2xl shadow-xl px-5 py-4 text-center z-30">
+                <p className="text-3xl sm:text-4xl font-heading font-black text-primary-700">30+</p>
+                <p className="text-[11px] sm:text-xs font-bold text-navy-950 uppercase tracking-wide mt-1 leading-tight">
+                  Years of
+                  <br />
+                  Experience
                 </p>
               </div>
             </Reveal>
