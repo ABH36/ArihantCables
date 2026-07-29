@@ -245,15 +245,21 @@ export default function Footer() {
       <div className="relative border-t border-primary-500/40">
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Arihant Cables. All rights reserved.</p>
-          <p>
+          <p className="flex items-center gap-2">
             Designed &amp; Developed by{" "}
             <a
-              href="https://www.bdminfotech.com/"
+              href="https://bdm.co.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-400 hover:text-primary-300 font-semibold transition-colors"
+              className="inline-flex items-center opacity-90 hover:opacity-100 transition-opacity"
             >
-              BDM Infotech
+              <Image
+                src={cldImage("Final-logo.png")}
+                alt="BDM Infotech"
+                width={120}
+                height={32}
+                className="h-5 w-auto object-contain"
+              />
             </a>
           </p>
           <div className="flex items-center gap-3">

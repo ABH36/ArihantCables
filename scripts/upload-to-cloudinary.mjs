@@ -54,6 +54,7 @@ for (const name of [
   "aboutusfirstimage.png",
   "aboutussecondimage.jpeg",
   "aboutus-why-choose.jpeg",
+  "Final-logo.png",
 ]) {
   const abs = path.join("public", name);
   if (fs.existsSync(abs)) targets.push({ abs, rel: name });
