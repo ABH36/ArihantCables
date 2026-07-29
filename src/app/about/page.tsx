@@ -66,28 +66,28 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
             {/* LEFT: image collage + stat */}
             <Reveal zoom delay="delay-150" className="grid grid-cols-2 grid-rows-2 gap-4">
-              <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5]">
+              <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-card aspect-[4/5] bg-[#ececec]">
                 <Image
                   src={cldImage("aboutusfirstimage.png")}
                   alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
                   fill
-                  className="object-cover"
+                  className="object-contain p-2"
                 />
               </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3] bg-[#ececec]">
                 <Image
                   src={cldImage("aboutus-why-choose.jpeg")}
                   alt="POLYCAB Wires & Cables Product Range"
                   fill
-                  className="object-cover"
+                  className="object-contain p-2"
                 />
               </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3] bg-[#ececec]">
                 <Image
-                  src={cldImage("brand/about-2.png")}
-                  alt="Arihant Cables distribution truck"
+                  src={cldImage("brand/about-1.png")}
+                  alt="Polycab wire construction"
                   fill
-                  className="object-cover"
+                  className="object-contain p-2"
                 />
               </div>
               <div className="col-span-2 border-2 border-primary-500 rounded-2xl py-6 text-center">
