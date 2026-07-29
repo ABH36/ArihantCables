@@ -130,7 +130,7 @@ async function seedWiresCatalogue() {
   const wiresRoot = await Category.create({
     name: "Wires",
     slug: "wires",
-    shortDescription: "Polycab Consumer Wires — Home Wires & 180 Meter range",
+    shortDescription: "Polycab Consumer Wires — House Wires 90 Meter & 180 Meter range",
     displayOrder: 1,
     status: "active",
   });

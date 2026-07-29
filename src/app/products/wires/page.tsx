@@ -15,7 +15,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Polycab Wires — Arihant Cables Mumbai",
   description:
-    "Buy Polycab Wires from Arihant Cables — Authorised Distributor in Mumbai. Complete Home Wires & 180 Meter range: Green Wire+, Suprema, Optima+, Primma, Etira. Ready stock, immediate dispatch. Call +91-9819898469.",
+    "Buy Polycab Wires from Arihant Cables — Authorised Distributor in Mumbai. Complete House Wires 90 Meter & 180 Meter range: Green Wire+, Suprema, Optima+, Primma, Etira. Ready stock, immediate dispatch. Call +91-9819898469.",
   keywords: [
     "Polycab wires Mumbai",
     "Polycab Green Wire+",
@@ -45,7 +45,7 @@ export default async function WiresPage() {
         <div className="section-container">
           <Reveal className="text-center mb-14">
             <p className="section-subtitle">Complete Range</p>
-            <h2 className="section-title">Home Wires &amp; 180 Meter Range</h2>
+            <h2 className="section-title">House Wires 90 Meter &amp; 180 Meter Range</h2>
             {totalProducts > 0 && (
               <p className="text-slate-500 mt-4 max-w-xl mx-auto">
                 {totalProducts} products across Polycab&apos;s full consumer wires range —
