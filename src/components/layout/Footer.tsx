@@ -5,8 +5,6 @@ import {
   ChevronRight,
   BadgeCheck,
   Star,
-  Cable,
-  Plug,
   ArrowRight,
 } from "lucide-react";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
@@ -28,13 +26,13 @@ const productLinks = [
   {
     name: "Wires",
     description: "High performance wires for safe & reliable connections.",
-    icon: Cable,
+    icon: "brand/widget-wires.png",
     href: "/products/wires",
   },
   {
     name: "Cables",
     description: "Durable cables for power, control & industrial use.",
-    icon: Plug,
+    icon: "brand/widget-cables.png",
     href: "/products/cables",
   },
 ];
@@ -131,28 +129,31 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary-500" />
             </h3>
             <div className="space-y-4">
-              {productLinks.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <Link
-                    key={p.name}
-                    href={p.href}
-                    className={`group flex items-start gap-3 ${
-                      i > 0 ? "pt-4 border-t border-primary-500/40" : ""
-                    }`}
-                  >
-                    <div className="w-11 h-11 rounded-lg border border-primary-500/40 bg-primary-500/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary-500/20">
-                      <Icon size={18} className="text-primary-400" />
-                    </div>
-                    <div>
-                      <p className="font-heading font-bold text-white text-sm mb-0.5 group-hover:text-primary-400 transition-colors">
-                        {p.name}
-                      </p>
-                      <p className="text-white/55 text-xs leading-relaxed">{p.description}</p>
-                    </div>
-                  </Link>
-                );
-              })}
+              {productLinks.map((p, i) => (
+                <Link
+                  key={p.name}
+                  href={p.href}
+                  className={`group flex items-start gap-3 ${
+                    i > 0 ? "pt-4 border-t border-primary-500/40" : ""
+                  }`}
+                >
+                  <div className="w-11 h-11 rounded-lg border border-primary-500/40 bg-white overflow-hidden flex-shrink-0">
+                    <Image
+                      src={cldImage(p.icon)}
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-heading font-bold text-white text-sm mb-0.5 group-hover:text-primary-400 transition-colors">
+                      {p.name}
+                    </p>
+                    <p className="text-white/55 text-xs leading-relaxed">{p.description}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
             <Link
               href="/catalogue"
