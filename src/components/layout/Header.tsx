@@ -74,8 +74,10 @@ export default function Header() {
         </div>
         {isScrolled && <div className="lg:hidden h-[88.66px]" />}
 
-        {/* Tier 1: Top Bright Orange Bar (#fc6601) — desktop only */}
-        <div className={`hidden lg:block bg-[#fc6601] text-white relative z-20 ${entrance("")}`}>
+        {/* Tier 1: Top Bright Orange Bar — desktop only. Background is a
+            hair darker than the brand #fc6601 (barely perceptible) so the
+            white tagline text clears WCAG's 3:1 large-text contrast rule. */}
+        <div className={`hidden lg:block bg-[#f26000] text-white relative z-20 ${entrance("")}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3.5 sm:py-4">
               {/* Left tagline with solid white bullet dot */}
