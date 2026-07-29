@@ -3,8 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { cldImage } from "@/lib/cloudinary";
+
+const whyChoosePoints = [
+  "30+ Years of Industry Experience",
+  "Authorised Distributor of Genuine POLYCAB Products",
+  "Extensive Ready Stock for Immediate Dispatch",
+  "Competitive Prices & Bulk Supply Capability",
+  "Fast Pan-India Delivery",
+  "Trusted by Contractors, Industries, EPC Companies & OEMs",
+  "Expert Technical Assistance & Dedicated Customer Support",
+];
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -55,39 +65,14 @@ export default function AboutSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* LEFT: secondary heading + copy */}
-          <div className={fadeUp("delay-150")}>
-            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-4 sm:whitespace-nowrap">
-              Welcome to <span className="text-primary-700">Arihant Cables</span>
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-9">
-              For over three decades,{" "}
-              <strong className="text-navy-950">
-                ARIHANT CABLES has been a Leading Distributor of POLYCAB WIRES &amp; CABLES
-              </strong>
-              , offering a wide range of high-quality cables ready for immediate dispatch. Our
-              commitment to quality, reliability, and customer satisfaction has earned us a strong
-              reputation in the industry. We are catering to both domestic and international
-              markets.
-            </p>
-
-            <Link href="/about" className="group btn-secondary text-sm uppercase tracking-wide" id="about-more-explore-btn">
-              More Explore
-              <ArrowRight
-                size={15}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
-
-          {/* RIGHT: self-contained image collage — small photo insets onto the
+          {/* LEFT: self-contained image collage — small photo insets onto the
               large one, both scoped to this single wrapper so nothing depends
-              on the left column's height (no more stray gaps). */}
+              on the right column's height (no stray gaps). */}
           <div className={`relative pb-10 pr-6 sm:pb-14 sm:pr-14 ${zoomIn("delay-300")}`}>
             <div className="relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group">
               <Image
-                src={cldImage("brand/about-2.png")}
-                alt="Arihant Cables — Wires & Cables distribution logistics truck"
+                src={cldImage("aboutusfirstimage.png")}
+                alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
                 width={900}
                 height={600}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
@@ -109,12 +94,72 @@ export default function AboutSection() {
               )}`}
             >
               <Image
-                src={cldImage("brand/about-1.png")}
-                alt="Polycab wire construction"
+                src={cldImage("aboutussecondimage.jpeg")}
+                alt="POLYCAB Wires & Cables Product Range"
                 fill
                 className="object-cover"
               />
             </div>
+          </div>
+
+          {/* RIGHT: heading + copy + Why Choose Us checklist */}
+          <div className={fadeUp("delay-150")}>
+            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.25rem] text-navy-950 mb-2 leading-tight">
+              India&apos;s Leading Authorised Distributor of{" "}
+              <span className="text-primary-700">POLYCAB Wires &amp; Cables</span>
+            </h3>
+            <p className="text-primary-700 font-semibold text-sm sm:text-base mb-5">
+              30+ Years of Excellence in Delivering Genuine POLYCAB Cable Solutions
+            </p>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
+              Arihant Cables is one of India&apos;s leading Authorised Distributors of POLYCAB
+              Wires &amp; Cables, serving customers with trusted electrical solutions for over 30
+              years. We offer a comprehensive range of POLYCAB electrical wires, power cables,
+              control cables, flexible cables, industrial cables, LT &amp; HT cables,
+              instrumentation cables, communication cables, and cable accessories, all sourced
+              directly from POLYCAB to ensure superior quality and authenticity.
+            </p>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
+              With extensive ready stock for immediate dispatch, competitive pricing, and a strong
+              distribution network, we ensure fast and reliable delivery across India and selected
+              international markets. Our products are widely used in residential, commercial,
+              industrial, infrastructure, EPC, manufacturing, construction, power, oil &amp; gas,
+              and renewable energy projects.
+            </p>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify mb-8">
+              At Arihant Cables, we are committed to delivering 100% genuine POLYCAB products,
+              expert technical support, prompt customer service, and dependable supply solutions
+              that help businesses complete projects on time and within budget. Whether your
+              requirement is for a single cable or a large-scale industrial order, we provide
+              reliable, cost-effective, and high-performance cable solutions tailored to your
+              needs.
+            </p>
+
+            <h4 className="font-heading font-bold text-lg sm:text-xl text-navy-950 mb-4">
+              Why Choose Arihant Cables?
+            </h4>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+              {whyChoosePoints.map((point) => (
+                <li key={point} className="flex items-start gap-2 text-slate-700 text-sm">
+                  <CheckCircle2 size={16} className="text-primary-700 flex-shrink-0 mt-0.5" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <p className="font-heading font-semibold text-navy-950 text-sm sm:text-base leading-relaxed mb-8">
+              Powering Homes, Industries, and Infrastructure with Genuine POLYCAB Wires &amp;
+              Cables for More Than Three Decades.
+            </p>
+
+            <Link href="/about" className="group btn-secondary text-sm uppercase tracking-wide" id="about-more-explore-btn">
+              More Explore
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
           </div>
         </div>
       </div>

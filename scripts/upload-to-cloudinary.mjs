@@ -47,8 +47,13 @@ function walk(dir, base = dir) {
 
 const targets = [];
 
-// public/footerbg.png, public/homeenqurybackground.png
-for (const name of ["footerbg.png", "homeenqurybackground.png"]) {
+// public/footerbg.png, public/homeenqurybackground.png, public/aboutus*
+for (const name of [
+  "footerbg.png",
+  "homeenqurybackground.png",
+  "aboutusfirstimage.png",
+  "aboutussecondimage.jpeg",
+]) {
   const abs = path.join("public", name);
   if (fs.existsSync(abs)) targets.push({ abs, rel: name });
 }
