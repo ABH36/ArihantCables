@@ -31,6 +31,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Install sharp for Next.js image optimization
+RUN npm install sharp
+
 # Copy public folder for static assets
 COPY --from=builder /app/public ./public
 
