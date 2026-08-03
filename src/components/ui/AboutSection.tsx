@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { cldImage } from "@/lib/cloudinary";
+import { cldImage, cldVideo, cldVideoPoster } from "@/lib/cloudinary";
 
 const whyChoosePoints = [
   "30+ Years of Industry Experience",
@@ -40,6 +40,26 @@ function AboutImage({
         height={height}
         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
       />
+    </div>
+  );
+}
+
+function AboutVideo({ wrapperClassName = "" }: { wrapperClassName?: string }) {
+  return (
+    <div
+      className={`relative rounded-2xl overflow-hidden shadow-card-hover border border-slate-100 group ${wrapperClassName}`}
+    >
+      <video
+        className="w-full h-auto aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+        poster={cldVideoPoster("about-video.mp4")}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      >
+        <source src={cldVideo("about-video.mp4")} type="video/mp4" />
+      </video>
     </div>
   );
 }
@@ -135,13 +155,7 @@ export default function AboutSection() {
           </div>
 
           <div className={zoomIn("delay-300")}>
-            <AboutImage
-              src={cldImage("aboutusfirstimage.png")}
-              alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
-              width={1623}
-              height={969}
-              wrapperClassName="lg:w-[106%]"
-            />
+            <AboutVideo wrapperClassName="lg:w-[106%]" />
           </div>
         </div>
 

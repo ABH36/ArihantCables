@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Target, Eye, CheckCircle2 } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
 import Reveal from "@/components/ui/Reveal";
-import { cldImage } from "@/lib/cloudinary";
+import { cldImage, cldVideo, cldVideoPoster } from "@/lib/cloudinary";
 
 const ContactSection = dynamic(() => import("@/components/ui/ContactSection"));
 
@@ -69,13 +69,17 @@ export default function AboutPage() {
                 premium layered look instead of a flat grid. */}
             <Reveal zoom delay="delay-150" className="relative pb-10 pr-10 sm:pb-14 sm:pr-16">
               <div className="relative rounded-2xl overflow-hidden shadow-card-hover">
-                <Image
-                  src={cldImage("aboutusfirstimage.png")}
-                  alt="Arihant Cables — Authorised POLYCAB Wires & Cables Distributor"
-                  width={1623}
-                  height={969}
-                  className="w-full h-auto"
-                />
+                <video
+                  className="w-full h-auto aspect-video object-cover"
+                  poster={cldVideoPoster("about-video.mp4")}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={cldVideo("about-video.mp4")} type="video/mp4" />
+                </video>
               </div>
 
               <div className="absolute bottom-4 left-4 w-[26%] sm:w-[22%] rounded-xl overflow-hidden shadow-2xl ring-4 ring-white z-10">

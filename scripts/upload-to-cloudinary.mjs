@@ -19,6 +19,7 @@ const [, api_key, api_secret, cloud_name] = parsed;
 cloudinary.config({ cloud_name, api_key, api_secret, secure: true });
 
 const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif"]);
+const VIDEO_EXT = new Set([".mp4", ".mov", ".webm"]);
 
 /** cloudinary.uploader.upload_large is callback-only in this SDK version. */
 function uploadLarge(filePath, options) {
@@ -55,6 +56,7 @@ for (const name of [
   "aboutussecondimage.jpeg",
   "aboutus-why-choose.jpeg",
   "Final-logo.png",
+  "about-video.mp4",
 ]) {
   const abs = path.join("public", name);
   if (fs.existsSync(abs)) targets.push({ abs, rel: name });
@@ -93,10 +95,12 @@ const results = [];
 async function uploadOne(target) {
   const ext = path.extname(target.rel).toLowerCase();
   const isImage = IMAGE_EXT.has(ext);
+  const isVideo = VIDEO_EXT.has(ext);
   const withoutExt = target.rel.slice(0, -ext.length);
-  const publicId = isImage ? withoutExt : target.rel; // raw keeps extension in public_id
+  const publicId = isImage || isVideo ? withoutExt : target.rel; // raw keeps extension in public_id
+  const resourceType = isImage ? "image" : isVideo ? "video" : "raw";
   const sizeBytes = fs.statSync(target.abs).size;
-  const options = { public_id: publicId, resource_type: isImage ? "image" : "raw", overwrite: true };
+  const options = { public_id: publicId, resource_type: resourceType, overwrite: true };
   const res =
     sizeBytes > 9 * 1024 * 1024
       ? await uploadLarge(target.abs, options)
@@ -104,10 +108,12 @@ async function uploadOne(target) {
 
   const url = isImage
     ? `https://res.cloudinary.com/${cloudinary.config().cloud_name}/image/upload/${publicId}${ext}`
-    : res.secure_url;
+    : isVideo
+      ? `https://res.cloudinary.com/${cloudinary.config().cloud_name}/video/upload/f_auto,q_auto/${publicId}`
+      : res.secure_url;
 
   console.log(`OK  ${target.rel}  ->  ${url}`);
-  results.push({ relPath: target.rel, cloudinaryUrl: url, publicId, resourceType: isImage ? "image" : "raw" });
+  results.push({ relPath: target.rel, cloudinaryUrl: url, publicId, resourceType });
 }
 
 const onlyRel = process.argv[2] === "--only" ? process.argv.slice(3) : null;
