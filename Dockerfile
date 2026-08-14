@@ -19,6 +19,10 @@ COPY . .
 # Next.js telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Next.js requires NEXT_PUBLIC_ variables at build time to embed them in the static bundle.
+ARG NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+ENV NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=$NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+
 RUN npm run build
 
 # Production image, copy all the files and run next

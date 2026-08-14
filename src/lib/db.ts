@@ -1,11 +1,5 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI!;
-
-if (!MONGODB_URI) {
-  throw new Error("Please define the MONGODB_URI environment variable in .env.local");
-}
-
 // Use a cached connection to avoid multiple connections in dev (hot reload)
 interface MongooseCache {
   conn: typeof mongoose | null;
@@ -24,6 +18,13 @@ if (!global.mongoose) {
 }
 
 async function dbConnect(): Promise<typeof mongoose> {
+  // Accept MONGODB_URI (standard) or MONGO_URI (Easypanel build-arg name) as fallback
+  const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGO_URI;
+
+  if (!MONGODB_URI) {
+    throw new Error("Please define the MONGODB_URI environment variable in .env.local");
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
