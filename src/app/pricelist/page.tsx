@@ -16,20 +16,20 @@ export const metadata: Metadata = {
 
 const pricelists = [
   {
-    id: "armoured-jun-2026",
+    id: "armoured-jul-2026",
     title: "Polycab Armoured Cables",
-    subtitle: "Pricelist — June 2026",
-    fileUrl: cldRaw("documents/Arihant-ARMOURED-Jun-2026.pdf"),
+    subtitle: "Pricelist — 8th July 2026",
+    fileUrl: cldRaw("documents/catalogue/arihant-armoured-8th-july-2026.pdf"),
     type: "Armoured",
     image: cldImage("brand/hero-cables.png"),
     fit: "object-cover object-right",
     action: "download",
   },
   {
-    id: "flexible-may-2026",
+    id: "flexible-aug-2026",
     title: "Polycab Flexible Cables",
-    subtitle: "Pricelist — May 2026",
-    fileUrl: cldRaw("documents/Arihant-FLEXIBLE-May-2026.pdf"),
+    subtitle: "Pricelist — 13th August 2026",
+    fileUrl: cldRaw("documents/catalogue/arihant-flexible-13th-august-2026.pdf"),
     type: "Flexible",
     image: cldImage("brand/widget-wires.png"),
     fit: "object-contain bg-white",
