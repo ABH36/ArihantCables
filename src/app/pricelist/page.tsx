@@ -29,7 +29,7 @@ const pricelists = [
     id: "flexible-aug-2026",
     title: "Polycab Flexible Cables",
     subtitle: "Pricelist — 13th August 2026",
-    fileUrl: cldRaw("documents/catalogue/arihant-flexible-13th-august-2026.pdf"),
+    fileUrl: cldRaw("documents/catalogue/arihant-flexible-13th-august-2026-v2.pdf"),
     type: "Flexible",
     image: cldImage("brand/widget-wires.png"),
     fit: "object-contain bg-white",
